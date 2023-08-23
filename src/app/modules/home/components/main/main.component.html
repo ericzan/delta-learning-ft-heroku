@@ -1,0 +1,74 @@
+<div class="container-navbar">
+    <div class="container-imagotipo">
+        <img  src="/assets/images/imagotipo.png" alt="imagotipo">
+    </div>
+    <div>
+        <ul class="list">
+          <li [routerLink]="['./games']">
+            <i class="fas fa-book-open"></i>
+            Juegos
+          </li>
+          <li [routerLink]="['./level']">
+            <i class="fas fa-book-open"></i>
+            Nivel
+          </li>
+
+            <li [routerLink]="['./new-learning']">
+                <i class="fas fa-book-open"></i>
+                Nuevo estudio
+            </li>
+            <li  [routerLink]="['./progress']">
+                <i class="fas fa-sort-amount-up-alt"></i>
+                Progresos
+            </li>
+            <li class="container-info-user" [routerLink]="['./user-configuration']">
+                <i class="fas fa-cogs"></i>
+                <div class="info-user">
+                    <p>{{infoUser.name}}</p>
+                    <!-- <p>Nissan</p> -->
+                </div>
+                <div class="container-image-user">
+                    <img src="/assets/images/default-user.png"alt="image user">
+                </div>
+            </li>
+            <li routerLink="/">
+                <i class="fas fa-door-open"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container-navbar-movil movil">
+    <div class="container-imagotipo">
+        <img  src="/assets/images/imagotipo.png" alt="imagotipo">
+    </div>
+    <div style="padding: 5px 15px;" class="menu" (click)="toggleMenuMovil()">
+        <i class="fas fa-bars" style="font-size: 1.5rem; color: white;"></i>
+    </div>
+    <div style="top: 40px; position: absolute; width: 100%; background-color: var(--base1, #081A32); z-index: 1000;" class="movil menu-list" *ngIf="displayMenuMovil" [@fadeInOnEnter] [@fadeOutOnLeave]>
+        <ul class="list">
+            <li [routerLink]="['./new-learning']" (click)="toggleMenuMovil()">
+                <i class="fas fa-book-open"></i>
+                Nuevo estudio
+            </li>
+            <li  [routerLink]="['./progress']" (click)="toggleMenuMovil()">
+                <i class="fas fa-sort-amount-up-alt"></i>
+                Progresos
+            </li>
+            <li class="container-info-user" [routerLink]="['./user-configuration']" (click)="toggleMenuMovil()">
+                <i class="fas fa-cogs"></i>
+                <div class="info-user">
+                    <p>{{infoUser.name}}</p>
+                </div>
+                <div class="container-image-user">
+                    <img src="/assets/images/default-user.png"alt="image user">
+                </div>
+            </li>
+            <li routerLink="/">
+                <i class="fas fa-door-open"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+<div style="padding: 20px 20px;">
+    <router-outlet></router-outlet>
+</div>

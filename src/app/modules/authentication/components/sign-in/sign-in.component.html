@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="container-left">
+        <img class="imagotipo" src="/assets/images/imagotipo.png" alt="">
+    </div>
+    <div class="container-right">
+        <h1 class="title">Bienvenido</h1>
+        <form  class="grid grid-container container-form " [formGroup]="structureForm" (ngSubmit)="submit()">
+            <div class="col-12 md:col-10">
+                <div class="grid grid-container">
+                    <div class="col-12">
+                        <label >Usuario</label>
+                        <input pInputText id="username" formControlName="username"/>
+                        <div style="height: 30px">
+                            <ng-container *ngIf="fieldValidate.focus(structureForm,'username')">
+                                <div class="message-error">Requerido.</div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label>Contraseña</label>
+                        <input pInputText type="password" id="password" autocomplete="new-password" formControlName="password"/>
+                        <div style="height: 30px">
+                            <ng-container *ngIf="fieldValidate.focus(structureForm,'password')">
+                                <div class="message-error">Requerido.</div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="col-12"  style="color: rgb(226, 50, 50); text-align: center;">
+                        {{messageError}}
+                    </div>
+                    <div class="col-12" style="justify-content: center; display: flex;">
+                        <p-button type="submit" label="Iniciar sesion" [style]="{
+                            'width': '200px'
+                        }" ></p-button>
+                    </div>
+                    <hr style="width: 100%; margin: 10px 0px">
+                    <div style="width: 100%; color: white; text-align: center; opacity: 0.8;">
+                        <a class="recovery-password" [routerLink]="['../recovery']" >Olvidaste tu contraseña?</a>
+                    </div>
+                    <div class="col-12">
+
+                        <img class="imagotipo" src="/assets/images/imagotipo-pre.png" alt="" style="width: 100%; object-fit: contain;">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<app-loading></app-loading>

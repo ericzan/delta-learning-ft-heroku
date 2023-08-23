@@ -1,0 +1,42 @@
+<zan-spinner [input_abrirSpinner]="openSpinner"></zan-spinner>
+
+
+
+<p-panel [showHeader]="false" [style]="{  border: '2px solid blue',  borderRadius: '5px'  }">
+
+  <form class="grid grid-container container-form   " [formGroup]="formHowMatyWords" (submit)="false">
+
+
+    <div class="col-12 ">
+      <div class="grid grid-container">
+
+        <div class="col-4-zan-1 " style="text-align:left; "> <label><b>HOW MANY WORDS TO TRY :</b> </label> </div>
+        <div class="col-4-zan-2 "> <input type="number" min="0" max="10" style="width: 50px; text-align:center;"
+            id="txt_how" formControlName="txt_how" (keyup)="fn_KeyPress()"> </div>
+        <div class="col-4-zan-3 "> <p-checkbox [binary]="true" id="chk_adj" formControlName="chk_adj" label="Adj">
+          </p-checkbox> </div>
+        <div class="col-4-zan-4 " style="text-align:center; "> <p-checkbox [binary]="true" id="chk_noun"
+            formControlName="chk_noun" label="Noun"> </p-checkbox> </div>
+        <div class="col-4-zan-5 " style="text-align:center; "> <p-checkbox [binary]="true" id="chk_adv"
+            formControlName="chk_adv" label="Adv"> </p-checkbox> </div>
+        <div class="col-4-zan-6 " style="text-align:center; "> <p-checkbox [binary]="true" id="chk_verb"
+            formControlName="chk_verb" label="Verb" (onChange)="fn_chk_verb_cambia()"> </p-checkbox> </div>
+        <div class="col-4-zan-7 " style="text-align:center; "> <p-checkbox [binary]="true" id="chk_PastTense"
+            formControlName="chk_PastTense" label="Past tense" (onChange)="fn_chk_PastTense_cambia()"> </p-checkbox>
+        </div>
+
+        <div class="col-4-zan-8 " style="text-align:center; ">
+          <p-button type="button" label="Here to Start!!!" [style]="{ 'width': '150px' }" (click)="fn_Start_click()"
+            *ngIf="btn_start_visible">
+          </p-button>
+        </div>
+
+      </div>
+    </div>
+
+
+  </form>
+
+
+</p-panel>
+<zan-games-alert [inputo_MsjParams]="_MsjParams_Alert"></zan-games-alert>

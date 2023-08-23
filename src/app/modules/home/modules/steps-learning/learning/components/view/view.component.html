@@ -1,0 +1,71 @@
+<h2 class="title">Learning</h2>
+<!--REQUEST-->
+<div class="container-cards">
+
+    <div class="container-list">
+        <ng-container *ngFor="let item of listRequest">
+            <div class="card-container" (click)="playAudio(item.linkAudio)">
+
+                <!--ICON AUDIO-->
+                <div class="card-header" style="position: relative;">
+                    <i class="fas fa-volume-up icon audio"></i>
+                    <div class="pronunciation">
+                        {{item.pronunciation}}
+                    </div>
+                </div>
+                <!--BODY-->
+                <div class="card-body">
+                    {{item.value}}
+                </div>
+                <!--REFERENCE-->
+                <div class="card-footer">
+                    <div *ngFor="let reference of item.references">
+                        <ng-container *ngIf="reference.value">
+                            <a [href]="reference.value" target="_blank" class="reference">{{reference.label}}</a>
+                        </ng-container>
+                        <ng-container *ngIf="!reference.value">
+                            <div class="reference-simple">{{reference.label}}</div>
+                        </ng-container>
+                    </div>
+
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <!--RESPONSE-->
+    <div class="container-list">
+        <ng-container *ngFor="let item of listResponse">
+            <div class="card-container" style="background-color: #00B8AD;" (click)="playAudio(item.linkAudio)">
+
+                <!--ICON AUDIO-->
+                <div class="card-header" style="position: relative;">
+                    <i class="fas fa-volume-up icon audio"></i>
+                    <div class="pronunciation">
+                        {{item.pronunciation}}
+                    </div>
+                </div>
+                <!--BODY-->
+                <div class="card-body">
+                    {{item.value}}
+                </div>
+                <!--REFERENCE-->
+                <div class="card-footer">
+                    <div *ngFor="let reference of item.references">
+                        <ng-container *ngIf="reference.value">
+                            <a [attr.href]="reference.value" target="_blank" class="reference">{{reference.label}}</a>
+                        </ng-container>
+                        <ng-container *ngIf="!reference.value">
+                            <div class="reference-simple" style="color: rgb(39, 39, 39);">{{reference.label}}</div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+<div style="justify-content: center; display: flex; padding-top: 20px;">
+    <p-button label="Continuar" [style]="{
+        'width': '200px'
+    }" (click)="submit()"></p-button>
+</div>
+<app-loading></app-loading>

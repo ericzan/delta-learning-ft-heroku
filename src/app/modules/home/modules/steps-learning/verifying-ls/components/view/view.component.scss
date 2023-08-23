@@ -1,0 +1,72 @@
+.container-list {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+    padding-bottom: 20px;
+}
+
+:host::ng-deep .response app-card{
+    .card-container {
+        background-color: #00B8AD;
+    } 
+}
+
+:host::ng-deep {
+    .p-dialog .p-dialog-header{
+        display: none;
+    }
+    .p-dialog .p-dialog-content {
+        border-radius: 5px;
+        padding: 30px;
+    }
+}
+.action{
+    &:hover{
+        opacity: 0.7;
+        cursor: pointer;
+    }
+}
+/**DESACTIVAR TEXTO DE PREGUNTA*/
+
+:host .request::ng-deep app-card .card-container {
+    .card-body{
+        display: none !important;
+    }
+}
+:host .request::ng-deep app-card .card-header {
+    height: 150px;
+    padding-top: 30px;
+    i.icon{
+        font-size: 4rem !important;
+    }
+}
+:host::ng-deep .p-dialog {
+    width: 50vw;
+}
+@media only screen and (max-width: 600px) {
+    .container-cards{
+        display: flex;
+        gap: 5px;
+    }
+    .container-list {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        gap: 5px;
+    }
+    .title{
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    :host::ng-deep .p-dialog {
+        width: 90vw;
+    }
+}
+@media only screen and (min-width: 600px) {
+    .title{
+        display: none;
+    }
+}

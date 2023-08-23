@@ -1,0 +1,80 @@
+<zan-level-spinner [input_abrirSpinner]="p_AbrirSpinner"></zan-level-spinner>
+
+<zan-level-alert [inputo_MsjParams]="msjParamsAlert" [input_View]="viewObj"></zan-level-alert>
+
+
+<div>
+  <div>
+    <h2 style="font-size: 1.5rem; font-weight: 400;"> English Words Level Evaluation :</h2>
+    <hr>
+  </div>
+
+  <form class="grid grid-container " (submit)="false">
+
+
+    <div class=" grid grid-container col-12">
+
+      <div class="col-2"></div>
+      <div class="col-8">
+        <h2 style="font-size: 1.5rem; font-weight: 400;"> Do you know the meaning and pronounciation of these words ?
+        </h2>
+
+
+      </div>
+      <div class="col-2"></div>
+
+    </div>
+
+
+
+    <div class=" grid grid-container col-12 ">
+      <div class="col-5-zan" style="text-align:center;    "></div>
+      <div class="col-7-zan" style="text-align:center;   ">
+        <ul style="text-align:left; ">
+          <li *ngFor="let item of List_Words_Level" style="text-align: left; width: 160px; ">
+            <!-- <h2 style="font-size: 1.5rem; font-weight: 400; "> <label style="padding: 10px;  "  >  {{ item.word }} </label>   </h2> -->
+            <p-button label="{{ item.word }}" styleClass="p-button-raised p-button-text  "> </p-button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+    <div class=" grid grid-container  " style="width: 100%; ">
+
+      <div class="col-2-zan" style="text-align:center;  "></div>
+      <div class=" grid grid-container   col-8-zan" style="text-align:center;   ">
+        <!-- <div class=" grid grid-container body-zan "   > </div> -->
+
+        <div class="col-1" style="text-align:center;   "> </div>
+        <div class="col-2" style="text-align:center;    ">
+          <p-button type="button" label="<< 100" [style]="{'width': '70px'}" (onClick)="fn_less_100()"> </p-button>
+        </div>
+        <div class="col-2" style="text-align:center;   ">
+          <p-button type="button" label="< 10" [style]="{'width': '70px'}" (onClick)="fn_less_10()"> </p-button>
+        </div>
+        <div class="col-2" style="text-align:center;     ">
+          <p-button type="button" label="Stop " [style]="{'width': '70px'}" (onClick)="fn_ShowMessage_cnf()">
+          </p-button>
+        </div>
+        <div class="col-2" style="text-align:center;   ">
+          <p-button type="button" label="10 > " [style]="{'width': '70px'}" (onClick)="fn_more_10()"> </p-button>
+        </div>
+        <div class="col-2" style="text-align:center;     ">
+          <p-button type="button" label="100 >> " [style]="{'width': '70px'}" (onClick)="fn_more_100()"> </p-button>
+        </div>
+        <div class="col-1" style="text-align:center;   "></div>
+
+
+      </div>
+      <div class="col-2-zan" style="text-align:center;  "></div>
+
+    </div>
+
+
+
+
+
+  </form>
+</div>

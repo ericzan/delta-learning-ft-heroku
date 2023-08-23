@@ -1,0 +1,104 @@
+<zan-spinner [input_abrirSpinner]="openSpinner"></zan-spinner>
+
+
+<div>
+
+
+
+  <div>
+    <h2 style="font-size: 1.5rem; font-weight: 400;">GUESS THE WORD</h2>
+    <!-- <hr> -->
+  </div>
+
+
+  <div class="col" [style]="{   padding: '0px 15px 0px 0px' }">
+    <zan-how-many-words (Output_list_Words_API)="fn_StarGame_Input($event)"></zan-how-many-words>
+
+  </div>
+
+
+
+
+  <form class="grid grid-container container-form   " [formGroup]="form" (submit)="false"
+    [style]="{   padding: '10px 0px 0px 0px' }">
+
+
+    <!-- <hr width="100%"  /> -->
+
+
+
+    <div class="grid grid-container   " style="width: 100%;">
+
+      <div class="col-3-zan-1" [style]="{  border: '2px solid blue',  borderRadius: '5px' }">
+        <zan-list-words [Input_Averge]="lbl_Averge" [Input_Div]="lbl_Div"
+          [Input_List_Words_Process]="list_Words_process">
+        </zan-list-words>
+      </div>
+
+      <div class="col-3-zan-2"></div>
+
+
+      <div class="col-3-zan-3" [style]="{  border: '2px solid blue',  borderRadius: '5px' }">
+        <div class="row">
+          <div class="grid grid-container " style="width: 100%;">
+            <!-- <div class="grid grid-container "  >  </div> -->
+
+            <div class="col-2-zan-1  " style="text-align:right; "><b>Clues:</b> </div>
+            <div class="col-2-zan-2   " style="text-align:center">
+              <p-checkbox [binary]="true" id="chk_length" formControlName="chk_length" label="length"
+                (ngModelChange)="fn_chk_length_cambia()"> </p-checkbox>
+            </div>
+            <div class="col-2-zan-3" style="text-align:center">
+              <p-checkbox [binary]="true" id="chk_Start" formControlName="chk_Start" label="starts with "
+                (ngModelChange)="fn_chk_start_cambia()"> </p-checkbox>
+            </div>
+            <div class="col-2-zan-4" style="text-align:center">
+              <p-checkbox [binary]="true" id="chk_End" formControlName="chk_End" label="ends with "
+                (ngModelChange)="fn_chk_end_cambia()"> </p-checkbox>
+            </div>
+
+
+
+          </div>
+          <div class="grid grid-container  col ">
+
+            <div class="col-2-zan-1"></div>
+            <div class="col-2-zan-2" style="text-align:center">{{lbl_length}} </div>
+            <div class="col-2-zan-3" style="text-align:center; ">{{lbl_star}}</div>
+            <div class="col-2-zan-4" style="text-align:center">{{lbl_end}}</div>
+
+
+          </div>
+
+          <!-- <div class="col" style="text-align:left;  vertical-align: middle; "   > -->
+          <div class="grid grid-container " style="text-align:left;">
+
+            <div class="col-1-zan-1" style="text-align:left; "><b><label>English Word:</label></b> </div>
+            <div class="col-1-zan-2" style="text-align:center; ">
+              <input pInputText id="txt_EnglishWord" formControlName="txt_EnglishWord" maxlength="30"
+                style="width:90%; text-align:left;" />
+            </div>
+            <div class="col-1-zan-3"> <p-button type="button" label="Validate" [style]="{ 'width': '80%' }"
+                (click)="fn_Validate_click()" *ngIf="btn_visible"> </p-button></div>
+            <div class="col-1-zan-4" *ngIf="btn_visible"><b>Grade :</b> </div>
+            <div class="col-1-zan-5" *ngIf="btn_visible"><label>{{lbl_Grade}} </label></div>
+
+
+          </div>
+
+
+          <zan-games-alert [inputo_MsjParams]="msjParamsAlert" [input_View]="ViewOpen"></zan-games-alert>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+
+  </form>
+  <!-- <hr> -->

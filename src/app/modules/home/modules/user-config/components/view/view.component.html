@@ -1,0 +1,86 @@
+<div>
+    <h2 style="font-size: 1.5rem; font-weight: 400;">Configuración</h2>
+    <hr>
+</div>
+<form  class="grid grid-container container-form " [formGroup]="form">
+    <div class="col-12 md:col-8">
+        <div class="grid grid-container">
+            <div class="col-12 md:col-6">
+                <label >Usuario</label>
+                <input pInputText id="username" formControlName="username" />
+            </div>
+            <div class="col-12 md:col-6">
+                <label >correo</label>
+                <input pInputText id="email"  formControlName="email" />
+            </div>
+            <div class="col-12">
+                <label >Nombre completo</label>
+                <input pInputText id="fullName"  formControlName="fullName" />
+            </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <label >Idioma</label>
+                <input pInputText id="email"  formControlName="native_lang" />
+            </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <label >Pais de origen</label>
+                <input pInputText id="email"  formControlName="country_birth" />
+            </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <label >Pais de residencia</label>
+                <input pInputText id="email"  formControlName="country_res" />
+            </div>
+            <div class="col-12">
+                <h3 style="font-size: 1.2rem; font-weight: 400;">Contacto</h3>
+                <hr>
+            </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <label >contactId</label>
+                <input pInputText id="contactId"  formControlName="contactId" />
+            </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <label >Correo</label>
+                <input pInputText id="contactEmail"  formControlName="contactEmail" />
+            </div>
+            <div class="col-12 md:col-6 lg:col-3">
+                <label >Nombre</label>
+                <input pInputText id="contactName"  formControlName="contactName" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<form  class="grid grid-container container-form " [formGroup]="formPassword">
+    <div class="col-12 md:col-8">
+        <div class="grid grid-container">
+            <div class="col-12">
+                <h3 style="font-size: 1.2rem; font-weight: 400;">Cambiar contraseña</h3>
+                <hr>
+            </div>
+            <div class="col-12 md:col-6 lg:col-4">
+                <label >Contraseña actual</label>
+                <input pInputText id="currentPassword" type="password"  formControlName="currentPassword" />
+                <div style="height: 30px">
+                    <ng-container *ngIf="fieldValidate.focus(formPassword,'currentPassword')">
+                        <div class="message-error">Requerido.</div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="col-12 md:col-6 lg:col-4">
+                <label >Nueva contraseña</label>
+                <input pInputText id="newPassword" type="password"  formControlName="newPassword" />
+                <div style="height: 30px">
+                    <ng-container *ngIf="fieldValidate.focus(formPassword,'newPassword')">
+                        <div class="message-error">Requerido.</div>
+                    </ng-container>
+                </div>
+            </div>
+            <div  class="col-12 md:col-6 lg:col-4" style="justify-content: flex-end; display: flex; padding-top: 30px;">
+                <p-button  label="Cambiar" [style]="{
+                    'width': '200px'
+                }" (click)="submitPassword()"></p-button>
+            </div>
+        </div>
+    </div>
+</form>
+<app-loading ></app-loading>
+<p-toast></p-toast>
