@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "node server.js",
     "build:prod": "ng build i --legacy-peer-deps --configuration production",
-    "watch": "ng build --watch --configuration development",
+    "watch": "ng build i --force --watch --configuration development",
     "test": "ng test",
     "heroku-postbuild": "ng build i --legacy-peer-deps --prod"
   },
