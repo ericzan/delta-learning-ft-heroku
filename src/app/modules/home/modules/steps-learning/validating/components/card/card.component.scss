@@ -163,3 +163,16 @@
 .audio:hover + .pronunciation{
     display: block;
 }
+.icon-quest{
+    font-size: 4rem;
+}
+@media only screen and (max-width: 768px) {
+   
+    .card-container-secret {
+        padding: 0px;
+    }
+    .icon-quest{
+        font-size: calc(4rem - 5px);
+        padding: 5px;
+    }
+}

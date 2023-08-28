@@ -8,6 +8,7 @@ import { LocalStorageService } from '@shared/services/local-storage.service';
 import { KeyStorage } from '@shared/services/key-storage.enum';
 import { HttpService } from '@core/services/http.service';
 import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-view',
@@ -19,51 +20,51 @@ export class ViewComponent implements OnInit {
   flag_display_shuffle = false;
   total_success = 0;
   total_errors = 0;
-  listOptions = [
-    {
-      label: '1',
-      description: 'learning',
-      routerLink: ['../', 1, 'learning'],
-      disabled: true,
-    },
-    {
-      label: '2',
-      description: 'Verifying-VW',
-      routerLink: ['../', 2, 'verifying-vw'],
-      disabled: true,
-    },
-    {
-      label: '3',
-      description: 'Verifying-LS',
-      routerLink: ['../', 3, 'verifying-ls'],
-      disabled: true,
-    },
-    {
-      label: '4',
-      description: 'Verifying-CE',
-      routerLink: ['../', 4, 'verifying-ce'],
-      disabled: true,
-    },
-    {
-      label: '5',
-      description: 'Validating',
-      routerLink: ['../', 5, 'validating'],
-      disabled: true,
-    }
-    // ,
-    // {
-    //   label: '5',
-    //   description: 'LS-LS',
-    //   routerLink: ['../', 5, 'ls-ls'],
-    //   disabled: true,
-    // }
-  ];
+  listOptions: any[] =[];
   enabledStep = 1;
-  constructor(private watchService: WatchServiceVw, private wathSteps: WathStepsLearningService, private df: ChangeDetectorRef, private router: Router, private uiOperGrService: UiOperGrService, private route: ActivatedRoute) {
+  constructor(
+    private watchService: WatchServiceVw, 
+    private wathSteps: WathStepsLearningService, 
+    private df: ChangeDetectorRef, 
+    private router: Router, 
+    private uiOperGrService: UiOperGrService, 
+    private route: ActivatedRoute,
+    private translate: TranslateService) {
 
   }
   ngOnInit(): void {
-
+    this.listOptions = [
+      {
+        label: '1',
+        description: this.translate.instant('section_steps.steps.learning'),
+        routerLink: ['../', 1, 'learning'],
+        disabled: true,
+      },
+      {
+        label: '2',
+        description: this.translate.instant('section_steps.steps.verifying_vw'),
+        routerLink: ['../', 2, 'verifying-vw'],
+        disabled: true,
+      },
+      {
+        label: '3',
+        description: this.translate.instant('section_steps.steps.verifying_ls'),
+        routerLink: ['../', 3, 'verifying-ls'],
+        disabled: true,
+      },
+      {
+        label: '4',
+        description:  this.translate.instant('section_steps.steps.verifying_ce'),
+        routerLink: ['../', 4, 'verifying-ce'],
+        disabled: true,
+      },
+      {
+        label: '5',
+        description:  this.translate.instant('section_steps.steps.validating'),
+        routerLink: ['../', 5, 'validating'],
+        disabled: true,
+      }
+    ]
     this.wathSteps.onWatchCardSelectedIsValid().subscribe(resp => {
       if (resp.value === 'success') {
         this.total_success++;

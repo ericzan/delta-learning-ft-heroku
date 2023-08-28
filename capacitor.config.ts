@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.app',
-  appName: 'DT-ONE',
+  appId: 'com.delthatech.dtone',
+  appName: 'DT-one',
   webDir: 'dist/delta-learning-ft',
   server: {
     androidScheme: 'https'

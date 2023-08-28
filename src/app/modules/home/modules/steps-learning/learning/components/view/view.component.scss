@@ -1,9 +1,14 @@
 .container-list {
-    display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-    grid-column-gap: 20px;
-    grid-row-gap: 0px;
-    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.container-cards {
+    max-width: calc(12.5% - 5px);
+    width: calc(12.5% - 5px);
+    min-width: 150px;
 }
 
 .card-container {
@@ -24,7 +29,7 @@
         }
 
     }
-    
+
     .card-body {
         text-align: center;
         height: 100px;
@@ -41,29 +46,37 @@
         color: white;
         flex-direction: column;
     }
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         opacity: 0.8;
     }
 }
-.reference-simple,.reference{
+
+.reference-simple,
+.reference {
     font-size: 0.8rem;
     color: #ff3606;
     text-decoration: none;
 }
-.reference{
+
+.reference {
     font-weight: 800;
-    &:hover{
+
+    &:hover {
         text-decoration: underline;
     }
 }
-.reference-simple{
+
+.reference-simple {
     color: rgb(46, 46, 46);
 }
-.audio{
+
+.audio {
     position: relative;
 }
-.pronunciation{
+
+.pronunciation {
     display: none;
     position: absolute;
     top: 45px;
@@ -73,29 +86,20 @@
     background: white;
     box-shadow: 1px 2px 2px 0px #4b4b4b87;
 }
-.audio:hover + .pronunciation{
+
+.audio:hover+.pronunciation {
     display: block;
 }
-@media only screen and (max-width: 600px) {
-    .container-cards{
-        display: flex;
-        gap: 5px;
-    }
-    .container-list {
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-        gap: 5px;
-    }
-    .title{
-        font-size: 1.5rem;
-        font-weight: 500;
-        text-align: center;
-        padding-bottom: 20px;
-    }
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    padding-bottom: 20px;
 }
-@media only screen and (min-width: 600px) {
-    .title{
+
+@media only screen and (min-width: 768px) {
+    .title {
         display: none;
     }
 }

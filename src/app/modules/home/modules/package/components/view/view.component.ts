@@ -9,6 +9,7 @@ import { HttpService } from '@core/services/http.service';
 import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.service';
 import { dateTimeFormat } from '@shared/services/utils';
 import { MenuItem } from 'primeng/api';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-view',
@@ -20,26 +21,32 @@ export class ViewComponent implements OnInit {
   idSubCat: string = '';
   category = '';
   subCategory = '';
-  items: MenuItem[] = [
-    {
-      label: 'Activos',
-      icon: 'far fa-folder-open',
-      routerLink: './assets'
-    },
-    {
-      label: 'Archivados',
-      icon: 'fas fa-archive',
-      routerLink: './archive'
-    }
-  ];
-  constructor(private uiOperGrService: UiOperGrService, private route: ActivatedRoute, private router: Router) {
+  items: MenuItem[] = [];
+  constructor(
+    private uiOperGrService: UiOperGrService, 
+    private route: ActivatedRoute, 
+    private router: Router,
+    private translate: TranslateService) {
     
   }
   ngOnInit(): void {
     this.route.parent?.paramMap.subscribe( resp => {
       this.idSubCat = String(resp.get('id'));
       this.getPackages();
-    })
+    });
+    
+    this.items = [
+      {
+        label: this.translate.instant('packages.tabs.actives'),
+        icon: 'far fa-folder-open',
+        routerLink: './assets'
+      },
+      {
+        label: this.translate.instant('packages.tabs.archived'),
+        icon: 'fas fa-archive',
+        routerLink: './archive'
+      }
+    ];
   }
   getPackages(){
     this.uiOperGrService.getSubCategory(this.idSubCat).subscribe( (resp: any) => {

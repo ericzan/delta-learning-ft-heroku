@@ -7,11 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { TranslateI18Module } from './translate-i18n.module';
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    TranslateI18Module,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

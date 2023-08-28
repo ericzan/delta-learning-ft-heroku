@@ -1,25 +1,24 @@
 <h2 class="title">Learning</h2>
-<!--REQUEST-->
-<div class="container-cards">
-
-    <div class="container-list">
-        <ng-container *ngFor="let item of listRequest">
-            <div class="card-container" (click)="playAudio(item.linkAudio)">
+<div class="container-list">
+    <ng-container *ngFor="let item of listResponse; let i = index">
+        <div class="container-cards">
+            <!--REQUEST-->
+            <div class="card-container" (click)="playAudio(listRequest[i].linkAudio)">
 
                 <!--ICON AUDIO-->
                 <div class="card-header" style="position: relative;">
                     <i class="fas fa-volume-up icon audio"></i>
                     <div class="pronunciation">
-                        {{item.pronunciation}}
+                        {{listRequest[i].pronunciation}}
                     </div>
                 </div>
                 <!--BODY-->
                 <div class="card-body">
-                    {{item.value}}
+                    {{listRequest[i].value}}
                 </div>
                 <!--REFERENCE-->
                 <div class="card-footer">
-                    <div *ngFor="let reference of item.references">
+                    <div *ngFor="let reference of listRequest[i].references">
                         <ng-container *ngIf="reference.value">
                             <a [href]="reference.value" target="_blank" class="reference">{{reference.label}}</a>
                         </ng-container>
@@ -30,27 +29,25 @@
 
                 </div>
             </div>
-        </ng-container>
-    </div>
-    <!--RESPONSE-->
-    <div class="container-list">
-        <ng-container *ngFor="let item of listResponse">
-            <div class="card-container" style="background-color: #00B8AD;" (click)="playAudio(item.linkAudio)">
+            <div style="padding: 10px;"></div>
+            <!--RESPONSE-->
+            <div class="card-container" style="background-color: #00B8AD;"
+                (click)="playAudio(listResponse[i].linkAudio)">
 
                 <!--ICON AUDIO-->
                 <div class="card-header" style="position: relative;">
                     <i class="fas fa-volume-up icon audio"></i>
                     <div class="pronunciation">
-                        {{item.pronunciation}}
+                        {{listResponse[i].pronunciation}}
                     </div>
                 </div>
                 <!--BODY-->
                 <div class="card-body">
-                    {{item.value}}
+                    {{listResponse[i].value}}
                 </div>
                 <!--REFERENCE-->
                 <div class="card-footer">
-                    <div *ngFor="let reference of item.references">
+                    <div *ngFor="let reference of listResponse[i].references">
                         <ng-container *ngIf="reference.value">
                             <a [attr.href]="reference.value" target="_blank" class="reference">{{reference.label}}</a>
                         </ng-container>
@@ -60,11 +57,11 @@
                     </div>
                 </div>
             </div>
-        </ng-container>
-    </div>
+        </div>
+    </ng-container>
 </div>
 <div style="justify-content: center; display: flex; padding-top: 20px;">
-    <p-button label="Continuar" [style]="{
+    <p-button label="{{'section_steps.learning.button_next' | translate}}" [style]="{
         'width': '200px'
     }" (click)="submit()"></p-button>
 </div>

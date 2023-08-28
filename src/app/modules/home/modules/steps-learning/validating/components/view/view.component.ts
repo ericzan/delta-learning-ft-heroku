@@ -9,6 +9,7 @@ import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.servic
 import { take } from 'rxjs';
 import { WathStepsLearningService } from '../../../services/wath-steps-learning.service';
 import { LoadingComponent } from '@shared/components/loading/loading.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-view',
@@ -17,7 +18,7 @@ import { LoadingComponent } from '@shared/components/loading/loading.component';
 })
 export class ViewComponent implements OnInit {
   @ViewChild(LoadingComponent) loading!: LoadingComponent;
-  messageSuccess = 'Has finalizado exitosamente el paquete de palabras felicitaciones';
+  messageSuccess = '';
   max_success = 0;
   count_success = 0; //test // production 0
   max_errors = 0;
@@ -31,13 +32,14 @@ export class ViewComponent implements OnInit {
   gridMedium = false;
   pkgId: any;
   subCatId: string = '';
-  constructor(private watchService: WatchService, private uiOperGrService: UiOperGrService, private storage: LocalStorageService, private route: ActivatedRoute, private router: Router, private wathSteps: WathStepsLearningService) {
+  constructor(private watchService: WatchService, private uiOperGrService: UiOperGrService, private storage: LocalStorageService, private route: ActivatedRoute, private router: Router, private wathSteps: WathStepsLearningService, private translate: TranslateService) {
   }
   setRandomResponse() {
     this.listResponse = this.listResponse.sort(() => Math.random() - 0.6);
     this.listRequest = this.listRequest.sort(() => Math.random() - 0.6);
   }
   ngOnInit(): void {
+    this.messageSuccess = this.translate.instant('section_steps.message_congratulations');
     this.wathSteps.setCurrentStep(5);
     this.route.parent?.parent?.parent?.paramMap.pipe(take(1)).subscribe(resp => {
       console.log('params subcat', String(resp.get('idSubCat')));

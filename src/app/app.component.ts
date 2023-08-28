@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Translatei18Service } from '@core/services/translatei18.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +7,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor() {
-
-    console.log(environment.apiUrl)
+  constructor(private translatei18Service: Translatei18Service) {
+    this.translatei18Service.initialLenguage();
   }
 }

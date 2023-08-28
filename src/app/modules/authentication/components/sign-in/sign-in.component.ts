@@ -3,6 +3,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FieldValidateService } from '@core/services/field-validate.service';
+import { TranslateService } from '@ngx-translate/core';
 import { LoadingComponent } from '@shared/components/loading/loading.component';
 import { KeyStorage } from '@shared/services/key-storage.enum';
 import { LocalStorageService } from '@shared/services/local-storage.service';
@@ -17,7 +18,14 @@ export class SignInComponent implements AfterViewInit {
   structureForm!: FormGroup;
   messageError: string = '';
   @ViewChild(LoadingComponent) loading!: LoadingComponent;
-  constructor(private route: Router, private fb: FormBuilder, protected fieldValidate: FieldValidateService, private http: HttpClient, private storageService: LocalStorageService) {
+  constructor(
+    private route: Router, 
+    private fb: FormBuilder, 
+    protected fieldValidate: FieldValidateService, 
+    private http: HttpClient, 
+    private storageService: LocalStorageService,
+    private translate: TranslateService
+    ) {
     this.structureForm = this.fb.group({
       username: [, [Validators.required]],
       password: [, [Validators.required]]
@@ -46,10 +54,11 @@ export class SignInComponent implements AfterViewInit {
         this.route.navigateByUrl('/home');
       }, 700)
     }, (error) => {
+      console.error(error);
       this.loading.setDisplay(false);
       if (error.status === 401) {
         setTimeout(() => {
-          this.messageError = 'Usuario o contraseña invalidos';
+          this.messageError = this.translate.instant('signin.form.message_invalid');
           this.loading.setDisplay(false);
         }, 700)
         return;

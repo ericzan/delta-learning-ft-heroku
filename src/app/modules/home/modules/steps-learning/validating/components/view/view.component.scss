@@ -1,23 +1,19 @@
 .container-cards {
     display: flex;
     gap: 20px;
-    padding: 0px 200px;
 }
 
 .container-list {
-    display: grid;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-}
-
-/* 8,16,32*/
-.grid-default {
-    grid-template-columns: repeat(4, 1fr);
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 /* 40*/
 .grid-5 {
-    grid-template-columns: repeat(5, 1fr) !important;
+    padding: 0px 20px;
 }
 
 :host::ng-deep .response app-card {
@@ -40,32 +36,36 @@
 :host::ng-deep .p-dialog {
     width: 50vw;
 }
-@media only screen and (max-width: 600px) {
-    .container-cards {
-        display: flex;
-        gap: 5px;
-    }
-
-    .container-list {
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-        gap: 5px;
-    }
-
-    .title {
-        font-size: 1.5rem;
-        font-weight: 500;
-        text-align: center;
-        padding-bottom: 20px;
-    }
-    .container-cards {
+.title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    padding-bottom: 20px;
+}
+@media only screen and (max-width: 768px) {
+   
+    .grid-default {
         padding: 0px 0px;
     }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
     .title {
         display: none;
+    }
+    .grid-default {
+        padding: 0px 100px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    /* 8,16,32*/
+    .grid-default {
+        padding: 0px 200px;
+    }
+}
+@media only screen and (min-width: 1440px) {
+    /* 8,16,32*/
+    .grid-default {
+        padding: 0px 400px;
     }
 }

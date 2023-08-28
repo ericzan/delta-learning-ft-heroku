@@ -2,7 +2,7 @@
     <div class="col-12 md:col-6 lg:col-4 xl:col-3" style="padding: 5px;">
         <div class="container-package " style="justify-content: center; align-items: center; display: flex;"
             (click)="submit()">
-            <h4 style="font-size: 1.2rem; font-weight: 300;"> Crear nuevo paquete</h4>
+            <h4 style="font-size: 1.2rem; font-weight: 300;">{{'packages.actives.new_package' | translate}}</h4>
         </div>
     </div>
     <ng-container *ngFor="let item of listPackages; index as i">

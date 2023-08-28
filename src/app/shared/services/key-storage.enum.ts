@@ -1,4 +1,5 @@
 export enum KeyStorage {
     user = 'user',
-    token = 'token'
+    token = 'token',
+    lenguage = 'lenguage'
 }

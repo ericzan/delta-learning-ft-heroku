@@ -4,6 +4,8 @@ import { PrimengImportsModule } from './imports/primeng-imports/primeng-imports.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/loading/loading.component';
 import { LevelStepPipe } from './pipe/level-step.pipe';
+import { TranslateI18Module } from '../translate-i18n.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -21,7 +23,8 @@ import { LevelStepPipe } from './pipe/level-step.pipe';
     ReactiveFormsModule,
     FormsModule,
     LoadingComponent,
-    LevelStepPipe
+    LevelStepPipe,
+    TranslateModule
   ]
 })
 export class SharedModule { }

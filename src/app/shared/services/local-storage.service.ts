@@ -12,6 +12,6 @@ export class LocalStorageService {
   }
 
   load(key: KeyStorage) {
-    return localStorage.getItem(key);
+    return String(localStorage.getItem(key));
   }
 }

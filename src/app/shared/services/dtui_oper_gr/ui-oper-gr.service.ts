@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '@core/services/http.service';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { PackageWordDto } from './dto/package-word-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +39,7 @@ export class UiOperGrService {
       label,
     })
   }
-  getPackage(pkgnameId: string){
+  getPackage(pkgnameId: string): Observable<PackageWordDto>{
     return this.http.get<any>( `dt/ui_oper_gr/get_/user_words/${pkgnameId}`)
   }
 
