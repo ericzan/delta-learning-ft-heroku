@@ -81,18 +81,22 @@ export class MainComponent implements OnInit {
         label: 'Options',
         items: [
           {
-            label: 'Configuration',
+            label: 'User Configuration',
             routerLink: './user-configuration',
             command: () => { this.toggleMenuMovil(); }
           },
           {
-            label: 'Games',
-            routerLink: './games',
+            label: 'Level Evaluation',
+            routerLink: './level',
             command: () => { this.toggleMenuMovil(); }
           },
           {
-            label: 'Level',
-            routerLink: './level',
+            label: '- - - - - - - - - - - - - - -',
+            command: () => {  }
+          },
+          {
+            label: 'Games',
+            routerLink: './games',
             command: () => { this.toggleMenuMovil(); }
           }
         ]
