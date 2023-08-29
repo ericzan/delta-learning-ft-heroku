@@ -21,11 +21,11 @@
         <div class="container-image-user"  >
           <img src="/assets/images/default-user.png" alt="image user">
         </div>
-
         <div class="card flex justify-content-center"    >
           <p-menu #menu [model]="items" [popup]="true"   ></p-menu>
         </div>
       </li>
+
       <li routerLink="/">
         <i class="fas fa-door-open"></i>
       </li>
@@ -54,7 +54,6 @@
         {{'navbar.progress' | translate}}
       </li>
 
-
       <li class="container-info-user" (click)="menu.toggle($event)">
         <i class="fas fa-cogs"></i>
         <div class="info-user">
@@ -63,17 +62,10 @@
         <div class="container-image-user">
           <img src="/assets/images/default-user.png" alt="imagen usuario">
         </div>
-
         <div class="card flex justify-content-center"    >
-
           <p-menu #menu [model]="items" [popup]="true"  [style]="{'background-color':'white'}" ></p-menu>
-
         </div>
-
-
       </li>
-
-
 
       <li routerLink="/">
         <i class="fas fa-door-open"></i>

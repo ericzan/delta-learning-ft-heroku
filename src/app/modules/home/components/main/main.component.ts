@@ -83,8 +83,7 @@ export class MainComponent implements OnInit {
           {
             label: 'Configuration',
             routerLink: './user-configuration',
-
-            command: () => { this.toggleMenuMovil();  }
+            command: () => { this.toggleMenuMovil(); }
           },
           {
             label: 'Games',
