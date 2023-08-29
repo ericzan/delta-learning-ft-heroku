@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
 import { HomeRoutes } from './home.routing';
 import { MainComponent } from './components/main/main.component';
-
+import { MenuModule } from 'primeng/menu';
 
 
 @NgModule({
@@ -11,6 +11,7 @@ import { MainComponent } from './components/main/main.component';
     MainComponent
   ],
   imports: [
+    MenuModule,
     CommonModule,
     SharedModule,
     HomeRoutes

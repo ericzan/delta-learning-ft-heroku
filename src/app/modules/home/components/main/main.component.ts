@@ -6,6 +6,11 @@ import {
   fadeOutOnLeaveAnimation,
   collapseHorizontallyAnimation,
 } from 'angular-animations';
+import { MenuItem } from 'primeng/api/menuitem';
+
+
+
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -21,7 +26,14 @@ import {
   ]
 })
 export class MainComponent implements OnInit {
+
+
+
+
+  items: MenuItem[] | undefined;
+
   displayMenuMovil = false;
+
   infoUser: any = {
     name: ''
   };
@@ -30,8 +42,9 @@ export class MainComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getConfig();
+    this.fn_inicioArray();
   }
-  logaout(){
+  logaout() {
     this.router.navigateByUrl('/login');
   }
   getConfig() {
@@ -56,8 +69,40 @@ export class MainComponent implements OnInit {
       this.infoUser = data;
     });
   }
-  toggleMenuMovil(){
-    
+  toggleMenuMovil() {
+
     this.displayMenuMovil = !this.displayMenuMovil;
   }
-}
+
+  fn_inicioArray() {
+
+    this.items = [
+      {
+        label: 'Options',
+        items: [
+          {
+            label: 'Configuration',
+            routerLink: './user-configuration',
+
+            command: () => { this.toggleMenuMovil();  }
+          },
+          {
+            label: 'Games',
+            routerLink: './games',
+            command: () => { this.toggleMenuMovil(); }
+          },
+          {
+            label: 'Level',
+            routerLink: './level',
+            command: () => { this.toggleMenuMovil(); }
+          }
+        ]
+      },
+
+    ];
+
+
+  }//--------------------- fn_inicioArray
+
+
+}// -- ***************** pincipal *****************

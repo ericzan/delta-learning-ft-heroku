@@ -9,11 +9,15 @@ import { IonicModule } from '@ionic/angular';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslateI18Module } from './translate-i18n.module';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+
     TranslateI18Module,
     BrowserModule,
     AppRoutingModule,
@@ -26,6 +30,7 @@ import { TranslateI18Module } from './translate-i18n.module';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+
   ],
   providers: [],
   bootstrap: [AppComponent]
