@@ -108,6 +108,7 @@ export class MainComponent implements OnInit {
             {
               label: 'Recommended Links',
               icon: 'fas fa-atom',
+              routerLink: './recommended-links',
               command: () => { this.toggleMenuMovil(); }
             }
           ]

@@ -7,6 +7,10 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
+        path: 'recommended-links',
+        loadChildren: ()=> import('./modules/recommended-links/link.module').then( mod => mod.LinkModule)
+      },
+      {
         path: 'games',
         loadChildren: ()=> import('./modules/games/game.module').then( mod => mod.GameModule)
       },
