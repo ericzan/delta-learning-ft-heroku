@@ -82,11 +82,13 @@ export class MainComponent implements OnInit {
         items: [
           {
             label: 'User Configuration',
+            icon: 'fas fa-user',
             routerLink: './user-configuration',
             command: () => { this.toggleMenuMovil(); }
           },
           {
             label: 'Level Evaluation',
+            icon: 'fas fa-layer-group',
             routerLink: './level',
             command: () => { this.toggleMenuMovil(); }
           }
@@ -99,12 +101,13 @@ export class MainComponent implements OnInit {
           items: [
             {
               label: 'Games',
+              icon: 'fas fa-atom',
               routerLink: './games',
               command: () => { this.toggleMenuMovil(); }
             },
             {
               label: 'Recommended Links',
-
+              icon: 'fas fa-atom',
               command: () => { this.toggleMenuMovil(); }
             }
           ]
