@@ -18,7 +18,8 @@ export class RecommendedLinksComponent implements OnInit{
 
     this.products.push({logo:"",name:"carter method",link:"https://www.youtube.com/watch?v=I2SaZnEjmZw",texttoshow:_text,imagelink:"https://cartermethod1.b-cdn.net/wp-content/uploads/2021/06/Big-logo-1-1536x527.png"});
 
-     this.products.push({logo:"",name:"Spotlight English Learning",link:"https://spotlightenglish.com/",texttoshow:_text2,imagelink:"https://spotlightenglish.com/wp-content/uploads/2020/01/LogoIcon.png.webp"});
+     this.products.push({logo:"",name:"Spotlight English Learning",link:"https://spotlightenglish.com/",texttoshow:_text2,
+     imagelink:"https://spotlightenglish.com/wp-content/uploads/2020/01/LogoIcon.png.webp"});
 
 
   }
