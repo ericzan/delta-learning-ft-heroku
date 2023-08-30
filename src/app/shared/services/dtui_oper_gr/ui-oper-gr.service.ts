@@ -136,5 +136,9 @@ getGamesAAPuzzleWords(body: {
   return this.http.post<any>( `dt/ui_oper_gr/gamesAA_puzzlewords/`,body )
 }
 
+getRecLinks( ){
+  return this.http.get<any>( `dt/ui_oper_gr/reclinks/`  )
+}
+
 
 }
