@@ -78,7 +78,7 @@ export class MainComponent implements OnInit {
 
     this.items = [
       {
-        label: 'Options',
+        label: 'Configuration',
         items: [
           {
             label: 'User Configuration',
@@ -89,18 +89,26 @@ export class MainComponent implements OnInit {
             label: 'Level Evaluation',
             routerLink: './level',
             command: () => { this.toggleMenuMovil(); }
-          },
-          {
-            label: '- - - - - - - - - - - - - - -',
-            command: () => {  }
-          },
-          {
-            label: 'Games',
-            routerLink: './games',
-            command: () => { this.toggleMenuMovil(); }
           }
+
+
         ]
       },
+      {
+          label: 'Additional Options',
+          items: [
+            {
+              label: 'Games',
+              routerLink: './games',
+              command: () => { this.toggleMenuMovil(); }
+            },
+            {
+              label: 'Recommended Links',
+
+              command: () => { this.toggleMenuMovil(); }
+            }
+          ]
+      }
 
     ];
 
