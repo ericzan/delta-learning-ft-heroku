@@ -43,28 +43,58 @@ export class RecommendedLinksComponent implements OnInit{
 
     this.openSpinner = true;
 
+
     this.uiOperGrService.getRecLinks ().subscribe((resp: any) =>
     {
       console.log("- ---- respondio busqueda api------");
       console.log(resp);
-      this.list_links = resp.map((value: any) => ({
-                                                      logo:  value.logo == null ?"": value.logo.trim(),
-                                                      name:  value.name.trim(),
-                                                      link:  value.link.trim(),
-                                                      texttoshow:  value.texttoshow.trim(),
-                                                      imagelink:  value.imagelink.trim(),
-                                              })), catchError(e => {
-                                                                      console.log('----- erro API  catchError ----');
-                                                                      this.openSpinner = false;
-                                                                      this.fn_ShowMessage("Error", true, "Communication error http:// ", "", false);
-                                                                      return of(null);
-                                                                    });
+
+      this.openSpinner = false;
+      debugger;
+      if (resp == undefined)
+      {
+        this.fn_ShowMessage("Error", true, "TypeError: Cannot read properties of undefined (reading 'map')", "", false);
+        this.list_links =[];
+        this.list_links.push({logo:"./assets/images/imagotipo.png",name:"There is no information",link:"",texttoshow:"",imagelink:""});
+
+      }
+      else{
+
+                try {
+
+                  this.list_links = resp.map((value: any) => ({
+                                        logo:  value.logo == null ?"": value.logo.trim(),
+                                        name:  value.name.trim(),
+                                        link:  value.link.trim(),
+                                        texttoshow:  value.texttoshow.trim(),
+                                        imagelink:  value.imagelink.trim(),
+                                })), catchError(e => {
+                                                        console.log('----- erro API  catchError ----');
+                                                        this.openSpinner = false;
+                                                        this.fn_ShowMessage("Error", true, "Communication error http:// ", "", false);
+                                                        return of(null);
+                                                      });
+
+
+                }
+                catch (e: any) {
+                  let _msj = e.toString();
+                  this.fn_ShowMessage("Error", true, "Communication error http:// ", _msj, false);
+
+                }
+                finally { }
 
 
 
-       this.openSpinner = false;
-      if (this.list_links.length > 0) {   }
-      else { this.fn_ShowMessage("Error", true, "There is no information", "", false);  }
+
+
+
+                if (this.list_links.length > 0) {   }
+                else { this.fn_ShowMessage("Error", true, "There is no information", "", false);  }
+
+      }
+
+
 
 
 

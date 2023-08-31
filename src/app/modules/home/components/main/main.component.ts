@@ -8,9 +8,6 @@ import {
 } from 'angular-animations';
 import { MenuItem } from 'primeng/api/menuitem';
 
-
-
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -26,14 +23,8 @@ import { MenuItem } from 'primeng/api/menuitem';
   ]
 })
 export class MainComponent implements OnInit {
-
-
-
-
-  items: MenuItem[] | undefined;
-
+  items: MenuItem[] = [];
   displayMenuMovil = false;
-
   infoUser: any = {
     name: ''
   };
@@ -42,7 +33,7 @@ export class MainComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getConfig();
-    this.fn_inicioArray();
+    this.createItemsMenu();
   }
   logaout() {
     this.router.navigateByUrl('/login');
@@ -74,7 +65,7 @@ export class MainComponent implements OnInit {
     this.displayMenuMovil = !this.displayMenuMovil;
   }
 
-  fn_inicioArray() {
+  createItemsMenu() {
 
     this.items = [
       {
@@ -97,27 +88,26 @@ export class MainComponent implements OnInit {
         ]
       },
       {
-          label: 'Additional Options',
-          items: [
-            {
-              label: 'Games',
-              icon: 'fas fa-atom',
-              routerLink: './games',
-              command: () => { this.toggleMenuMovil(); }
-            },
-            {
-              label: 'Recommended Links',
-              icon: 'fas fa-atom',
-              routerLink: './recommended-links',
-              command: () => { this.toggleMenuMovil(); }
-            }
-          ]
+        label: 'Additional Options',
+        items: [
+          {
+            label: 'Games',
+            icon: 'fas fa-atom',
+            routerLink: './games',
+            command: () => { this.toggleMenuMovil(); }
+          },
+          {
+            label: 'Recommended Links',
+            icon: 'fas fa-atom',
+            routerLink: './recommended-links',
+            command: () => { this.toggleMenuMovil(); }
+          }
+        ]
       }
 
     ];
 
 
-  }//--------------------- fn_inicioArray
+  }
 
-
-}// -- ***************** pincipal *****************
+}
