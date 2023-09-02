@@ -154,6 +154,9 @@ setUserReg(body: {
   return this.http.post<any>( `dt/auth/userreg/`,body )
 }
 getCountries( ){
-  return this.http.get<any>( `dt/auth/countries/`  )
+  return this.http.get<any>( `dt/auth/get_countries/`  )
+}
+getLanguages( ){
+  return this.http.get<any>( `dt/auth/get_langs/`  )
 }
 }
