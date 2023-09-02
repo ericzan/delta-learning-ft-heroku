@@ -29,6 +29,7 @@ export class ViewComponent implements AfterViewInit {
   mailIni="";
   mailIniAlternate?="";
   userId="";
+  koflic="";
   constructor(
     protected fieldValidate: FieldValidateService,
     private fb: FormBuilder,
@@ -118,6 +119,8 @@ export class ViewComponent implements AfterViewInit {
         usemail_alt: string,
         userId: string,
         selected_lang: string,
+        koflic: string,
+
       } = resp;
       this.form.patchValue({
         username: data.userId,
@@ -139,8 +142,9 @@ export class ViewComponent implements AfterViewInit {
       });
       this.userId = data.userId;
       this.mailIni = this.form.value.email.toLowerCase().trim();
-      this.mailIniAlternate = this.form.value.emailAlternate.toLowerCase().trim();
+      this.mailIniAlternate = !this.form.value.emailAlternate?"": this.form.value.emailAlternate.toLowerCase().trim();
       this.translatei18Service.translate(this.form.value.selected_lang.toLowerCase());
+      this.koflic  = !data.koflic?"UNIVERSAL": data.koflic;
       this.loading.setDisplay(false);
     });
   }
