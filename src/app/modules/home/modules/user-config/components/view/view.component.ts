@@ -32,6 +32,7 @@ export class ViewComponent implements AfterViewInit {
   userId="";
   koflic="";
   listContries: Array<{ label: string, value:string }> = [];
+  listLanguages: Array<{ label: string, value:string }> = [];
   countryBirth="";
   constructor(
     protected fieldValidate: FieldValidateService,
@@ -103,7 +104,8 @@ export class ViewComponent implements AfterViewInit {
   }
   getConfig() {
     this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
-      this.getCountries();
+    this.getCountries();
+    this.getLanguages();
 
       console.log("----- response API ------------",resp);
       let data: {
@@ -249,7 +251,27 @@ debugger;
     }, error => {
       this.messageService.add({ severity: 'error', summary: 'Paises', detail:  error.error.detail});
     });
-
-
   }
+
+  getLanguages(){
+    console.log('-----   contries ----');
+
+    this.uiOperGrService.getLanguages( ).subscribe( resp => {
+      console.log('-----   contries ----',resp);
+
+      this.listLanguages = resp.map((value: any) => ({
+                              label: value.language,
+                              value: value.language,
+
+                            })), catchError(e => {
+                              console.log('----- erro API  Languages ----');
+                              return of(null);
+                            });
+
+    }, error => {
+      this.messageService.add({ severity: 'error', summary: 'Lenguajes', detail:  error.error.detail});
+    });
+  }
+
+
 }

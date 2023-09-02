@@ -29,7 +29,7 @@
 
           <div class="col-12 md:col-6 lg:col-3"  >
             <label>{{'configuration_user.configuration_form.lenguage' | translate}}</label>
-            <p-dropdown  [options]="listContries"   formControlName="native_lang"></p-dropdown>
+            <p-dropdown  [options]="listLanguages"   formControlName="native_lang"></p-dropdown>
             <div style="height: 30px">
               <ng-container *ngIf="fieldValidate.focus(form,'native_lang')">
                 <div class="message-error">{{'global.required' | translate}}</div>
