@@ -1,7 +1,7 @@
 {
 	"configuration_user": {
 		"change_password_form": {
-			"button_change_password": "Cambiar",
+			"button_change_password": "Guardar",
 			"current_password": "Contraseña actual",
 			"new_password": "Nueva contraseña",
       "new_password_confirm": "Confirmar nueva contraseña",
@@ -17,7 +17,7 @@
 
 
 			"full_name": "Nombre completo",
-			"lenguage": "Idioma",
+			"lenguage": "Idioma nativo",
 			"selected_lenguage": "Seleccionar idioma",
 			"title": "Configuración",
 			"user": "Usuario"

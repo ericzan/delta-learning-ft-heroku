@@ -55,7 +55,7 @@
             <label>{{'configuration_user.configuration_form.selected_lenguage' | translate}}</label>
             <p-dropdown  [options]="listLenguage" (onChange)="selectedLenguage($event)" formControlName="selected_lang"></p-dropdown>
           </div>
-          <div class="col-12 md:col-6 lg:col-4" style="justify-content: flex-end; display: flex; padding-top: 30px;">
+          <div class="col-12 md:col-12 lg:col-12" style="justify-content: flex-end; display: flex; padding-top: 30px;">
             <p-button label="{{'configuration_user.change_password_form.button_change_password' | translate}}"
                       [style]="{'width': '200px' }" (click)="submitData()">
             </p-button>
@@ -99,7 +99,7 @@
                 </ng-container>
               </div>
             </div>
-            <div class="col-12 md:col-6 lg:col-4" style="justify-content: flex-end; display: flex; padding-top: 30px;">
+            <div class="col-12 md:col-12 lg:col-12" style="justify-content: flex-end; display: flex;  ">
               <p-button label="{{'configuration_user.change_password_form.button_change_password' | translate}}"
                         [style]="{'width': '200px' }" (click)="submitPassword()">
               </p-button>
