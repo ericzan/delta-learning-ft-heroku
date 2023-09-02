@@ -18,6 +18,27 @@
               </ng-container>
             </div>
           </div>
+          <div class="col-12 md:col-6 lg:col-3">
+            <label>{{'configuration_user.configuration_form.lenguage' | translate}}</label>
+            <input pInputText id="native_lang" formControlName="native_lang" />
+          </div>
+          <div class="col-12 md:col-6 lg:col-3">
+            <label>{{'configuration_user.configuration_form.country_origin' | translate}}</label>
+            <input pInputText id="country_birth" formControlName="country_birth" />
+          </div>
+          <div class="col-12 md:col-6 lg:col-3">
+            <label>{{'configuration_user.configuration_form.country_residence' | translate}}</label>
+            <input pInputText id="country_res" formControlName="country_res" />
+          </div>
+          <div class="col-12 md:col-6 lg:col-3">
+            <label>{{'configuration_user.configuration_form.selected_lenguage' | translate}}</label>
+            <p-dropdown  [options]="listLenguage" (onChange)="selectedLenguage($event)" formControlName="selected_lang"></p-dropdown>
+            <div style="height: 30px">
+              <ng-container *ngIf="fieldValidate.focus(form,'selected_lang')">
+                <div class="message-error">{{'global.required' | translate}}</div>
+              </ng-container>
+            </div>
+          </div>
           <div class="col-12 md:col-6">
             <label>{{'configuration_user.configuration_form.email' | translate}}</label>
             <input pInputText id="email" formControlName="email"  />
@@ -39,22 +60,7 @@
             <label>{{'configuration_user.configuration_form.recovery_email_account_confirm' | translate}}</label>
             <input pInputText id="emailAlternateConfirm" formControlName="emailAlternateConfirm" />
           </div>
-          <div class="col-12 md:col-6 lg:col-3">
-            <label>{{'configuration_user.configuration_form.lenguage' | translate}}</label>
-            <input pInputText id="native_lang" formControlName="native_lang" />
-          </div>
-          <div class="col-12 md:col-6 lg:col-3">
-            <label>{{'configuration_user.configuration_form.country_origin' | translate}}</label>
-            <input pInputText id="country_birth" formControlName="country_birth" />
-          </div>
-          <div class="col-12 md:col-6 lg:col-3">
-            <label>{{'configuration_user.configuration_form.country_residence' | translate}}</label>
-            <input pInputText id="country_res" formControlName="country_res" />
-          </div>
-          <div class="col-12 md:col-6 lg:col-3">
-            <label>{{'configuration_user.configuration_form.selected_lenguage' | translate}}</label>
-            <p-dropdown  [options]="listLenguage" (onChange)="selectedLenguage($event)" formControlName="selected_lang"></p-dropdown>
-          </div>
+
           <div class="col-12 md:col-12 lg:col-12" style="justify-content: flex-end; display: flex; padding-top: 30px;">
             <p-button label="{{'configuration_user.change_password_form.button_change_password' | translate}}"
                       [style]="{'width': '200px' }" (click)="submitData()">
