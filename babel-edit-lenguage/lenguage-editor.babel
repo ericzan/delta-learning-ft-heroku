@@ -70,6 +70,21 @@
 											</translation>
 										</translations>
 									</concept_node>
+                  <concept_node>
+										<name>new_password_confirm</name>
+										<description/>
+										<comment/>
+										<translations>
+											<translation>
+												<language>en-US</language>
+												<approved>true</approved>
+											</translation>
+											<translation>
+												<language>es-ES</language>
+												<approved>true</approved>
+											</translation>
+										</translations>
+									</concept_node>
 									<concept_node>
 										<name>title</name>
 										<description/>
@@ -122,6 +137,52 @@
 									</concept_node>
 									<concept_node>
 										<name>email</name>
+										<description/>
+										<comment/>
+										<translations>
+											<translation>
+												<language>en-US</language>
+												<approved>true</approved>
+											</translation>
+											<translation>
+												<language>es-ES</language>
+												<approved>true</approved>
+											</translation>
+										</translations>
+									</concept_node>
+                  <concept_node>
+										<name>email_confirm</name>
+										<description/>
+										<comment/>
+										<translations>
+											<translation>
+												<language>en-US</language>
+												<approved>true</approved>
+											</translation>
+											<translation>
+												<language>es-ES</language>
+												<approved>true</approved>
+											</translation>
+										</translations>
+									</concept_node>
+
+									<concept_node>
+										<name>recovery_email_account</name>
+										<description/>
+										<comment/>
+										<translations>
+											<translation>
+												<language>en-US</language>
+												<approved>true</approved>
+											</translation>
+											<translation>
+												<language>es-ES</language>
+												<approved>true</approved>
+											</translation>
+										</translations>
+									</concept_node>
+									<concept_node>
+										<name>recovery_email_account_confirm</name>
 										<description/>
 										<comment/>
 										<translations>

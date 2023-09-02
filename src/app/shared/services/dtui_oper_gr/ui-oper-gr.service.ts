@@ -125,13 +125,13 @@ export class UiOperGrService {
 }
 
 getGamesAAPuzzleWords(body: {
-  "org": string,
-  "ulevel": string,
-  "kog": string,
-  "hms": number,
-  "words":string,
-  "avg": number,
-  "setlevel":boolean,
+  org: string,
+  ulevel: string,
+  kog: string,
+  hms: number,
+  words:string,
+  avg: number,
+  setlevel:boolean,
 }){
   return this.http.post<any>( `dt/ui_oper_gr/gamesAA_puzzlewords/`,body )
 }
@@ -139,6 +139,19 @@ getGamesAAPuzzleWords(body: {
 getRecLinks( ){
   return this.http.get<any>( `dt/ui_oper_gr/reclinks/`  )
 }
-
+setUserReg(body: {
+  userId: string,
+  orgId: string,
+  name: string,
+  email: string,
+  email_alt: string,
+  native_lang: string,
+  selected_lang: string,
+  country_birth: string,
+  country_res: string,
+  kolic: string
+}){
+  return this.http.post<any>( `dt/auth/userreg/`,body )
+}
 
 }

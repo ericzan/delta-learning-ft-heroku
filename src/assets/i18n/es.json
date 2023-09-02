@@ -4,12 +4,18 @@
 			"button_change_password": "Cambiar",
 			"current_password": "Contraseña actual",
 			"new_password": "Nueva contraseña",
+      "new_password_confirm": "Confirmar nueva contraseña",
 			"title": "Cambiar contraseña"
 		},
 		"configuration_form": {
 			"country_origin": "Pais de origen",
 			"country_residence": "Pais de residencia",
 			"email": "Correo",
+      "email_confirm": "Confirmar correo",
+      "recovery_email_account": "Correo electrónico de recuperación",
+      "recovery_email_account_confirm": "Confirmar correo electrónico de recuperación",
+
+
 			"full_name": "Nombre completo",
 			"lenguage": "Idioma",
 			"selected_lenguage": "Seleccionar idioma",

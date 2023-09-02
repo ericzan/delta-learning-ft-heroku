@@ -4,12 +4,17 @@
 			"button_change_password": "Change",
 			"current_password": "Current password",
 			"new_password": "New password",
+      "new_password_confirm": "Confirm new password",
 			"title": "Change password"
 		},
 		"configuration_form": {
 			"country_origin": "Country of origin",
 			"country_residence": "Country of residence",
 			"email": "Mail",
+      "email_confirm": "Confirm mail",
+      "recovery_email_account": "Recovery email account",
+      "recovery_email_account_confirm": "Confirm recovery email account",
+
 			"full_name": "Full name",
 			"lenguage": "Language",
 			"selected_lenguage": "Selected lenguage",

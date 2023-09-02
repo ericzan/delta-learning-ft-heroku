@@ -98,12 +98,12 @@ export class RecommendedLinksComponent implements OnInit{
 
 
 
-    } , (_error) => {
+    } , (error) => {
                         console.log('----- erro API  (2)----');
-                        console.log(_error);
+                        console.log(error);
                         let _msj = "";
 
-                        try { _msj = _error.error.detail.toString(); }
+                        try { _msj = error.error.detail.toString(); }
                         catch (e: any) { _msj = " Error http://"; }
                         finally { }
 
