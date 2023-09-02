@@ -90,6 +90,7 @@ export class ViewComponent implements AfterViewInit {
     }).subscribe( resp => {
       this.loading.setDisplay(false);
       this.messageService.add({ severity: 'info', summary: 'Actualización', detail: 'Se ha actualizado exitosamente tu contraseña' });
+      window.location.reload();
     }, error => {
       this.loading.setDisplay(false);
       this.messageService.add({ severity: 'error', summary: 'Actualización', detail:  error.error.detail});
@@ -193,7 +194,7 @@ export class ViewComponent implements AfterViewInit {
     }).subscribe( resp => {
       this.loading.setDisplay(false);
       console.log(resp);
-      this.messageService.add({ severity: 'info', summary: 'Actualización', detail: 'Se ha actualizado exitosamente tu contraseña' });
+      this.messageService.add({ severity: 'info', summary: 'Actualización', detail: 'Se actualizo la información' });
       window.location.reload();
     }, error => {
       this.loading.setDisplay(false);
