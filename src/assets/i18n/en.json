@@ -1,7 +1,8 @@
 {
 	"configuration_user": {
 		"change_password_form": {
-			"button_change_password": "Save",
+      "button_change_data": "Save",
+			"button_change_password": "Change",
 			"current_password": "Current password",
 			"new_password": "New password",
       "new_password_confirm": "Confirm new password",

@@ -25,6 +25,25 @@
 							<folder_node>
 								<name>change_password_form</name>
 								<children>
+
+
+                <concept_node>
+										<name>button_change_data</name>
+										<description/>
+										<comment/>
+										<translations>
+											<translation>
+												<language>en-US</language>
+												<approved>true</approved>
+											</translation>
+											<translation>
+												<language>es-ES</language>
+												<approved>true</approved>
+											</translation>
+										</translations>
+									</concept_node>
+
+
 									<concept_node>
 										<name>button_change_password</name>
 										<description/>
@@ -57,21 +76,6 @@
 									</concept_node>
 									<concept_node>
 										<name>new_password</name>
-										<description/>
-										<comment/>
-										<translations>
-											<translation>
-												<language>en-US</language>
-												<approved>true</approved>
-											</translation>
-											<translation>
-												<language>es-ES</language>
-												<approved>true</approved>
-											</translation>
-										</translations>
-									</concept_node>
-                  <concept_node>
-										<name>new_password_confirm</name>
 										<description/>
 										<comment/>
 										<translations>

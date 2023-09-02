@@ -1,7 +1,8 @@
 {
 	"configuration_user": {
 		"change_password_form": {
-			"button_change_password": "Guardar",
+      "button_change_data": "Guardar",
+			"button_change_password": "Cambiar",
 			"current_password": "Contraseña actual",
 			"new_password": "Nueva contraseña",
       "new_password_confirm": "Confirmar nueva contraseña",
