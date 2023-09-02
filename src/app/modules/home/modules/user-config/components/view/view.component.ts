@@ -149,7 +149,7 @@ export class ViewComponent implements AfterViewInit {
       return;
     }
 
-    if(this.mailIni != this.form.value.email.toLowerCase().trim()){
+    if(this.mailIni != this.form.value.email.toLowerCase().trim() || this.form.value.emailConfirm.toLowerCase().trim()!="" ){
       if(this.form.value.email.toLowerCase().trim() != this.form.value.emailConfirm.toLowerCase().trim()){
         this.messageService.add({ severity: 'error', summary: 'Actualización', detail: "El mail y la confirmación no son iguales"});
         return;
@@ -162,9 +162,9 @@ export class ViewComponent implements AfterViewInit {
     }
 
 
-    if (this.form.value.emailAlternate.trim() !="")
+    if (this.form.value.emailAlternate.trim() !="" || this.form.value.emailAlternateConfirm.toLowerCase().trim() != ""  )
     {
-      if(this.mailIniAlternate != this.form.value.emailAlternate.toLowerCase().trim()){
+      if(this.mailIniAlternate != this.form.value.emailAlternate.toLowerCase().trim() || this.form.value.emailAlternateConfirm.toLowerCase().trim() != ""  ){
         if(this.form.value.emailAlternate.toLowerCase().trim() != this.form.value.emailAlternateConfirm.toLowerCase().trim()){
           this.messageService.add({ severity: 'error', summary: 'Actualización', detail: "el Mail alternativo y la confirmación no son iguales"});
           return;
