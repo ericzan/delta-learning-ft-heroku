@@ -27,7 +27,7 @@ export class ViewComponent implements AfterViewInit {
     {    label: 'Inglés / English',    value: 'en'    }
   ]
   mailIni="";
-  mailIniAlternate="";
+  mailIniAlternate?="";
   userId="";
   constructor(
     protected fieldValidate: FieldValidateService,
@@ -160,17 +160,23 @@ export class ViewComponent implements AfterViewInit {
         return;
     }
 
-    if(this.mailIniAlternate != this.form.value.emailAlternate.toLowerCase().trim()){
-      if(this.form.value.emailAlternate.toLowerCase().trim() != this.form.value.emailAlternateConfirm.toLowerCase().trim()){
-        this.messageService.add({ severity: 'error', summary: 'Actualización', detail: "el Mail alternativo y la confirmación no son iguales"});
+
+    if (this.form.value.emailAlternate.trim() !="")
+    {
+      if(this.mailIniAlternate != this.form.value.emailAlternate.toLowerCase().trim()){
+        if(this.form.value.emailAlternate.toLowerCase().trim() != this.form.value.emailAlternateConfirm.toLowerCase().trim()){
+          this.messageService.add({ severity: 'error', summary: 'Actualización', detail: "el Mail alternativo y la confirmación no son iguales"});
+          return;
+        }
+      }
+      if (!this.isEMail(this.form.value.emailAlternate)){
+        this.messageService.add({ severity: 'error', summary: 'Actualización', detail: "El mail  alternativo no tiene el formato adecuado"});
         return;
       }
     }
 
-    if (!this.isEMail(this.form.value.emailAlternate)){
-        this.messageService.add({ severity: 'error', summary: 'Actualización', detail: "El mail  alternativo no tiene el formato adecuado"});
-        return;
-    }
+
+
 
 
     this.uiOperGrService.setUserReg({
