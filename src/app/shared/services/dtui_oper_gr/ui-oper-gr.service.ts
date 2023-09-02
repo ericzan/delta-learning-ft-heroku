@@ -153,5 +153,7 @@ setUserReg(body: {
 }){
   return this.http.post<any>( `dt/auth/userreg/`,body )
 }
-
+getCountries( ){
+  return this.http.get<any>( `dt/auth/countries/`  )
+}
 }

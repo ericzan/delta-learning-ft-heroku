@@ -9,6 +9,7 @@ import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.servic
 import { KeyStorage } from '@shared/services/key-storage.enum';
 import { LocalStorageService } from '@shared/services/local-storage.service';
 import { MessageService } from 'primeng/api';
+import { catchError, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -30,6 +31,8 @@ export class ViewComponent implements AfterViewInit {
   mailIniAlternate?="";
   userId="";
   koflic="";
+  listContries: Array<{ label: string, value:string }> = [];
+  countryBirth="";
   constructor(
     protected fieldValidate: FieldValidateService,
     private fb: FormBuilder,
@@ -100,6 +103,7 @@ export class ViewComponent implements AfterViewInit {
   }
   getConfig() {
     this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
+      this.getCountries();
 
       console.log("----- response API ------------",resp);
       let data: {
@@ -141,62 +145,71 @@ export class ViewComponent implements AfterViewInit {
           contactName: data.contactName,
       });
       this.userId = data.userId;
-      this.mailIni = this.form.value.email.toLowerCase().trim();
+      this.mailIni = !this.form.value.email?"":this.form.value.email.toLowerCase().trim();
       this.mailIniAlternate = !this.form.value.emailAlternate?"": this.form.value.emailAlternate.toLowerCase().trim();
-      this.translatei18Service.translate(this.form.value.selected_lang.toLowerCase());
       this.koflic  = !data.koflic?"UNIVERSAL": data.koflic;
+      this.countryBirth = data.country_birth
+      this.translatei18Service.translate(this.form.value.selected_lang.toLowerCase());
       this.loading.setDisplay(false);
+
     });
   }
   submitData(){
+
+
+
+let _email = !this.form.value.email ? "":this.form.value.email.toLowerCase().trim();
+let _emailConfirm = !this.form.value.emailConfirm ? "":this.form.value.emailConfirm.toLowerCase().trim();
+let _emailAlternateConfirm=  !this.form.value.emailAlternateConfirm ? "" :this.form.value.emailAlternateConfirm.toLowerCase().trim() ;
+let _emailAlternate =  !this.form.value.emailAlternate?"": this.form.value.emailAlternate.toLowerCase().trim()
 
     if(this.form.invalid){
       this.form.markAllAsTouched();
       return;
     }
 
-    if(this.mailIni != this.form.value.email.toLowerCase().trim() || this.form.value.emailConfirm.toLowerCase().trim()!="" ){
-      if(this.form.value.email.toLowerCase().trim() != this.form.value.emailConfirm.toLowerCase().trim()){
+    if(this.mailIni != _email || _emailConfirm !="" ){
+      if(_email != _emailConfirm){
         this.messageService.add({ severity: 'error', summary: 'Actualización', detail: "El mail y la confirmación no son iguales"});
         return;
       }
     }
 
-    if (!this.isEMail(this.form.value.email)){
+    if (!this.isEMail(_email)){
         this.messageService.add({ severity: 'error', summary: 'Actualización', detail: "El mail no tiene el formato adecuado"});
         return;
     }
 
 
-    if (this.form.value.emailAlternate.trim() !="" || this.form.value.emailAlternateConfirm.toLowerCase().trim() != ""  )
+    if (_emailAlternate !="" || _emailAlternateConfirm != ""  )
     {
-      if(this.mailIniAlternate != this.form.value.emailAlternate.toLowerCase().trim() || this.form.value.emailAlternateConfirm.toLowerCase().trim() != ""  ){
-        if(this.form.value.emailAlternate.toLowerCase().trim() != this.form.value.emailAlternateConfirm.toLowerCase().trim()){
+      if(this.mailIniAlternate != _emailAlternate || _emailAlternateConfirm != ""  ){
+        if(_emailAlternate != _emailAlternateConfirm){
           this.messageService.add({ severity: 'error', summary: 'Actualización', detail: "el Mail alternativo y la confirmación no son iguales"});
           return;
         }
       }
-      if (!this.isEMail(this.form.value.emailAlternate)){
+      if (!this.isEMail(_emailAlternate)){
         this.messageService.add({ severity: 'error', summary: 'Actualización', detail: "El mail  alternativo no tiene el formato adecuado"});
         return;
       }
     }
 
 
-
+debugger;
 
 
     this.uiOperGrService.setUserReg({
       userId: this.userId,
       orgId: "DTL-01",
       name: this.form.value.fullName.trim(),
-      email: this.form.value.email.trim(),
-      email_alt: this.form.value.emailAlternate.trim(),
+      email: _email,
+      email_alt: _emailAlternate,
       native_lang: this.form.value.native_lang.trim(),
       selected_lang:  this.form.value.selected_lang.trim(),
       country_birth: this.form.value.country_birth.trim(),
       country_res: this.form.value.country_res.trim(),
-      kolic: "UNIVERSAL"
+      kolic: this.koflic
     }).subscribe( resp => {
       this.loading.setDisplay(false);
       console.log(resp);
@@ -218,5 +231,25 @@ export class ViewComponent implements AfterViewInit {
       }
     return mailValido;
   }
+  getCountries(){
+    console.log('-----   contries ----');
 
+    this.uiOperGrService.getCountries( ).subscribe( resp => {
+      console.log('-----   contries ----',resp);
+
+      this.listContries = resp.map((value: any) => ({
+                              label: value.country,
+                              value: value.country,
+
+                            })), catchError(e => {
+                              console.log('----- erro API  contries ----');
+                              return of(null);
+                            });
+
+    }, error => {
+      this.messageService.add({ severity: 'error', summary: 'Paises', detail:  error.error.detail});
+    });
+
+
+  }
 }
