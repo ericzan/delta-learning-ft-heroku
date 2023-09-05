@@ -1,0 +1,39 @@
+<div class="grid grid-container col  "     >
+
+
+
+        <div class=" grid grid-container  col-12"
+        [style]="{  border: '2px solid blue',  borderRadius: '5px'  }"
+
+        cdkDropList cdkDropListOrientation="horizontal"
+        #list_2="cdkDropList"
+        [cdkDropListData]="list_DataOutput"
+        [cdkDropListConnectedTo]="list_1"
+        (cdkDropListDropped)="drop($event)"   >
+
+          <div *ngIf="showIndication"  >{{Input_placeholder}}</div>
+          <div cdkDrag   *ngFor="let item of list_DataOutput"   style=" padding:5px  ; "   >
+            <p-button     type="button"   label={{item}}    [style]="{    'background-color':'' }"  >   </p-button>
+          </div>
+
+      </div>
+
+
+      <div  class=" grid grid-container   col-12  "
+          [style]="{  border: '2px solid blue',  borderRadius: '5px' }"
+
+          cdkDropList cdkDropListOrientation="horizontal"
+          #list_1="cdkDropList"
+          [cdkDropListData]="Input_Datalist"
+          [cdkDropListConnectedTo]="[list_2]"
+          (cdkDropListDropped)="drop($event)"   >
+
+          <div cdkDrag *ngFor="let item of Input_Datalist"  style=" padding:5px ; "   >
+            <p-button     type="button"   label={{item}}    [style]="{    'background-color':'' }"  >   </p-button>
+          </div>
+
+      </div>
+
+
+
+</div>

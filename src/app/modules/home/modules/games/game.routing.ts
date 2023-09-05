@@ -4,6 +4,7 @@ import { ViewComponent } from './components/view/view.component';
 import { GuessTheWordComponent } from './components/guess-the-word/guess-the-word.component';
 import { TryingTheWordComponent } from './components/trying-the-word/trying-the-word.component';
 import { PuzzleWordsComponent } from './components/puzzle-words/puzzle-words.component';
+import { PuzzleLettersComponent } from './components/puzzle-letters/puzzle-letters.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,11 @@ const routes: Routes = [
     path: 'puzzle-words',
     pathMatch: 'full',
     component: PuzzleWordsComponent,
+  },
+  {
+    path: 'puzzle-letters',
+    pathMatch: 'full',
+    component: PuzzleLettersComponent,
   },
 ];
 

@@ -13,7 +13,7 @@ import { catchError, of } from 'rxjs';
 export class HowManyWordsComponent implements OnInit {
 
   @Output()
-  public Output_list_Words_API = new EventEmitter<Array<{ espaniol: string, value: number, ingles: string }>>();
+  public Output_list_Words_API = new EventEmitter<Array<{ espaniol: string, value: number, ingles: string  ,wordstouser:Array<string> }>>();
 
 
 
@@ -27,9 +27,9 @@ export class HowManyWordsComponent implements OnInit {
   oscillator: OscillatorNode = this.context.createOscillator();
 
   openSpinner: boolean = false;
-  list_Words_API: Array<{ espaniol: string, value: number, ingles: string }> = [];
-  list_Words_View: Array<{ espaniol: string, value: number, ingles: string }> = [];
-  list_Words_process: Array<{ espaniol: string, value: number, ingles: string }> = [];
+  list_Words_API: Array<{ espaniol: string, value: number, ingles: string ,wordstouser:Array<string>   }> = [];
+  // list_Words_View: Array<{ espaniol: string, value: number, ingles: string }> = [];
+  // list_Words_process: Array<{ espaniol: string, value: number, ingles: string }> = [];
   li_total_Palabras_API: number = 0;
 
   constructor(private fb: FormBuilder,
@@ -126,28 +126,29 @@ export class HowManyWordsComponent implements OnInit {
     this.openSpinner = true;
 
     this.uiOperGrService.getGamesAA({
-      orgId: "DTL-01",
-      limit: _limit,
-      subcat: 0,
-      adj: _adj,
-      verb: _verb === null ? false : _verb,
-      pt_verb: _pt_verb === null ? false : _pt_verb,
-      noun: _noun,
-      adv: _adv,
-      prep: false
+          orgId: "DTL-01",
+          limit: _limit,
+          subcat: 0,
+          adj: _adj,
+          verb: _verb === null ? false : _verb,
+          pt_verb: _pt_verb === null ? false : _pt_verb,
+          noun: _noun,
+          adv: _adv,
+          prep: false
     }).subscribe((resp: any) => {
-      console.log("- ---- respondio busqueda api------");
-      console.log(resp);
-      this.list_Words_API = resp.map((value: any) => ({
-        espaniol: this.fn_Words(value.words),
-        value: li += 1,
-        ingles: value.worde.trim().toLowerCase(),
+            console.log("- ---- respondio busqueda api----getGamesAA--");
+            console.log(resp);
+            this.list_Words_API = resp.map((value: any) => ({
+              espaniol: this.fn_Words(value.words),
+              value: li += 1,
+              ingles: value.worde.trim().toLowerCase(),
+              wordstouser:value.wordstouser
 
       })), catchError(e => {
-        console.log('----- erro API  catchError ----');
-        this.openSpinner = false;
-        return of(null);
-      });
+          console.log('----- erro API  catchError ----');
+          this.openSpinner = false;
+          return of(null);
+        });
 
 
 
@@ -201,16 +202,16 @@ export class HowManyWordsComponent implements OnInit {
 
   fn_BuscaDatos_Mnual() {
     this.list_Words_API.push(
-      { espaniol: "casa", value: 1, ingles: "house" },
-      { espaniol: "perro", value: 2, ingles: "dog" },
-      { espaniol: "azul", value: 3, ingles: "blue" },
-      { espaniol: "nuevo", value: 4, ingles: "new" },
-      { espaniol: "brincar", value: 5, ingles: "jump" },
-      { espaniol: "otro", value: 6, ingles: "other" },
-      { espaniol: "madre", value: 7, ingles: "mother" },
-      { espaniol: "automovil", value: 8, ingles: "car" },
-      { espaniol: "rosa", value: 9, ingles: "pink" },
-      { espaniol: "telefono", value: 10, ingles: "phone" },
+      { espaniol: "casa", value: 1, ingles: "house",wordstouser:["a","b","c"] },
+      { espaniol: "perro", value: 2, ingles: "dog",wordstouser:["a","b","c"] },
+      { espaniol: "azul", value: 3, ingles: "blue",wordstouser:["a","b","c"] },
+      { espaniol: "nuevo", value: 4, ingles: "new" ,wordstouser:["a","b","c"] },
+      { espaniol: "brincar", value: 5, ingles: "jump",wordstouser:["a","b","c"] },
+      { espaniol: "otro", value: 6, ingles: "other",wordstouser:["a","b","c"] },
+      { espaniol: "madre", value: 7, ingles: "mother" ,wordstouser:["a","b","c"] },
+      { espaniol: "automovil", value: 8, ingles: "car",wordstouser:["a","b","c"] },
+      { espaniol: "rosa", value: 9, ingles: "pink" ,wordstouser:["a","b","c"] },
+      { espaniol: "telefono", value: 10, ingles: "phone" ,wordstouser:["a","b","c"] },
     );
 
     this.Output_list_Words_API.emit(this.list_Words_API);
@@ -231,7 +232,7 @@ export class HowManyWordsComponent implements OnInit {
       });
 
     return _Return.trim().substring(0, _Return.trim().length - 2);
-  }
+  }//-----------------------------------------------------------------------
 
   fn_ShowMessage(_TypeMessge: string, _ShowAlert: boolean, _Messge: string, _Comment: string, _Sound: boolean) {
 

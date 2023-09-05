@@ -24,6 +24,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { ButtonSelectComponent } from './components/ui/button-select/button-select.component';
 import { DropListWordsComponent } from './components/ui/drop-list-words/drop-list-words.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { PuzzleLettersComponent } from './components/puzzle-letters/puzzle-letters.component';
+import { DragWordsComponent } from './components/ui/drag-words/drag-words.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     HowManyWordsPuzzleComponent,
     ButtonSelectComponent,
     DropListWordsComponent,
-    DropListWordsComponent
+    DropListWordsComponent,
+    PuzzleLettersComponent,
+    DragWordsComponent
 
 
 

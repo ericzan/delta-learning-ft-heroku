@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, OnInit, } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, OnInit,  Input, ViewChild, Host } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
@@ -10,21 +10,23 @@ import { LocalStorageService } from '@shared/services/local-storage.service';
 import { WathStepsLearningService } from '../../../steps-learning/services/wath-steps-learning.service';
 import { WatchService } from '../../../steps-learning/verifying-ce/services/watch.service';
 import { catchError, of } from 'rxjs';
+import { DragWordsComponent } from '../ui/drag-words/drag-words.component';
+import { GamelService } from '../../game.service';
 
 
 
 
 @Component({
-  selector: 'zan-guess-the-word',
-  templateUrl: './guess-the-word.component.html',
-  styleUrls: ['./guess-the-word.component.scss']
+  selector: 'zan-puzzle-letters',
+  templateUrl: './puzzle-letters.component.html',
+  styleUrls: ['./puzzle-letters.component.scss']
 
 })
-export class GuessTheWordComponent implements OnInit {
+export class PuzzleLettersComponent implements OnInit {
 
   form!: FormGroup;
-  list_Words_API: Array<{ espaniol: string, value: number, ingles: string  ,wordstouser:Array<string>}> = [];
-  list_Words_View: Array<{ espaniol: string, value: number, ingles: string }> = [];
+  list_Words_API: Array<{ espaniol: string, value: number, ingles: string,wordstouser:Array<string>  }> = [];
+  list_Words_View: Array<{ espaniol: string, value: number, ingles: string  ,wordstouser:Array<string> }> = [];
   list_Words_process: Array<{ espaniol: string, value: number, ingles: string }> = [];
 
   list_words_guessed: Array<string> = [];
@@ -34,12 +36,8 @@ export class GuessTheWordComponent implements OnInit {
   lbl_Div: string = "";
   lbl_Averge: string = "0";
 
-
-  //lbl_Traslate: string = "";
-
-  lbl_length: string = "";
-  lbl_star: string = "";
-  lbl_end: string = "";
+  Input_DataList: string[] = [];
+  INPUT_PLACE_HOLDER = "CORRECT WORD ORDER HERE";
 
 
 
@@ -50,6 +48,7 @@ export class GuessTheWordComponent implements OnInit {
 
   wordInProcessIndex: number = 0;
   wordInProcessEnglish: string = "";
+  wordInProcessEnglishDrag: string = "";
 
   btn_visible: boolean = false;
   totalWords: number = 0;
@@ -64,12 +63,15 @@ export class GuessTheWordComponent implements OnInit {
   ViewOpen: String = "guess";
   public msjParamsAlert: Array<{ TypeMessge: string, ShowAlert: boolean, Messge: string, Comment: string }> = [];
 
+
+
   constructor(private fb: FormBuilder,
     private uiOperGrService: UiOperGrService,
     protected fieldValidate: FieldValidateService,
     private router: Router,
     private wathSteps: WathStepsLearningService,
-    private watchService: WatchService) { }
+    private watchService: WatchService,
+     private gameService : GamelService) { }
 
 
 
@@ -77,16 +79,10 @@ export class GuessTheWordComponent implements OnInit {
   ngOnInit(): void {
 
 
-    this.form = this.fb.group({
-      chk_length: new FormControl({ value: false, disabled: true }),
-      chk_Start: new FormControl({ value: false, disabled: true }),
-      chk_End: new FormControl({ value: false, disabled: true }),
-      txt_EnglishWord: new FormControl({ value: '', disabled: true }),
-
-    })
-
 
     this.fn_ShowMessage("", false, "", "", false);
+
+
 
   }//------------------------------------------------------------------
 
@@ -104,15 +100,21 @@ export class GuessTheWordComponent implements OnInit {
 
   }//-----------------------------------------------------------------
 
-  getWordsInProcess() {
+  getWordsInProcess()
+  {
+      //--- objetivo : palabra que se estara evaluando
+      //--- EricZan : 04Sep2023
 
 
     let _Palabra_ingles: string = "";
 
 
-    if (this.wordInProcessIndex < this.totalWords) {
+    if (this.wordInProcessIndex < this.totalWords)
+    {
 
       _Palabra_ingles = this.list_Words_View[this.wordInProcessIndex].ingles.toString();
+     this.Input_DataList =  this.list_Words_View[this.wordInProcessIndex].wordstouser;
+     this.gameService.CLEAR_LIST$.next(true);
       this.list_words_guessed.push(_Palabra_ingles);
 
       this.list_Words_process.push(this.list_Words_View[this.wordInProcessIndex]);
@@ -130,9 +132,6 @@ export class GuessTheWordComponent implements OnInit {
 
 
 
-      this.fn_ModControles_B_2("reset");
-
-      this.fn_ModControles_B_2("disable");
       this.btn_visible = false;
       this.fn_Save_Data_API();
 
@@ -149,38 +148,6 @@ export class GuessTheWordComponent implements OnInit {
     this.router.navigate(['../home/main/games']);
 
   }
-
-
-  fn_chk_length_cambia() {
-
-
-    this.lbl_length = this.wordInProcessEnglish.length.toString();
-    this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
-
-    this.form.get('chk_length')?.disable();
-
-
-
-
-  }//-----------------------------------------------------------------
-
-  fn_chk_start_cambia() {
-
-
-    this.lbl_star = this.wordInProcessEnglish.substr(0, 1);
-    this.lbl_Grade = this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
-    this.form.get('chk_Start')?.disable();
-
-
-  }//-----------------------------------------------------------------
-  fn_chk_end_cambia() {
-
-
-    this.lbl_end = this.wordInProcessEnglish.substr(this.wordInProcessEnglish.length - 1, 1);
-    this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
-    this.form.get('chk_End')?.disable();
-
-  }//-----------------------------------------------------------------
 
 
 
@@ -201,7 +168,7 @@ export class GuessTheWordComponent implements OnInit {
       subcat: 0,
       words: _words,
       average: _average.toString(),
-      kogame: "GUESS_TW",
+      kogame: "PUT_TOGETHER_WORD",
     }).subscribe((resp: any) => {
       console.log("---------- respondio guardar datos api ---------");
       console.log(resp);
@@ -267,9 +234,9 @@ export class GuessTheWordComponent implements OnInit {
     this.lbl_Div = "1 / " + this.totalWords.toString();
     this.lbl_Averge = "0";
 
-    this.getWordsInProcess();
+    this.getWordsInProcess(); //-------palabra q se va  a procesar
 
-    this.fn_ModControles_B_2("enable");
+
 
     this.btn_visible = true;
 
@@ -278,17 +245,19 @@ export class GuessTheWordComponent implements OnInit {
 
   fn_StarGame_Input(_list_Words_API: Array<{ espaniol: string, value: number, ingles: string ,wordstouser:Array<string> }>) {
 
-debugger;
+
 
     this.list_Words_API = _list_Words_API;
 
 
-    if (this.list_Words_API.length > 0) {
+    if (this.list_Words_API.length > 0)
+    {
 
       this.TotalWordsAPI = this.list_Words_API.length;
-      if (this.TotalWordsAPI !== this.totalWords) {
+      if (this.TotalWordsAPI !== this.totalWords)
+      {
         this.totalWords = this.TotalWordsAPI;
-        this.form.get('txt_how')?.setValue(this.TotalWordsAPI.toString());
+
       }
 
 
@@ -306,18 +275,18 @@ debugger;
 
 
 
-    if (this.wordInProcessEnglish.trim().toLowerCase() !== this.form.value.txt_EnglishWord.toString().trim().toLowerCase()) {
+    if (this.wordInProcessEnglish.trim().toLowerCase() !== this.wordInProcessEnglishDrag.trim().toLowerCase()) {
 
       this.fn_ShowMessage("Alert", true, " Sorry, try again!!!!: ", "", true);
 
       this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
-      this.form.get('txt_EnglishWord')?.reset();
+
       return;
     }
 
 
 
-    this.form.get('txt_EnglishWord')?.reset();
+
     this.wordInProcessIndex += 1;
     this.lbl_Div = this.wordInProcessIndex + " / " + this.totalWords.toString();
 
@@ -333,53 +302,29 @@ debugger;
 
 
 
-    this.fn_ModControles_B_2("reset");
-    this.fn_ModControles_B_2("enable");
-
-
-
-    this.lbl_length = "";
-    this.lbl_star = "";
-    this.lbl_end = "";
-    //this.lbl_Traslate = "";
     this.lbl_Grade = 100;
 
 
     this.getWordsInProcess();
 
-  }
+  }//----------------------------------------------------------------------
 
 
-  fn_ModControles_B_2(_opc: string) {
+  fn_DataLisOutput(_letters: Array<string>)
+  {
+    let _data ="";
+    this.wordInProcessEnglishDrag ="";
+
+    _letters.forEach( function(_value) {
+      _data= _data+  _value;
 
 
-    switch (_opc) {
-      case "enable": {
-        this.form.get('chk_length')?.enable();
-        this.form.get('chk_Start')?.enable();
-        this.form.get('chk_End')?.enable();
-        this.form.get('txt_EnglishWord')?.enable();
-        break;
-      }
-      case "disable": {
-        this.form.get('chk_length')?.disable();
-        this.form.get('chk_Start')?.disable();
-        this.form.get('chk_End')?.disable();
-        this.form.get('txt_EnglishWord')?.disable();
-        break;
-      }
-      case "reset": {
-        this.form.get('chk_length')?.reset();
-        this.form.get('chk_Start')?.reset();
-        this.form.get('chk_End')?.reset();
-        this.form.get('txt_EnglishWord')?.reset();
-        break;
-      }
+  });
 
-      default: { break; }
-    }
+  this.wordInProcessEnglishDrag = _data;
 
-  }
+  }//-----------------------------------------------------
+
 
 
 

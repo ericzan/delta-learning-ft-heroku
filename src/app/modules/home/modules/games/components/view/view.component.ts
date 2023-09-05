@@ -44,7 +44,11 @@ export class ViewComponent
 
   getCategories() {
 
-    this.listCategories.push({ label: "Guess The Word", value: 1 }, { label: "Trying The Word", value: 2 }, { label: "Puzzle Words", value: 3 });
+    this.listCategories.push(
+      { label: "Puzzle Letters", value: 1 },
+      { label: "Guess The Word", value: 2 },
+      { label: "Trying The Word", value: 3 },
+      { label: "Puzzle Words", value: 4 });
   }//-----------------------------------------------------------------
 
   submit() {
@@ -54,23 +58,27 @@ export class ViewComponent
       return;
     }
 
-    //this.router.navigate(['trying'],{ relativeTo: this.route }) ;
 
-    console.log(" entro ");
     let liSelected = this.form.value;
 
+    console.log(liSelected.cboGame);
 
     switch (liSelected.cboGame) {
       case 1: {
 
-        this.router.navigate(['guess'], { relativeTo: this.route });
+        this.router.navigate(['puzzle-letters'], { relativeTo: this.route });
         break;
       }
       case 2: {
-        this.router.navigate(['trying'], { relativeTo: this.route });
+
+        this.router.navigate(['guess'], { relativeTo: this.route });
         break;
       }
       case 3: {
+        this.router.navigate(['trying'], { relativeTo: this.route });
+        break;
+      }
+      case 4: {
         this.router.navigate(['puzzle-words'], { relativeTo: this.route });
         break;
       }
