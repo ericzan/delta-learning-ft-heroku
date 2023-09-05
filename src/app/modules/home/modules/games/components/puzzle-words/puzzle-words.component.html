@@ -17,49 +17,21 @@
 
 
       <div class="col-3-zan-1"   [style]="{  border: '2px solid blue',  borderRadius: '5px' }"   >
-        <zan-list-words [Input_Averge]="lbl_Averge" [Input_Div]="lbl_Div"  [Input_List_Words_Process]="list_Words_Process"  >
+        <zan-list-words [Input_Averge]="lbl_Averge"
+                        [Input_Div]="lbl_Div"
+                        [Input_List_Words_Process]="list_Words_Process"  >
         </zan-list-words>
       </div>
 
       <div class="col-3-zan-2"  ></div>
 
-      <div class="col-3-zan-3"   >
+      <div class="col-3-zan-3"   [style]="{  border: '2px solid blue',  borderRadius: '5px' }"    >
 
 
-              <div class=" grid grid-container  col-12"
-                  [style]="{  border: '2px solid blue',  borderRadius: '5px' }"
-                  style="text-align:center;  "
-                  cdkDropList cdkDropListOrientation="horizontal"
-                  #list_2="cdkDropList"
-                  [cdkDropListData]="list_02_Data"
-                  [cdkDropListConnectedTo]="list_1"
-                  (cdkDropListDropped)="drop($event)"
-
-                  >
-
-                    <div *ngIf="showIndication" >CORRECT ORDER SENTENCE HERE:</div>
-                    <div cdkDrag   *ngFor="let item of list_02_Data"   style=" padding:5px  ; "   >
-                      <p-button     type="button"   label={{item}}    [style]="{    'background-color':'' }"  >   </p-button>
-                    </div>
-
-              </div>
-
-
-              <div  class=" grid grid-container   col-12  "
-                    [style]="{  border: '2px solid blue',  borderRadius: '5px' }"
-                    style="text-align:center;   "
-                    cdkDropList cdkDropListOrientation="horizontal"
-                    #list_1="cdkDropList"
-                    [cdkDropListData]="list_01_Data"
-                    [cdkDropListConnectedTo]="[list_2]"
-                    (cdkDropListDropped)="drop($event)"   >
-
-                    <div cdkDrag *ngFor="let item of list_01_Data"  style=" padding:5px ; "   >
-                      <p-button     type="button"   label={{item}}    [style]="{    'background-color':'' }"  >   </p-button>
-                    </div>
-
-              </div>
-
+        <zan-drag-words [Input_Datalist]="Input_DataList"
+                        [Input_placeholder]="INPUT_PLACE_HOLDER"
+                        (Output_DataList)="fn_DataLisOutput($event)">
+          </zan-drag-words>
 
 
       </div>
@@ -69,52 +41,16 @@
 
 
 <div class="grid grid-container    " style="width: 100%;  text-align:center;">
-  <div class="col-4-zan-1"> </div>
-  <div class="col-4-zan-2"  *ngIf="buttonVisible"  >
-            <p-button type="button" label="validate" [style]="{width: '100px' ,'text-align':'center' }" (onClick)="fn_ValidatData()"  >    </p-button>
-  </div>
-  <div class="col-4-zan-3" *ngIf="buttonVisible"><b>Grade :</b> </div>
-  <div class="col-4-zan-4" *ngIf="buttonVisible"><label>{{lbl_Grade}} </label></div>
-
-
-
+    <div class="col-4-zan-1"> </div>
+    <div class="col-4-zan-2"  *ngIf="buttonVisible"  >
+              <p-button type="button" label="validate"
+                        [style]="{width: '100px' ,'text-align':'center' }"
+                        (onClick)="fn_ValidatData()"  >
+              </p-button>
+    </div>
+    <div class="col-4-zan-3" *ngIf="buttonVisible"><b>Grade :</b> </div>
+    <div class="col-4-zan-4" *ngIf="buttonVisible"><label>{{lbl_Grade}} </label></div>
 </div>
 
 <zan-games-alert [inputo_MsjParams]="msjParamsAlert" [input_View]="ViewOpen"></zan-games-alert>
 
-
-
-
-
-<!-- <div class=" grid grid-container  col-12"
-[style]="{  border: '2px solid blue',  borderRadius: '5px' }"
-style="text-align:center;  "
-cdkDropList cdkDropListOrientation="horizontal"
-#list_2="cdkDropList"
-[cdkDropListData]="list_02_Data"
-[cdkDropListConnectedTo]="list_1"
-(cdkDropListDropped)="drop($event)"    >
-
-  <div cdkDrag   *ngFor="let item of list_02_Data"   style="width:150px; padding:5px  ;  background: rgb(135, 216, 159); "
-  [style]="{  border: '2px solid blue',  borderRadius: '5px' }" >
-  {{item}}
-  </div>
-
-</div>
-
-
-<div  class=" grid grid-container   col-12  "
-  [style]="{  border: '2px solid blue',  borderRadius: '5px' }"
-  style="text-align:center;   "
-  cdkDropList cdkDropListOrientation="horizontal"
-  #list_1="cdkDropList"
-  [cdkDropListData]="list_01_Data"
-  [cdkDropListConnectedTo]="[list_2]"
-  (cdkDropListDropped)="drop($event)"   >
-
-  <div cdkDrag *ngFor="let item of list_01_Data"  style="width:150px;   padding:5px ; background: rgb(135, 186, 216);  "
-  [style]="{  border: '2px solid blue',  borderRadius: '5px' }" >
-  {{item}}
-  </div>
-
-</div> -->

@@ -29,8 +29,12 @@ export class DragWordsComponent implements OnInit {
     this.list_DataOutput=[];
 
       this.gameService.CLEAR_LIST$.subscribe(_clear =>{
+        if (_clear) {
+
           this.next();
           this.gameService.CLEAR_LIST$.next(false);
+        }
+
       } );
 
   }

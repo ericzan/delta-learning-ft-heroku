@@ -5,6 +5,7 @@ import { ResponseZan } from '../../data.interfaces';
 import { wordstouserModel } from '../../data.interfaces';
 import { sentenceModel } from '../../data.interfaces';
 import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.service';
+import { GamelService } from '../../game.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class PuzzleWordsComponent implements OnInit {
 
   openSpinner: boolean = false;
   public list_01_Data: string[] = [];
-  public list_02_Data: string[] = [];
+
+  public Input_DataList: string[] = [];
   sentenceWord_ouput_Org: Array<{ Id: number, Value: string }> = [];
   sentenceWord_ouput_Des: Array<{ Id: number, Value: string }> = [];
 
@@ -41,46 +43,22 @@ export class PuzzleWordsComponent implements OnInit {
   level = "";
   showIndication = true;
 
-  // list_Words_View: Array<{ espaniol: string, value: number, ingles: string }> = [];
-
-
   buttonVisible = false;
   orgSentence = "";
   ViewOpen: String = "guess";
 
   public msjParamsAlert: Array<{ TypeMessge: string, ShowAlert: boolean, Messge: string, Comment: string }> = [];
 
+  INPUT_PLACE_HOLDER = "CORRECT ORDER SENTENCE HERE";
+  wordInProcessEnglishDrag: string = "";
 
-  constructor(private uiOperGrService: UiOperGrService,) { }
+  constructor(private uiOperGrService: UiOperGrService,private gameService : GamelService) { }
 
   ngOnInit(): void {
     this.fn_ShowMessage("", false, "", "", false);
 
   }//-----------------------------ngOnInit--------------------------------------
 
-
-  drop($event: CdkDragDrop<string[]>) {
-
-
-
-
-    if ($event.previousContainer == $event.container) {
-      moveItemInArray($event.container.data, $event.previousIndex, $event.currentIndex);
-
-    }
-    else {
-
-
-      transferArrayItem($event.previousContainer.data, $event.container.data, $event.previousIndex, $event.currentIndex);
-
-
-    }
-    console.log(this.list_02_Data.length);
-
-    if (this.list_02_Data.length > 0) { this.showIndication = false; }
-    else { this.showIndication = true; }
-
-  }//------------------------drop-------------------------------------------
 
   fn_ShowMessage(_TypeMessge: string, _ShowAlert: boolean, _Messge: string, _Comment: string, _Sound: boolean) {
 
@@ -108,14 +86,10 @@ export class PuzzleWordsComponent implements OnInit {
   }//-----------------------------------------------------------------------------------------
 
 
-  fn_List_Words_Des_Input(_list_02_Data: string[]) {
-
-    this.list_02_Data = _list_02_Data;
-
-  }//------------------------------
 
 
   fn_StarGame_Input(_list_Words_API: ResponseZan[]) {
+
 
 
     console.log("-------   desde fn_StarGame_Input -- ");
@@ -144,6 +118,7 @@ export class PuzzleWordsComponent implements OnInit {
     //-- objetivo : se busca la primer frace a validar
     //-- EricZan  : 20Agt23
 
+    console.log("-> entra fn_StarGame() ");
     this.showIndication = true;
 
     let li = 0;
@@ -152,19 +127,23 @@ export class PuzzleWordsComponent implements OnInit {
     this.totalGrade = 100;
     this.lbl_Grade = this.totalGrade.toString();
 
+
+
     if ((this.itemActual + 1) <= this.totalSentences) {
       this.itemActualSentence = this.list_Words_API[0].sentences[this.itemActual].sentence;
       this.list_01_Data = [];
-      this.list_02_Data = [];
 
       //------ prepara la palabra para presentar en pantalla --------
       this.list_Words_API[0].sentences[this.itemActual].wordstouser.forEach((_word) => {
-        this.list_01_Data.push(_word.value);
+                  this.list_01_Data.push(_word.value);
 
-        this.sentenceWord_ouput_Org.push({ Id: li, Value: _word.value.trim() });
-        li++;
+                  this.sentenceWord_ouput_Org.push({ Id: li, Value: _word.value.trim() });
+                  li++;
 
-      });
+                });
+
+      this.Input_DataList =  this.list_01_Data;
+      this.gameService.CLEAR_LIST$.next(true);
 
 
 
@@ -257,12 +236,10 @@ export class PuzzleWordsComponent implements OnInit {
     listValues.forEach(function (_item) { wordSentence = wordSentence + _item.trim().toLowerCase(); });
 
 
-
-    this.list_02_Data.forEach(function (_item) { wordPuzzole = wordPuzzole + _item.trim().toLowerCase(); });
-
-
-    console.log(wordPuzzole + "  <----------->  " + wordSentence + "  <----------->  " + this.itemActualSentence)
-    if (wordPuzzole === wordSentence) {
+    wordPuzzole = this.wordInProcessEnglishDrag.trim().toLowerCase();
+    console.log("  wordPuzzole -->  " + wordPuzzole + " wordSentence -->   " + wordSentence + " original --- >  "  + this.itemActualSentence)
+    if (wordPuzzole === wordSentence)
+    {
       console.log("--adivino ---");
 
       this.list_Words_Process.push({ espaniol: wordSpanish, value: (this.itemActual + 1), ingles: this.itemActualSentence.trim().toLowerCase() });
@@ -276,7 +253,8 @@ export class PuzzleWordsComponent implements OnInit {
 
       this.fn_StarGame();
     }
-    else {
+    else
+    {
       this.fn_ShowMessage("Alert", true, " Sorry, try again!!!!: ", "", true);
 
       this.totalGrade = this.totalGrade - 10;
@@ -297,7 +275,23 @@ export class PuzzleWordsComponent implements OnInit {
     this.lbl_Averge = (this.totalGradeAcum / (this.itemActual)).toFixed(2).toString();;
 
 
-  }
+  }//---------------------------------------
+
+  fn_DataLisOutput(_letters: Array<string>)
+  {
+    let _data ="";
+    this.wordInProcessEnglishDrag ="";
+
+    _letters.forEach( function(_value) {
+      _data= _data+  _value;
+
+
+  });
+
+  this.wordInProcessEnglishDrag = _data;
+
+  }//-----------------------------------------------------
+
 
 
 }//--------- ******** principal ****************** ---------------------
