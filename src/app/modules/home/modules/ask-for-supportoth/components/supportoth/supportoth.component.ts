@@ -27,7 +27,7 @@ export class SupportothComponent implements OnInit {
 )
 {
 
-  this.form = this.fb.group({ selected_koh: [null, Validators.required],
+  this.form = this.fb.group({ selected_koh: [null],
     asunto: [{value: '',disabled: false},[Validators.required]],
     descripcion: [{value: '',disabled: false},[Validators.required]],  });
 
