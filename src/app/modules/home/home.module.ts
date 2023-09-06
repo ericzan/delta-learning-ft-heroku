@@ -5,6 +5,7 @@ import { HomeRoutes } from './home.routing';
 import { MainComponent } from './components/main/main.component';
 import { MenuModule } from 'primeng/menu';
 
+
 @NgModule({
   declarations: [
     MainComponent

@@ -50,7 +50,7 @@ export class RecommendedLinksComponent implements OnInit{
       console.log(resp);
 
       this.openSpinner = false;
-      debugger;
+
       if (resp == undefined)
       {
         this.fn_ShowMessage("Error", true, "TypeError: Cannot read properties of undefined (reading 'map')", "", false);

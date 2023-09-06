@@ -7,6 +7,10 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
+        path: 'ask-for-supportoth',
+        loadChildren: ()=> import('./modules/ask-for-supportoth/ask-for-supportoth.module').then( mod => mod.AskForSupportothModule)
+      },
+      {
         path: 'recommended-links',
         loadChildren: ()=> import('./modules/recommended-links/link.module').then( mod => mod.LinkModule)
       },

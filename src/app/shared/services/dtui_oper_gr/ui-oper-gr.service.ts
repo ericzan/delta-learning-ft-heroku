@@ -159,4 +159,16 @@ getCountries( ){
 getLanguages( ){
   return this.http.get<any>( `dt/auth/get_langs/`  )
 }
+getTDT( ){
+  return this.http.get<any>( `dt/auth/tdt/`  )
+}
+
+setAskForSupportoth(body: {
+  classification: string,
+  subject: string,
+  longdescription: string
+}){
+  return this.http.post<any>( `dt/ui_oper_gr/askforsupportoth/`,body )
+}
+
 }

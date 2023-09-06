@@ -67,6 +67,7 @@ export class MainComponent implements OnInit {
 
   createItemsMenu() {
 
+
     this.items = [
       {
         label: 'Configuration',
@@ -81,6 +82,12 @@ export class MainComponent implements OnInit {
             label: 'Level Evaluation',
             icon: 'fas fa-layer-group',
             routerLink: './level',
+            command: () => { this.toggleMenuMovil(); }
+          },
+          {
+            label: 'Ask For Supportoth',
+            icon: 'fas fa-layer-group',
+            routerLink: './ask-for-supportoth',
             command: () => { this.toggleMenuMovil(); }
           }
 

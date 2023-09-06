@@ -1,0 +1,75 @@
+<zan-spinner [input_abrirSpinner]="openSpinner"></zan-spinner>
+
+<div>
+  <h2 style="font-size: 1.5rem; font-weight: 400;">Ask For Supportoth </h2>
+  <hr>
+</div>
+
+<form class="grid grid-container container-form " [formGroup]="form">
+    <div class="col-12 md:col-8">
+      <div class="grid grid-container">
+              <div class="col-12 md:col-6 lg:col-4">
+                <label>Usuario: </label>
+                <label>{{userId}}</label>
+              </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-8">
+      <div class="grid grid-container">
+              <div class="col-12 md:col-6 lg:col-4">
+                <label>Nombre: </label>
+                <label>{{userName}}</label>
+              </div>
+      </div>
+    </div>
+
+    <div class="col-12 md:col-8">
+      <div class="grid grid-container">
+          <label>Referente a:</label>
+          <p-dropdown  [options]="list_koh"  formControlName="selected_koh"></p-dropdown>
+          <ng-container *ngIf="fieldValidate.focus(form,'selected_koh')">
+              <div class="message-error">erroorr</div>
+          </ng-container>
+      </div>
+    </div>
+
+
+    <div class="col-12 md:col-8">
+      <label>Asunto</label>
+      <input pInputText id="asunto" formControlName="asunto"  />
+      <div style="height: 30px">
+        <ng-container *ngIf="fieldValidate.focus(form,'Asunto')">
+          <div class="message-error">erroor</div>
+        </ng-container>
+      </div>
+    </div>
+
+
+    <div class="col-12 md:col-12">
+      <label>Descripción detallada:</label>
+      <input pInputText id="descripcion" formControlName="descripcion"  />
+      <div style="height: 30px">
+        <ng-container *ngIf="fieldValidate.focus(form,'Descripcion')">
+          <div class="message-error">erroor</div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="col-12 md:col-2">
+      <p-button type="button" label="Enviar"
+                (onClick)="fn_Send()"
+                [style]="{ 'width': '100px' }"   > </p-button>
+    </div>
+    <div class="col-12 md:col-2">
+      <p-button type="button" label="Cancelar"
+                (onClick)="fn_cancel()"
+                [style]="{ 'width': '100px' }"   > </p-button>
+    </div>
+
+
+
+
+</form>
+
+<zan-supportth-alert [inputo_MsjParams]="msjParamsAlert" > </zan-supportth-alert>
+
