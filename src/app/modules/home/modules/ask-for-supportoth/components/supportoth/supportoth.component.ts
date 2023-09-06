@@ -13,15 +13,6 @@ import { catchError, of } from 'rxjs';
 })
 export class SupportothComponent implements OnInit {
 
-  constructor(protected fieldValidate: FieldValidateService,
-    private fb: FormBuilder,
-    private uiOperGrService: UiOperGrService,
-)
-{ } //----------------------------------------------------------
-
-
-
-
   form!:FormGroup;
   list_koh: Array<{ label: string, value: string }> = [];
   userId="";
@@ -29,19 +20,29 @@ export class SupportothComponent implements OnInit {
   public msjParamsAlert: Array<{ TypeMessge: string, ShowAlert: boolean, Messge: string, Comment: string }> = [];
   openSpinner=false;
 
+
+  constructor(protected fieldValidate: FieldValidateService,
+    private fb: FormBuilder,
+    private uiOperGrService: UiOperGrService,
+)
+{
+
+  this.form = this.fb.group({ selected_koh: [null, Validators.required],
+    asunto: [{value: '',disabled: false},[Validators.required]],
+    descripcion: [{value: '',disabled: false},[Validators.required]],  });
+
+
+} //----------------------------------------------------------
+
+
+
+
+
   ngOnInit(): void
   {
-    this.form = this.fb.group({ selected_koh: [null, Validators.required],
-                                asunto: [{value: '',disabled: false},[Validators.required]],
-                                descripcion: [{value: '',disabled: false},[]],  });
-
-
 
     this.fn_ShowMessage("", false, "", "");
     this.userData();
-
-
-
 
 
   }
@@ -56,6 +57,11 @@ fn_Send (){
 let _classification = this.form.value.selected_koh.trim();
 let _subject = this.form.value.asunto.trim();
 let _longdescription = this.form.value.descripcion.trim();
+
+if(this.form.invalid){
+  this.form.markAllAsTouched();
+  return;
+}
 
   this.openSpinner = true;
   this.uiOperGrService.setAskForSupportoth({
