@@ -78,8 +78,8 @@ if(this.form.invalid){
 
     this.openSpinner = false;
 
-    this.fn_ShowMessage("Exito", true, "los datos se guardaron correctamente ","");
-
+    //this.fn_ShowMessage("Exito", true, "los datos se guardaron correctamente ","");
+    window.location.reload();
 
   } , (error) => {
 
