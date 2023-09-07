@@ -11,6 +11,7 @@ import { SharedModule } from '@shared/shared.module';
 import { SpinnerComponent } from './components/ui/spinner/spinner.component';
 import { DialogModule } from 'primeng/dialog';
 import { AlertComponent } from './components/ui/alert/alert.component';
+import { CardModule } from 'primeng/card';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { AlertComponent } from './components/ui/alert/alert.component';
     ButtonModule,
     SharedModule,
     DialogModule,
+    CardModule
 
 
   ],

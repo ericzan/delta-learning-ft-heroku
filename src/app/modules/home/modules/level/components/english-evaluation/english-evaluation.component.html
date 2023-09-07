@@ -16,7 +16,9 @@
 
       <div class="col-2"></div>
       <div class="col-8">
-        <h2 style="font-size: 1.5rem; font-weight: 400;"> Do you know the meaning and pronounciation of these words ?
+        <h2   style="font-size: 1.5rem; font-weight: 400;"> Do you know the meaning and pronounciation of these words
+          <p-button icon="fas fa-question" styleClass="p-button-rounded p-button-info  " (onClick)="fn_help()"   >
+          </p-button>
         </h2>
 
 
@@ -74,7 +76,28 @@
 
 
 
-
-
   </form>
 </div>
+
+<p-dialog [(visible)]="verAyuda" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false"
+          [resizable]="false">
+      <p-card header="Instructions">
+        <p class="m-0">
+          You can move forward (10>, 100>>)  and backward (<<100, <10)  through the words to find your level,
+          when you identify the first unknown meaning or pronunciation word group press the 'Stop' button.
+          This word group will be the beginning of your level.
+        </p>
+        <p class="m-0">
+          Later we invite you to play guessing words to determine if your level was correct (Settings / Games / Guess the word).
+          The more words you try, the better the confirmation of the indicated level will be.
+          (We suggest no less than 50 words.)
+        </p>
+
+        <ng-template pTemplate="footer">
+          <p-button label="Close" (onClick)="fn_help()" ></p-button>
+      </ng-template>
+
+    </p-card>
+
+
+</p-dialog>

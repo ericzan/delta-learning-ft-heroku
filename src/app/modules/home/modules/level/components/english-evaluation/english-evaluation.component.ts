@@ -23,7 +23,7 @@ export class EnglishEvaluationComponent implements OnInit {
   public msjParamsAlert: Array<{ TypeMessge: string, ShowAlert: boolean, Messge: string, Comment: string, ShowConfirm: boolean }> = [];
 
   viewObj: String = "guess";
-
+verAyuda = false;
 
   //*********** constructor *********** */
   constructor(private _LevelService: LevelService, private uiOperGrService: UiOperGrService,
@@ -207,5 +207,8 @@ export class EnglishEvaluationComponent implements OnInit {
     this.fn_ShowMessage_msj("", false, "", "", false, true);
   }//--------------------------------------------------------
 
+  fn_help(){
 
+    this.verAyuda =  !this.verAyuda;
+  }
 }//-----------------------------------------------------------

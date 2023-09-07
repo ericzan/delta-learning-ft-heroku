@@ -153,7 +153,7 @@ valueMenu(_label:string ,_lang:string ):string{
     this.list_MenuTraslate.push({Label:"Configuration",Value:"Configuration",lang:"en"});
     this.list_MenuTraslate.push({Label:"UserConfiguration",Value:"User Configuration",lang:"en"});
     this.list_MenuTraslate.push({Label:"LevelEvaluation",Value:"Level Evaluation",lang:"en"});
-    this.list_MenuTraslate.push({Label:"Supportoth",Value:"Supportoth",lang:"en"});
+    this.list_MenuTraslate.push({Label:"Supportoth",Value:"Support",lang:"en"});
     this.list_MenuTraslate.push({Label:"AdditionalOptions",Value:"Additional Options",lang:"en"});
     this.list_MenuTraslate.push({Label:"Games",Value:"Games",lang:"en"});
     this.list_MenuTraslate.push({Label:"RecommendedLinks",Value:"Recommended Links",lang:"en"});
