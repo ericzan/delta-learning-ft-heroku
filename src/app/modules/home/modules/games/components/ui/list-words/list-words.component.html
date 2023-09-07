@@ -7,8 +7,10 @@
     <b>Guessed Words : </b><label>{{ Input_Div }}</label>
   </div>
 
-  <div class="col" *ngFor="let item of Input_List_Words_Process">
-    <label> {{ item.value }} - {{ item.espaniol }}</label>
+  <div class="col" *ngFor="let item of Input_List_Words_Process"  >
+
+    <label *ngIf="item.value == Input_List_Words_Process.length" style="background: #FFB84D;" > {{ item.value }} - {{ item.espaniol }}</label>
+    <label *ngIf="item.value != Input_List_Words_Process.length"  > {{ item.value }} - {{ item.espaniol }}</label>
   </div>
 
 </div>

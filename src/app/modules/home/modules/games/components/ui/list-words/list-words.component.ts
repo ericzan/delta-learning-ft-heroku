@@ -14,4 +14,5 @@ export class ListWordsComponent {
   @Input()
   public Input_List_Words_Process: Array<{ espaniol: string, value: number, ingles: string }> = [];
 
+
 }
