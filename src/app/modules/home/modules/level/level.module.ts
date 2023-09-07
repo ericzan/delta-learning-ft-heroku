@@ -33,7 +33,6 @@ import { CardModule } from 'primeng/card';
     DialogModule,
     CardModule
 
-
   ],
   exports: [],
 

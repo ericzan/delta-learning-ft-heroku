@@ -16,9 +16,8 @@
 
       <div class="col-2"></div>
       <div class="col-8">
-        <h2   style="font-size: 1.5rem; font-weight: 400;"> Do you know the meaning and pronounciation of these words
-          <p-button icon="fas fa-question" styleClass="p-button-rounded p-button-info  " (onClick)="fn_help()"   >
-          </p-button>
+        <h2   style="font-size: 1.5rem; font-weight: 400;"> Do you know the meaning and pronounciation of these words ?
+
         </h2>
 
 
@@ -66,7 +65,14 @@
         <div class="col-2" style="text-align:center;     ">
           <p-button type="button" label="100 >> " [style]="{'width': '70px'}" (onClick)="fn_more_100()"> </p-button>
         </div>
-        <div class="col-1" style="text-align:center;   "></div>
+        <div class="col-1" style="text-align:center;   ">
+          <p-button icon="fas fa-question"
+                  styleClass="p-button-rounded p-button-warning  "
+                  [style]="{ 'width':'35px' ,'height':'35px' }"
+                  (onClick)="fn_help()"   >  </p-button>
+
+
+        </div>
 
 
       </div>
