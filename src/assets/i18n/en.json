@@ -3,6 +3,7 @@
   {
     "ask_for_supportoth":
     {
+      "title_page":"Support",
       "label_user":"User:",
       "label_name":"Name:",
       "label_related":"Related to:",
