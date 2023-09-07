@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { FieldValidateService } from '@core/services/field-validate.service';
 import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.service';
 import { catchError, of } from 'rxjs';
-
+import { Translatei18Service } from '@core/services/translatei18.service';
 
 @Component({
   selector: 'app-supportoth',
@@ -24,6 +24,7 @@ export class SupportothComponent implements OnInit {
   constructor(protected fieldValidate: FieldValidateService,
     private fb: FormBuilder,
     private uiOperGrService: UiOperGrService,
+    private translatei18Service: Translatei18Service
 )
 {
 

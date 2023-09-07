@@ -1,4 +1,17 @@
 {
+  "configuration_user_support":
+  {
+    "ask_for_supportoth":
+    {
+      "label_user":"Usuario:",
+      "label_name":"Nombre:",
+      "label_related":"Referente a:",
+      "label_subject":"Asunto:",
+      "label_datailed":"Descripción detallada:",
+      "button_send":"Enviar",
+      "button_cancel":"Cancelar"
+    }
+  },
 	"configuration_user": {
 		"change_password_form": {
       "button_change_data": "Guardar",

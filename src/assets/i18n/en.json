@@ -1,4 +1,17 @@
 {
+  "configuration_user_support":
+  {
+    "ask_for_supportoth":
+    {
+      "label_user":"User:",
+      "label_name":"Name:",
+      "label_related":"Related to:",
+      "label_subject":"Subject:",
+      "label_datailed":"Datailed Description:",
+      "button_send":"Send",
+      "button_cancel":"Cancel"
+    }
+  },
 	"configuration_user": {
 		"change_password_form": {
       "button_change_data": "Save",

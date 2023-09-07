@@ -9,6 +9,7 @@ import { ButtonModule } from 'primeng/button';
 import { AlertComponent } from './components/ui/alert/alert.component';
 import { SpinnerComponent } from './components/ui/spinner/spinner.component';
 import { DialogModule } from 'primeng/dialog';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -26,8 +27,8 @@ import { DialogModule } from 'primeng/dialog';
     DropdownModule,
     ReactiveFormsModule,
     ButtonModule,
-    DialogModule
-
+    DialogModule,
+    TranslateModule
   ]
 })
 export class AskForSupportothModule {

@@ -9,17 +9,17 @@
 
 
     <div class="col-12 md:col-8">
-      <b> <label>Usuario: </label> </b>
-                <label>{{userId}}</label>
+      <b> <label>{{'configuration_user_support.ask_for_supportoth.label_user' | translate}}</label> </b>
+                <label style="padding: 10px;">{{userId}}</label>
     </div>
 
     <div class="col-12 md:col-8">
-                <b> <label>Nombre: </label></b>
-                <label>{{userName}}</label>
+                <b> <label>{{'configuration_user_support.ask_for_supportoth.label_name' | translate}}</label></b>
+                <label style="padding: 10px;">{{userName}}</label>
     </div>
 
     <div class="col-12 md:col-8">
-      <b> <label>Referente a:</label></b>
+      <b> <label>{{'configuration_user_support.ask_for_supportoth.label_related' | translate}}</label></b>
           <p-dropdown  [options]="list_koh" id="selected_koh "  formControlName="selected_koh"
                       [style]="{ 'width': '200px' }"  >
           </p-dropdown>
@@ -27,7 +27,7 @@
 
 
     <div class="col-12 md:col-8"  >
-      <b><label>Asunto:</label></b>
+      <b><label>{{'configuration_user_support.ask_for_supportoth.label_subject' | translate}}</label></b>
         <input pInputText id="asunto" formControlName="asunto"  style="width: 100%;" />
         <div style="height: 30px">
           <ng-container *ngIf="fieldValidate.focus(form,'asunto')">
@@ -38,7 +38,7 @@
 
 
     <div class="col-12 md:col-8" >
-      <b> <label>Descripción detallada:</label></b>
+      <b> <label>{{'configuration_user_support.ask_for_supportoth.label_datailed' | translate}}</label></b>
       <textarea  id="descripcion" formControlName="descripcion"  rows="4" cols="50" style="width: 100%;height: 100px;"  ></textarea>
 
       <div style="height: 30px">
@@ -50,13 +50,13 @@
 
     <div  style="width: 100%;" >   </div>
 
-      <div class="col-6 md:col-4" style="text-align: center; " >
-        <p-button type="button" label="Enviar"
+      <div class="col-6 md:col-4" style="text-align:right; " >
+        <p-button type="button" label="{{'configuration_user_support.ask_for_supportoth.button_send' | translate}}"
                   (onClick)="fn_Send()"
                   [style]="{ 'width': '100px' }"   > </p-button>
       </div>
-      <div class="col-6 md:col-4 "   >
-        <p-button type="button" label="Cancelar"
+      <div class="col-6 md:col-4 "  style="text-align: left;  "  >
+        <p-button type="button" label="{{'configuration_user_support.ask_for_supportoth.button_cancel' | translate}}"
                   (onClick)="fn_cancel()"
                   [style]="{ 'width': '100px' }"   >
         </p-button>
