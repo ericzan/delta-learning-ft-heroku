@@ -42,41 +42,39 @@
 
 
 
-    <div class=" grid grid-container  " style="width: 100%; ">
+    <div class=" grid grid-container  " style="width: 100%;  ">
 
-      <div class="col-2-zan" style="text-align:center;  "></div>
-      <div class=" grid grid-container   col-8-zan" style="text-align:center;   ">
-        <!-- <div class=" grid grid-container body-zan "   > </div> -->
-
-        <div class="col-1" style="text-align:center;   "> </div>
-        <div class="col-2" style="text-align:center;    ">
-          <p-button type="button" label="<< 100" [style]="{'width': '70px'}" (onClick)="fn_less_100()"> </p-button>
-        </div>
-        <div class="col-2" style="text-align:center;   ">
-          <p-button type="button" label="< 10" [style]="{'width': '70px'}" (onClick)="fn_less_10()"> </p-button>
-        </div>
-        <div class="col-2" style="text-align:center;     ">
-          <p-button type="button" label="Stop " [style]="{'width': '70px'}" (onClick)="fn_ShowMessage_cnf()">
-          </p-button>
-        </div>
-        <div class="col-2" style="text-align:center;   ">
-          <p-button type="button" label="10 > " [style]="{'width': '70px'}" (onClick)="fn_more_10()"> </p-button>
-        </div>
-        <div class="col-2" style="text-align:center;     ">
-          <p-button type="button" label="100 >> " [style]="{'width': '70px'}" (onClick)="fn_more_100()"> </p-button>
-        </div>
-        <div class="col-1" style="text-align:center;   ">
-          <p-button icon="fas fa-question"
-                  styleClass="p-button-rounded p-button-warning  "
-                  [style]="{ 'width':'35px' ,'height':'35px' }"
-                  (onClick)="fn_help()"   >  </p-button>
+      <div class="col-2-zan" style="text-align:center;   "></div>
+      <div class=" grid grid-container   col-8-zan   " style="text-align:center;   ">
 
 
-        </div>
-
+            <div class="col-1" style="text-align:center;   "> </div>
+            <div class="col-2" style="text-align:center;    ">
+              <p-button type="button" label="<< 100" [style]="{'width': '70px'}" (onClick)="fn_less_100()"> </p-button>
+            </div>
+            <div class="col-2" style="text-align:center;   ">
+              <p-button type="button" label="< 10" [style]="{'width': '70px'}" (onClick)="fn_less_10()"> </p-button>
+            </div>
+            <div class="col-2" style="text-align:center;     ">
+              <p-button type="button" label="Stop " [style]="{'width': '70px'}" (onClick)="fn_ShowMessage_cnf()">
+              </p-button>
+            </div>
+            <div class="col-2" style="text-align:center;   ">
+              <p-button type="button" label="10 > " [style]="{'width': '70px'}" (onClick)="fn_more_10()"> </p-button>
+            </div>
+            <div class="col-2" style="text-align:center;     ">
+              <p-button type="button" label="100 >> " [style]="{'width': '70px'}" (onClick)="fn_more_100()"> </p-button>
+            </div>
+            <div class="col-1" style="text-align:center;   ">
+              <p-button icon="fas fa-question"
+                      styleClass="p-button-rounded p-button-warning  "
+                      [style]="{ 'width':'35px' ,'height':'35px' }"
+                      (onClick)="fn_help()"   >  </p-button>
+            </div>
+            <div class="col-1" style="text-align:center;   ">  </div>
 
       </div>
-      <div class="col-2-zan" style="text-align:center;  "></div>
+      <div class="col-2-zan" style="text-align:center; "></div>
 
     </div>
 
@@ -85,14 +83,14 @@
   </form>
 </div>
 
-<p-dialog [(visible)]="verAyuda" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false"
-          [resizable]="false">
+<p-dialog [(visible)]="verAyuda" [modal]="true" [style]="{ width: '80%' }" [draggable]="false"  [resizable]="false">
       <p-card header="Instructions">
         <p class="m-0">
           You can move forward (10>, 100>>)  and backward (<<100, <10)  through the words to find your level,
           when you identify the first unknown meaning or pronunciation word group press the 'Stop' button.
           This word group will be the beginning of your level.
         </p>
+        &nbsp;&nbsp;&nbsp;&nbsp;
         <p class="m-0">
           Later we invite you to play guessing words to determine if your level was correct (Settings / Games / Guess the word).
           The more words you try, the better the confirmation of the indicated level will be.
