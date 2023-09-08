@@ -1,4 +1,41 @@
 {
+  "configuration_games":
+  {
+    "view_game":
+    {
+      "title_pag_game":"Seleccionar nuevo juego",
+      "label_game":"Juegos",
+      "label_select":"Seleccionar",
+      "txtt_butoon_create":"Crear"
+    },
+    "puzzle_letters":
+    {
+      "title_pag_puzzle_letters":"ROMPECABEZAS DE LETRAS"
+
+    },
+    "control_how_many":
+    {
+      "title_how_many":"CUÁNTAS PALABRAS PARA INTENTAR",
+      "label_adj":"Adj",
+      "label_Noun":"Sust",
+      "label_Adv":"Adv",
+      "label_Verb":"Verb",
+      "label_past_tense":"V. Pas",
+      "button_start":"Aquí para empezar !!!"
+    },
+    "control_list_words":
+    {
+      "label_Average":"Promedio",
+      "label_guessed_words":"Palabras adivinadas"
+    },
+    "control_drag_wors":
+    {
+      "label_drag_word":"ORDEN CORRECTO DE LAS PALABRAS AQUÍ",
+      "label_drag_Sentence":"ORDEN CORRECTO DE LAS SENTENCIAS AQUÍ",
+      "button_validate":"Validar",
+      "label_grade":"Calif."
+    }
+  },
   "configuration_Level_evaluate":
   {
     "title_page_level_evaluation":

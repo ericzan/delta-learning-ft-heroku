@@ -1,4 +1,42 @@
 {
+  "configuration_games":
+  {
+    "view_game":
+    {
+      "title_pag_game":"Select new game",
+      "label_game":"Games",
+      "label_select":"Select",
+      "txtt_butoon_create":"Create"
+    },
+    "puzzle_letters":
+    {
+      "title_pag_puzzle_letters":"PUZZLE LETTERS"
+
+    },
+    "control_how_many":
+    {
+      "title_how_many":"HOW MANY WORDS TO TRY ",
+      "label_adj":"Adj",
+      "label_Noun":"Noun",
+      "label_Adv":"Adv",
+      "label_Verb":"Verb",
+      "label_past_tense":"Past tense",
+      "button_start":"Here to Start !!!"
+    },
+    "control_list_words":
+    {
+      "label_Average":"Average",
+      "label_guessed_words":"Guessed Words"
+    },
+    "control_drag_wors":
+    {
+      "label_drag_word":"CORRECT WORD ORDER HERE",
+      "label_drag_Sentence":"CORRECT ORDER SENTENCE HERE",
+      "button_validate":"Validate",
+      "label_grade":"Grade"
+    }
+
+  },
   "configuration_Level_evaluate":
   {
     "title_page_level_evaluation":

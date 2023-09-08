@@ -49,7 +49,7 @@ export class PuzzleWordsComponent implements OnInit {
 
   public msjParamsAlert: Array<{ TypeMessge: string, ShowAlert: boolean, Messge: string, Comment: string }> = [];
 
-  INPUT_PLACE_HOLDER = "CORRECT ORDER SENTENCE HERE";
+  INPUT_PLACE_HOLDER = "SENTENCES";
   wordInProcessEnglishDrag: string = "";
 
   constructor(private uiOperGrService: UiOperGrService,private gameService : GamelService) { }

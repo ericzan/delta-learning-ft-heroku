@@ -21,6 +21,8 @@ export class DragWordsComponent implements OnInit {
 
   showIndication=true;
   list_DataOutput: string[] = [];
+  WORDS="WORDS"
+  SENTENCES="SENTENCES"
 
   constructor(  private gameService:GamelService){  }
 

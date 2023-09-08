@@ -6,7 +6,7 @@ import { CdkDragDrop, CdkDrag, CdkDropList, moveItemInArray } from '@angular/cdk
 
 
 @Component({
-  selector: 'zan-drop-list-words',
+  selector: 'zan-drop-list-words-zan',
   templateUrl: './drop-list-words.component.html',
   styles: [],
 

@@ -37,7 +37,7 @@ export class PuzzleLettersComponent implements OnInit {
   lbl_Averge: string = "0";
 
   Input_DataList: string[] = [];
-  INPUT_PLACE_HOLDER = "CORRECT WORD ORDER HERE";
+  INPUT_PLACE_HOLDER = "WORDS";
 
 
 

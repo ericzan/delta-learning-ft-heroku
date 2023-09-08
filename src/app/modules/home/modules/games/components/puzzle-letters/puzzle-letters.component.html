@@ -6,7 +6,7 @@
 
 
   <div>
-    <h2 style="font-size: 1.5rem; font-weight: 400;">PUZZLE LETTERS</h2>
+    <h2 style="font-size: 1.5rem; font-weight: 400;">{{'configuration_games.puzzle_letters.title_pag_puzzle_letters' | translate}}</h2>
   </div>
 
 
@@ -50,9 +50,11 @@
           <div class="grid grid-container " style="text-align:left; ">
 
                   <div class="col-1-zan-3">
-                      <p-button type="button" label="Validate" [style]="{ 'width': '80%' }" (click)="fn_Validate_click()" *ngIf="btn_visible"> </p-button>
+                      <p-button type="button" label="{{'configuration_games.control_drag_wors.button_validate' | translate}}"
+                              [style]="{ 'width': '80%' }"
+                              (click)="fn_Validate_click()" *ngIf="btn_visible"> </p-button>
                   </div>
-                  <div class="col-1-zan-4" *ngIf="btn_visible"><b>Grade :</b> </div>
+                  <div class="col-1-zan-4" *ngIf="btn_visible"><b>{{'configuration_games.control_drag_wors.label_grade' | translate}}</b> </div>
                   <div class="col-1-zan-5" *ngIf="btn_visible"><label>{{lbl_Grade}} </label></div>
           </div>
 
