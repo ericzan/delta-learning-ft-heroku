@@ -24,6 +24,8 @@ export class ViewComponent
   formLevel!: FormGroup;
   resp: any[] = [];
   userId: string = '';
+  categoria="";
+  selectedLang="";
 
 
   constructor(private fb: FormBuilder,
@@ -37,15 +39,19 @@ export class ViewComponent
   ngOnInit(): void {
 
     this.userId = String(this.storage.load(KeyStorage.user));
-    this.getCategories();
-    this.formLevel = this.fb.group({
-      cboLevel: [, [Validators.required]],
-    })
+    this.getConfig();
+
+    this.formLevel = this.fb.group({  cboLevel: [, [Validators.required]], })
   }//-----------------------------------------------------------------
 
   getCategories() {
 
-    this.listLevel.push({ label: "English Words Level Evaluation", value: 1 });
+let _option ="Evaluación del nivel de palabras en inglés";
+
+    if (this.selectedLang  == "en"){_option =  "English Words Level Evaluation";}
+
+
+    this.listLevel.push({ label: _option , value: 1 });
   }//-----------------------------------------------------------------
 
   submit() {
@@ -73,5 +79,14 @@ export class ViewComponent
 
   }//-----------------------------------------------------------------
 
+  getConfig() {
+    this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
+
+      console.log("----- response API ------------",resp);
+      this.selectedLang  = resp.selected_lang;
+      this.getCategories();
+
+    });
+  }
 
 }

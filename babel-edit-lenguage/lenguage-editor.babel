@@ -19,13 +19,206 @@
 			<package_node>
 				<name>main</name>
 				<children>
-        	<folder_node>
+
+
+					<folder_node>
+						<name>configuration_Level_evaluate</name>
+						<children>
+							<folder_node>
+								<name>title_page_level_evaluation</name>
+									<children>
+                    <concept_node>
+											<name>title_page_select</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+										<concept_node>
+											<name>label_cbo_level</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                    <concept_node>
+											<name>label_placeholder</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+
+                    <concept_node>
+											<name>button_create</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+										<concept_node>
+											<name>title_page_level_evaluation_words</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+										<concept_node>
+											<name>label_question</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+										<concept_node>
+											<name>button_stop</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+										<concept_node>
+											<name>label_title_help</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+										<concept_node>
+											<name>text_paragraph_1</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+										<concept_node>
+											<name>text_paragraph_2</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+										<concept_node>
+											<name>button_close</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+
+									</children>
+							</folder_node>
+						</children>
+					</folder_node>
+
+
+
+
+					<folder_node>
 						<name>configuration_user_support</name>
 						<children>
 							<folder_node>
 								<name>ask_for_supportoth</name>
 								<children>
-                	<concept_node>
+									<concept_node>
 										<name>title_page</name>
 										<description/>
 										<comment/>

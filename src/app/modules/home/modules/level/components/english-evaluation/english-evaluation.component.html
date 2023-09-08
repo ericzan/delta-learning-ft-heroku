@@ -5,7 +5,7 @@
 
 <div>
   <div>
-    <h2 style="font-size: 1.5rem; font-weight: 400;"> English Words Level Evaluation :</h2>
+    <h2 style="font-size: 1.5rem; font-weight: 400;">{{'configuration_Level_evaluate.title_page_level_evaluation.title_page_level_evaluation_words' | translate}}</h2>
     <hr>
   </div>
 
@@ -16,7 +16,7 @@
 
       <div class="col-2"></div>
       <div class="col-8">
-        <h2   style="font-size: 1.5rem; font-weight: 400;"> Do you know the meaning and pronounciation of these words ?
+        <h2   style="font-size: 1.5rem; font-weight: 400;"> {{'configuration_Level_evaluate.title_page_level_evaluation.label_question' | translate}}
 
         </h2>
 
@@ -33,7 +33,7 @@
       <div class="col-7-zan" style="text-align:center;   ">
         <ul style="text-align:left; ">
           <li *ngFor="let item of List_Words_Level" style="text-align: left; width: 160px; ">
-            <!-- <h2 style="font-size: 1.5rem; font-weight: 400; "> <label style="padding: 10px;  "  >  {{ item.word }} </label>   </h2> -->
+
             <p-button label="{{ item.word }}" styleClass="p-button-raised p-button-text  "> </p-button>
           </li>
         </ul>
@@ -56,7 +56,7 @@
               <p-button type="button" label="< 10" [style]="{'width': '70px'}" (onClick)="fn_less_10()"> </p-button>
             </div>
             <div class="col-2" style="text-align:center;     ">
-              <p-button type="button" label="Stop " [style]="{'width': '70px'}" (onClick)="fn_ShowMessage_cnf()">
+              <p-button type="button" label="{{'configuration_Level_evaluate.title_page_level_evaluation.button_stop' | translate}}" [style]="{'width': '70px'}" (onClick)="fn_ShowMessage_cnf()">
               </p-button>
             </div>
             <div class="col-2" style="text-align:center;   ">
@@ -84,22 +84,14 @@
 </div>
 
 <p-dialog [(visible)]="verAyuda" [modal]="true" [style]="{ width: '80%' }" [draggable]="false"  [resizable]="false">
-      <p-card header="Instructions">
-        <p class="m-0">
-          You can move forward (10>, 100>>)  and backward (<<100, <10)  through the words to find your level,
-          when you identify the first unknown meaning or pronunciation word group press the 'Stop' button.
-          This word group will be the beginning of your level.
-        </p>
+      <p-card header="{{'configuration_Level_evaluate.title_page_level_evaluation.label_title_help' | translate}}">
+        <p class="m-0"> {{'configuration_Level_evaluate.title_page_level_evaluation.text_paragraph_1' | translate}}      </p>
         <br>
         <!-- &nbsp; -->
-        <p class="m-0">
-          Later we invite you to play guessing words to determine if your level was correct (Settings / Games / Guess the word).
-          The more words you try, the better the confirmation of the indicated level will be.
-          (We suggest no less than 50 words.)
-        </p>
+        <p class="m-0"> {{'configuration_Level_evaluate.title_page_level_evaluation.text_paragraph_2' | translate}}       </p>
 
         <ng-template pTemplate="footer">
-          <p-button label="Close" (onClick)="fn_help()" ></p-button>
+          <p-button label="{{'configuration_Level_evaluate.title_page_level_evaluation.button_close' | translate}} " (onClick)="fn_help()" ></p-button>
       </ng-template>
 
     </p-card>

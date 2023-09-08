@@ -1,4 +1,21 @@
 {
+  "configuration_Level_evaluate":
+  {
+    "title_page_level_evaluation":
+    {
+      "title_page_select_level":"Seleccionar nueva evaluación del nivel de palabras",
+      "label_cbo_level":"Nivel a evaluar",
+      "label_placeholder":"Seleccionar",
+      "button_create":"Crear",
+      "title_page_level_evaluation_words":"Evaluación del nivel de palabras en inglés",
+      "label_question":"¿Conoces el significado y la pronunciación de estas palabras?",
+      "button_stop":"Alto",
+      "label_title_help":"Instrucciones",
+      "text_paragraph_1":"Puedes avanzar (10>, 100>>) y retroceder (<<100, <10) a través de las palabras para encontrar su nivel, cuando identifique el primer grupo de palabras con significado o pronunciación desconocido presione el botón ''Detener''. Este grupo de palabras será el comienzo de su nivel.",
+      "text_paragraph_2":"Posteriormente te invitamos a que jueges adivinando palabras para determinar si tu nivel fue correcto (Configuración/Juegos y selecciona ''Guess The Word''). Mientras más palabras intentes mejor será la confirmación del nivel señalado. (Sugerimos no menos de 50 palabras.)",
+      "button_close":"Cerrar"
+    }
+  },
   "configuration_user_support":
   {
     "ask_for_supportoth":

@@ -1,4 +1,21 @@
 {
+  "configuration_Level_evaluate":
+  {
+    "title_page_level_evaluation":
+    {
+      "title_page_select_level":"Select new word level assessment",
+      "label_cbo_level":"Level to evaluate",
+      "label_placeholder":"Select",
+      "button_create":"Create",
+      "title_page_level_evaluation_words":"English Words Level Evaluation",
+      "label_question":"Do you know the meaning and pronounciation of these words ?",
+      "button_stop":"Stop",
+      "label_title_help":"Instructions",
+      "text_paragraph_1":"You can move forward (10>, 100>>) and backward (<<100, <10) through the words to find your level, when you identify the first unknown meaning or pronunciation word group press the 'Stop' button. This word group will be the beginning of your level.",
+      "text_paragraph_2":"Later we invite you to play guessing words to determine if your level was correct (Settings / Games / Guess the word). The more words you try, the better the confirmation of the indicated level will be. (We suggest no less than 50 words.)",
+      "button_close":"Close"
+    }
+  },
   "configuration_user_support":
   {
     "ask_for_supportoth":
