@@ -354,7 +354,7 @@ export class HowManyWordsPuzzleComponent implements OnInit {
   fn_KeyPress() {
     this.totalWords = Number(this.formHowMatySentences.value.txt_how);
 
-    if (this.totalWords > 10) { this.formHowMatySentences.get('txt_how')?.setValue(10); }
+    if (this.totalWords > 50) { this.formHowMatySentences.get('txt_how')?.setValue(50); }
     if (this.totalWords < 0) { this.formHowMatySentences.get('txt_how')?.setValue(0); }
 
 

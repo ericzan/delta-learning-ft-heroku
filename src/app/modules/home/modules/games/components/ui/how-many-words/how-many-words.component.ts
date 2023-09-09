@@ -314,7 +314,7 @@ export class HowManyWordsComponent implements OnInit {
   fn_KeyPress() {
     this.totalWords = Number(this.formHowMatyWords.value.txt_how);
 
-    if (this.totalWords > 10) { this.formHowMatyWords.get('txt_how')?.setValue(10); }
+    if (this.totalWords > 50) { this.formHowMatyWords.get('txt_how')?.setValue(50); }
     if (this.totalWords < 0) { this.formHowMatyWords.get('txt_how')?.setValue(0); }
 
 

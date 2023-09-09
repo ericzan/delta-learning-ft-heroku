@@ -230,7 +230,7 @@ export class PuzzleWordsComponent implements OnInit {
     let wordSentence = "";
     let listValues: string[] = this.itemActualSentence.split(" ");
     let wordSpanish = this.list_Words_API[0].sentences[this.itemActual].exTarget.trim().toLowerCase();
-
+    let _mssge  ="Sorry, You are trying the sentence --> :  " + this.itemActualSentence;
 
 
     listValues.forEach(function (_item) { wordSentence = wordSentence + _item.trim().toLowerCase(); });
@@ -242,6 +242,7 @@ export class PuzzleWordsComponent implements OnInit {
     {
       console.log("--adivino ---");
 
+      if (this.list_Words_Process.length >=10){this.list_Words_Process=[];}
       this.list_Words_Process.push({ espaniol: wordSpanish, value: (this.itemActual + 1), ingles: this.itemActualSentence.trim().toLowerCase() });
       this.list_Words_Request.push(this.itemActualSentence);
 
@@ -261,6 +262,11 @@ export class PuzzleWordsComponent implements OnInit {
       if (this.totalGrade < 0) { this.totalGrade = 0; }
 
       this.lbl_Grade = this.totalGrade.toString();
+
+      if (this.totalGrade<=0){this.fn_ShowMessage("Alert", true,_mssge, "", true);}
+      else{this.fn_ShowMessage("Alert", true, " Sorry, try again!!!!: ", "", true);}
+      this.itemActualSentence
+
     }
 
 

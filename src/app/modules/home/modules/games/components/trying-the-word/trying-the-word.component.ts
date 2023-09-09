@@ -108,11 +108,13 @@ export class TryingTheWordComponent implements OnInit {
 
 
     //--- agrega la palabra a la lista q se muestra
-    if (this.wordInProcessindex < this.totalWords) {
+    if (this.wordInProcessindex < this.totalWords)
+    {
 
       _Palabra_ingles = this.list_WordsviewOpen[this.wordInProcessindex].ingles.toString();
       this.list_words_guessed.push(_Palabra_ingles);
 
+      if(this.list_Words_process.length >=10){this.list_Words_process =[];}
       this.list_Words_process.push(this.list_WordsviewOpen[this.wordInProcessindex]);
 
 
@@ -271,12 +273,15 @@ export class TryingTheWordComponent implements OnInit {
 
   fn_Validate_click() {
 
+let _mssge  ="Sorry, You are trying the word --> :  " + this.pwordInProcessEnglish.trim();
 
-
-    if (!this.fn_BuscaLetras(this.form.value.txt_Try_With.toString().trim().toLowerCase())) {
+    if (!this.fn_BuscaLetras(this.form.value.txt_Try_With.toString().trim().toLowerCase()))
+    {
       this.doing_beep(400, 350);
       this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
       this.form.get('txt_Try_With')?.reset();
+      if (this.lbl_Grade <= 0 ) {this.fn_ShowMessage("Alert", true, _mssge, "", true);}
+
       return;
     }
 

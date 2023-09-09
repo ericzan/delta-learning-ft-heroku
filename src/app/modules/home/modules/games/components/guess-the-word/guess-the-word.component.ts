@@ -115,6 +115,8 @@ export class GuessTheWordComponent implements OnInit {
       _Palabra_ingles = this.list_Words_View[this.wordInProcessIndex].ingles.toString();
       this.list_words_guessed.push(_Palabra_ingles);
 
+
+      if(this.list_Words_process.length >=10){this.list_Words_process =[];}
       this.list_Words_process.push(this.list_Words_View[this.wordInProcessIndex]);
 
 
@@ -278,7 +280,7 @@ export class GuessTheWordComponent implements OnInit {
 
   fn_StarGame_Input(_list_Words_API: Array<{ espaniol: string, value: number, ingles: string ,wordstouser:Array<string> }>) {
 
-debugger;
+
 
     this.list_Words_API = _list_Words_API;
 
@@ -304,14 +306,16 @@ debugger;
 
   fn_Validate_click() {
 
+let _mssge  ="Sorry, You are trying the word --> :  " + this.wordInProcessEnglish.trim().toLowerCase();
 
-
-    if (this.wordInProcessEnglish.trim().toLowerCase() !== this.form.value.txt_EnglishWord.toString().trim().toLowerCase()) {
-
-      this.fn_ShowMessage("Alert", true, " Sorry, try again!!!!: ", "", true);
-
+    if (this.wordInProcessEnglish.trim().toLowerCase() !== this.form.value.txt_EnglishWord.toString().trim().toLowerCase())
+    {
       this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
       this.form.get('txt_EnglishWord')?.reset();
+
+      if (this.lbl_Grade <= 0 ) {this.fn_ShowMessage("Alert", true, _mssge, "", true);}
+      else{this.fn_ShowMessage("Alert", true, " Sorry, try again!!!!: ", "", true);}
+
       return;
     }
 

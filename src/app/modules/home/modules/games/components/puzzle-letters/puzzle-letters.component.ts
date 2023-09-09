@@ -117,6 +117,7 @@ export class PuzzleLettersComponent implements OnInit {
      this.gameService.CLEAR_LIST$.next(true);
       this.list_words_guessed.push(_Palabra_ingles);
 
+      if ( this.list_Words_process.length >= 10){ this.list_Words_process = [];}
       this.list_Words_process.push(this.list_Words_View[this.wordInProcessIndex]);
 
 
@@ -273,13 +274,16 @@ export class PuzzleLettersComponent implements OnInit {
 
   fn_Validate_click() {
 
-
+    let _mssge  ="Sorry, You are trying the word --> :  " + this.wordInProcessEnglish.trim().toLowerCase();
 
     if (this.wordInProcessEnglish.trim().toLowerCase() !== this.wordInProcessEnglishDrag.trim().toLowerCase()) {
 
-      this.fn_ShowMessage("Alert", true, " Sorry, try again!!!!: ", "", true);
+
 
       this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
+
+      if (this.lbl_Grade<=0) {this.fn_ShowMessage("Alert", true, _mssge, "", true);}
+      else {this.fn_ShowMessage("Alert", true, " Sorry, try again!!!!: ", "", true);}
 
       return;
     }
