@@ -33,13 +33,15 @@
       <div class="col-3-zan-3"  [style]="{  border: '2px solid blue',  borderRadius: '5px' }">
         <div class="row">
           <div class="col-12" style="text-align:right;">
-            <div class="grid grid-container ">
+            <div class="grid grid-container  ">
 
               <div class="col-5-zan-1" style="text-align:right;   "> <b>  {{'configuration_games.view_trying_word.label_try_with' | translate}}</b></div>
-              <div class="col-5-zan-2"> <input pInputText id="txt_Try_With" formControlName="txt_Try_With"
-                  [maxlength]="1" maxlength="30" style="width: 30px; text-align:center;"
-                  (keyup)="fn_Validate_click()" /> </div>
-              <div class="col-5-zan-3" style="text-align:center;   ">
+              <div class="col-5-zan-2" style="text-align:center ; padding-left: 10px;">
+                          <input pInputText id="txt_Try_With" formControlName="txt_Try_With"
+                                [maxlength]="1" maxlength="30" style="width: 30px; text-align:center; padding: 4px; "
+                                (keyup)="fn_Validate_click()" />
+              </div>
+              <div class="col-5-zan-3" style="text-align:center;     ">
                     <p-button type="button" label="{{'configuration_games.view_trying_word.button_validate' | translate}}"   [style]="{ 'width': '90px' }" (click)="fn_Validate_click()" *ngIf="btn_visible">
                     </p-button>
               </div>

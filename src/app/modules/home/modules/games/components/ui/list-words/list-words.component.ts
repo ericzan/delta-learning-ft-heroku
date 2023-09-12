@@ -6,6 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./list-words.component.scss']
 })
 export class ListWordsComponent {
+
+
   @Input()
   public Input_Div: string = "";
   @Input()
@@ -13,10 +15,11 @@ export class ListWordsComponent {
   @Input()
   public Input_List_Words_Process: Array<{ espaniol: string, value: number, ingles: string }> = [];
 
-fn_Resta(_value:number,_index:number):number
+fn_Resta(_list :any):number
 {
-  // console.log( (  _value  -_index)+ _index);
-   return    (_value  -_index) + _index  ;
+
+
+  return _list[_list.length - 1].value;
 }
 
 }

@@ -69,7 +69,16 @@ export class GuessTheWordComponent implements OnInit {
     protected fieldValidate: FieldValidateService,
     private router: Router,
     private wathSteps: WathStepsLearningService,
-    private watchService: WatchService) { }
+    private watchService: WatchService) {
+
+      this.form = this.fb.group({
+        chk_length: new FormControl({ value: false, disabled: true }),
+        chk_Start: new FormControl({ value: false, disabled: true }),
+        chk_End: new FormControl({ value: false, disabled: true }),
+        txt_EnglishWord: new FormControl({ value: '', disabled: true }),
+
+      })
+     }
 
 
 
@@ -77,13 +86,7 @@ export class GuessTheWordComponent implements OnInit {
   ngOnInit(): void {
 
 
-    this.form = this.fb.group({
-      chk_length: new FormControl({ value: false, disabled: true }),
-      chk_Start: new FormControl({ value: false, disabled: true }),
-      chk_End: new FormControl({ value: false, disabled: true }),
-      txt_EnglishWord: new FormControl({ value: '', disabled: true }),
 
-    })
 
 
     this.fn_ShowMessage("", false, "", "", false);
@@ -156,11 +159,12 @@ export class GuessTheWordComponent implements OnInit {
   fn_chk_length_cambia() {
 
 
+
     this.lbl_length = this.wordInProcessEnglish.length.toString();
     this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
 
-    this.form.get('chk_length')?.disable();
 
+      this.form.get('chk_length')!.disable();
 
 
 
@@ -171,7 +175,7 @@ export class GuessTheWordComponent implements OnInit {
 
     this.lbl_star = this.wordInProcessEnglish.substr(0, 1);
     this.lbl_Grade = this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
-    this.form.get('chk_Start')?.disable();
+     this.form.get('chk_Start')!.disable();
 
 
   }//-----------------------------------------------------------------
@@ -180,7 +184,7 @@ export class GuessTheWordComponent implements OnInit {
 
     this.lbl_end = this.wordInProcessEnglish.substr(this.wordInProcessEnglish.length - 1, 1);
     this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
-    this.form.get('chk_End')?.disable();
+     this.form.get('chk_End')!.disable();
 
   }//-----------------------------------------------------------------
 

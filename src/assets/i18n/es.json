@@ -23,7 +23,7 @@
       "label_length":"longitud",
       "label_start_with":"comienza con",
       "label_ends_with":"termina con",
-      "label_english_word":"Palabra ingles",
+      "label_english_word":"Palabra inglés",
       "label_grade":"Calificación",
       "button_validate":"Validar"
     },
@@ -32,7 +32,7 @@
       "title_pag_game":"Intentando la palabra",
       "label_try_with":"Intenta con",
       "label_already":"Intentos",
-      "label_English_word":"Palabra ingles",
+      "label_English_word":"Palabra inglés",
       "label_grade":"Calificación",
       "button_validate":"Validar"
 
@@ -56,7 +56,7 @@
       "label_Adv":"Adv",
       "label_Verb":"Verb",
       "label_past_tense":"V. Pas",
-      "button_start":"Aquí para empezar !!!"
+      "button_start":"Clic aquí para iniciar !!!"
     },
     "control_list_words":
     {
@@ -65,7 +65,7 @@
     },
     "control_drag_wors":
     {
-      "label_drag_word":"ORDEN CORRECTO DE LAS PALABRAS AQUÍ",
+      "label_drag_word":"Coloque las letras ordenadas aquí",
       "label_drag_Sentence":"ORDEN CORRECTO DE LAS SENTENCIAS AQUÍ",
       "button_validate":"Validar",
       "label_grade":"Calif."
