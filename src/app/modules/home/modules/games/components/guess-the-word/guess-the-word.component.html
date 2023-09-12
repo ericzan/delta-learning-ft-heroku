@@ -71,22 +71,23 @@
           </div>
 
 
-          <div class="grid grid-container  " >
+          <div class="grid grid-container   " >
 
-            <div class="col-1-zan-1" style="text-align:left; "><b><label>{{'configuration_games.view_guess_word.label_english_word' | translate}} </label></b> </div>
-            <div class="col-1-zan-2" style="text-align:center; ">
-              <input pInputText id="txt_EnglishWord" formControlName="txt_EnglishWord" maxlength="30"
-                style="width:90%; text-align:left;" />
-            </div>
-            <div class="col-1-zan-3"  >
-                <p-button type="button" label="{{'configuration_games.view_guess_word.button_validate' | translate}} "
-                          [style]="{ 'width': '80px' }"   (click)="fn_Validate_click()" *ngIf="btn_visible">
-                </p-button>
-            </div>
-            <div class="col-1-zan-4" *ngIf="btn_visible"  >
-                  <b>{{'configuration_games.view_guess_word.label_grade' | translate}} </b>
-            </div>
-            <div class="col-1-zan-5" *ngIf="btn_visible"><label>{{lbl_Grade}} </label></div>
+                <div class="col-1-zan-1" style="text-align:left; "><b><label>{{'configuration_games.view_guess_word.label_english_word' | translate}} </label></b> </div>
+                <div class="col-1-zan-2" style="text-align:center; ">
+                  <input pInputText id="txt_EnglishWord" formControlName="txt_EnglishWord" maxlength="30"
+                    style="width:90%; text-align:left;" />
+                </div>
+                <div class="col-1-zan-3"  >
+                    <p-button type="button" label="{{'configuration_games.view_guess_word.button_validate' | translate}} "
+                              [style]="{ 'width': '80px' }"   (click)="fn_Validate_click()" *ngIf="btn_visible">
+                    </p-button>
+                </div>
+                <div class="col-1-zan-4" *ngIf="btn_visible"  >
+                      <b>{{'configuration_games.view_guess_word.label_grade' | translate}} </b>
+                      &nbsp;  {{lbl_Grade}}
+                </div>
+                <!-- <div class="col-1-zan-5" *ngIf="btn_visible"><label>{{lbl_Grade}} </label></div> -->
 
 
           </div>

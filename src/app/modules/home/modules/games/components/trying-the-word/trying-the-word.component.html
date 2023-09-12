@@ -33,7 +33,7 @@
       <div class="col-3-zan-3"  [style]="{  border: '2px solid blue',  borderRadius: '5px' }">
         <div class="row">
           <div class="col-12" style="text-align:right;">
-            <div class="grid grid-container  ">
+            <div class="grid grid-container ">
 
               <div class="col-5-zan-1" style="text-align:right;   "> <b>  {{'configuration_games.view_trying_word.label_try_with' | translate}}</b></div>
               <div class="col-5-zan-2" style="text-align:center ; padding-left: 10px;">
@@ -46,8 +46,11 @@
                     </p-button>
               </div>
 
-              <div class="col-5-zan-4" style="text-align:right"><label><b>{{'configuration_games.view_trying_word.label_grade' | translate}}</b> </label></div>
-              <div class="col-5-zan-5" style="text-align:left"><label>{{lbl_Grade}} </label></div>
+              <div class="col-5-zan-4" style="text-align:left;">
+                <label><b>{{'configuration_games.view_trying_word.label_grade' | translate}}</b>
+                  &nbsp; {{lbl_Grade}}
+                 </label></div>
+              <!-- <div class="col-5-zan-5" style="text-align:left;padding-left: 10px; ; "><label>{{lbl_Grade}} </label></div> -->
             </div>
           </div>
 
