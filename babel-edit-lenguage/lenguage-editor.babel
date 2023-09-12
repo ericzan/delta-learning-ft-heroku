@@ -19,6 +19,42 @@
 			<package_node>
 				<name>main</name>
 				<children>
+          <folder_node>
+						<name>configuration_trying</name>
+						<children>
+
+
+
+						</children>
+					</folder_node>
+
+
+
+          <folder_node>
+						<name>configuration_Recommended</name>
+						<children>
+							<folder_node>
+								<name>view_Recommended</name>
+									<children>
+										<concept_node>
+											<name>title_pag_game</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+									</children>
+							</folder_node>
+						</children>
+					</folder_node>
 
 					<folder_node>
 						<name>configuration_games</name>
@@ -98,12 +134,282 @@
 							</folder_node>
 
               <folder_node>
+								<name>view_guess_word</name>
+									<children>
+										<concept_node>
+											<name>title_pag_game</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                    <concept_node>
+											<name>label_clues</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                    <concept_node>
+											<name>label_length</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                    <concept_node>
+											<name>label_start_with</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                    <concept_node>
+											<name>label_ends_with</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+
+
+                    <concept_node>
+											<name>label_english_word</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                     <concept_node>
+											<name>label_grade</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                     <concept_node>
+											<name>button_validate</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+
+									</children>
+							</folder_node>
+
+              <folder_node>
+								<name>view_trying_word</name>
+									<children>
+										<concept_node>
+											<name>title_pag_game</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                    <concept_node>
+											<name>label_try_with</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+
+
+                    <concept_node>
+											<name>label_already</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                     <concept_node>
+											<name>label_English_word</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                     <concept_node>
+											<name>label_grade</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                     <concept_node>
+											<name>button_validate</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+
+
+									</children>
+							</folder_node>
+
+
+              <folder_node>
 								<name>puzzle_letters</name>
 									<children>
 
 
 										<concept_node>
 											<name>title_pag_puzzle_letters</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+
+
+									</children>
+							</folder_node>
+
+               <folder_node>
+								<name>puzzle_words</name>
+									<children>
+
+
+										<concept_node>
+											<name>title_pag_puzzle_words</name>
 											<description/>
 											<comment/>
 											<translations>

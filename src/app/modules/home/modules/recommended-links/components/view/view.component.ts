@@ -6,7 +6,7 @@ import { FieldValidateService } from '@core/services/field-validate.service';
 import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.service';
 import { KeyStorage } from '@shared/services/key-storage.enum';
 import { LocalStorageService } from '@shared/services/local-storage.service';
-
+// import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -28,7 +28,9 @@ export class ViewComponent
     protected fieldValidate: FieldValidateService,
     private router: Router,
     private route: ActivatedRoute,
-    private storage: LocalStorageService) { }
+    private storage: LocalStorageService,
+    // private translate: TranslateService
+    ) { }
 
 
   ngOnInit(): void {

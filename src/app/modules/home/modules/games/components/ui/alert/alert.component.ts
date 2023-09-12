@@ -24,8 +24,6 @@ export class AlertComponent implements OnInit {
   @Input()
   public inputo_MsjParams: Array<{ TypeMessge: string, ShowAlert: boolean, Messge: string, Comment: string }> = [];
 
-  @Input()
-  public input_View: String = "";
 
   constructor(
     private wathSteps: WathStepsLearningService,
@@ -65,11 +63,11 @@ export class AlertComponent implements OnInit {
 
   fn_Router() {
 
-    console.log("--- viene de la pagina : " + this.input_View)
+    console.log("--- viene de la pagina : " )
     window.location.reload();
 
 
-    // this.router.navigate(['../home/main/games/'+ this.input_View]);
+
 
   }
 

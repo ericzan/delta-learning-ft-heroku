@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+
+import { Router } from '@angular/router';
+
+import { FormBuilder ,Validators} from '@angular/forms';
 import { FieldValidateService } from '@core/services/field-validate.service';
 import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.service';
 import { DataViewModule, DataViewLayoutOptions } from 'primeng/dataview';
 import { catchError, of } from 'rxjs';
-import { Router } from '@angular/router';
+
 import { WathStepsLearningService } from '../../../steps-learning/services/wath-steps-learning.service';
 import { WatchService } from '../../../steps-learning/verifying-ce/services/watch.service';
 
@@ -27,7 +30,8 @@ export class RecommendedLinksComponent implements OnInit{
     protected fieldValidate: FieldValidateService,
     private router: Router,
     private wathSteps: WathStepsLearningService,
-    private watchService: WatchService) { }
+    private watchService: WatchService,
+    ) { }
 
 
   ngOnInit(): void {

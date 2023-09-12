@@ -6,7 +6,7 @@
 
 
   <div>
-    <h2 style="font-size: 1.5rem; font-weight: 400;">GUESS THE WORD</h2>
+    <h2 style="font-size: 1.5rem; font-weight: 400;">{{'configuration_games.view_guess_word.title_pag_game' | translate}} </h2>
     <!-- <hr> -->
   </div>
 
@@ -43,17 +43,17 @@
           <div class="grid grid-container  col-12 " style="width: 100%;">
             <!-- <div class="grid grid-container "  >  </div> -->
 
-            <div class="col-2-zan-1  " style="text-align:right; "><b>Clues:</b> </div>
+            <div class="col-2-zan-1  " style="text-align:right; "><b>{{'configuration_games.view_guess_word.label_clues' | translate}}</b> </div>
             <div class="col-2-zan-2   " style="text-align:center">
-              <p-checkbox [binary]="true" id="chk_length" formControlName="chk_length" label="length"
+              <p-checkbox [binary]="true" id="chk_length" formControlName="chk_length" label="{{'configuration_games.view_guess_word.label_length' | translate}}"
                 (ngModelChange)="fn_chk_length_cambia()"> </p-checkbox>
             </div>
             <div class="col-2-zan-3" style="text-align:center">
-              <p-checkbox [binary]="true" id="chk_Start" formControlName="chk_Start" label="starts with "
+              <p-checkbox [binary]="true" id="chk_Start" formControlName="chk_Start" label="{{'configuration_games.view_guess_word.label_start_with' | translate}} "
                 (ngModelChange)="fn_chk_start_cambia()"> </p-checkbox>
             </div>
             <div class="col-2-zan-4" style="text-align:center">
-              <p-checkbox [binary]="true" id="chk_End" formControlName="chk_End" label="ends with "
+              <p-checkbox [binary]="true" id="chk_End" formControlName="chk_End" label="{{'configuration_games.view_guess_word.label_ends_with' | translate}} "
                 (ngModelChange)="fn_chk_end_cambia()"> </p-checkbox>
             </div>
 
@@ -70,24 +70,29 @@
 
           </div>
 
-          <!-- <div class="col" style="text-align:left;  vertical-align: middle; "   > -->
-          <div class="grid grid-container " style="text-align:left;">
 
-            <div class="col-1-zan-1" style="text-align:left; "><b><label>English Word:</label></b> </div>
+          <div class="grid grid-container  " >
+
+            <div class="col-1-zan-1" style="text-align:left; "><b><label>{{'configuration_games.view_guess_word.label_english_word' | translate}} </label></b> </div>
             <div class="col-1-zan-2" style="text-align:center; ">
               <input pInputText id="txt_EnglishWord" formControlName="txt_EnglishWord" maxlength="30"
                 style="width:90%; text-align:left;" />
             </div>
-            <div class="col-1-zan-3"> <p-button type="button" label="Validate" [style]="{ 'width': '80%' }"
-                (click)="fn_Validate_click()" *ngIf="btn_visible"> </p-button></div>
-            <div class="col-1-zan-4" *ngIf="btn_visible"><b>Grade :</b> </div>
+            <div class="col-1-zan-3"  >
+                <p-button type="button" label="{{'configuration_games.view_guess_word.button_validate' | translate}} "
+                          [style]="{ 'width': '80px' }"   (click)="fn_Validate_click()" *ngIf="btn_visible">
+                </p-button>
+            </div>
+            <div class="col-1-zan-4" *ngIf="btn_visible"  >
+                  <b>{{'configuration_games.view_guess_word.label_grade' | translate}} </b>
+            </div>
             <div class="col-1-zan-5" *ngIf="btn_visible"><label>{{lbl_Grade}} </label></div>
 
 
           </div>
 
 
-          <zan-games-alert [inputo_MsjParams]="msjParamsAlert" [input_View]="ViewOpen"></zan-games-alert>
+          <zan-games-alert [inputo_MsjParams]="msjParamsAlert"  ></zan-games-alert>
 
         </div>
 

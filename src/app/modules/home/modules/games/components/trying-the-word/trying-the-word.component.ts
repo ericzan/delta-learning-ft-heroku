@@ -189,7 +189,7 @@ export class TryingTheWordComponent implements OnInit {
         this.openSpinner = false;
 
 
-        this.fn_ShowMessage("Exito", true, "That is great.... Good Job!!!", "", true);
+        this.fn_ShowMessage("Exito", true, "That is great.... Good Job!!!", "", false);
 
         if (this.list_Words_API.length > 0) {
           console.log(_userId);
@@ -286,7 +286,7 @@ let _mssge  ="Sorry, You are trying the word --> :  " + this.pwordInProcessEngli
     }
 
 
-    this.doing_beep(200, 800);
+    // this.doing_beep(200, 800);
 
     this.form.get('txt_Try_With')?.reset();
 
@@ -307,7 +307,7 @@ let _mssge  ="Sorry, You are trying the word --> :  " + this.pwordInProcessEngli
     this.getWordsInProcess();
 
     if (this.wordInProcessindex < this.totalWords) {
-      this.fn_ShowMessage("Success", true, " Yes, it is right!!!!  ", "", true);
+      this.fn_ShowMessage("Success", true, " Yes, it is right!!!!  ", "", false);
     }
 
 

@@ -1,4 +1,12 @@
 {
+
+  "configuration_Recommended":
+  {
+    "view_Recommended":
+    {
+      "title_pag_game":"Recommended Links"
+    }
+  },
   "configuration_games":
   {
     "view_game":
@@ -8,9 +16,35 @@
       "label_select":"Select",
       "txtt_butoon_create":"Create"
     },
+    "view_guess_word":
+    {
+      "title_pag_game":"Guess the word",
+      "label_clues":"Clues",
+      "label_length":"Length",
+      "label_start_with":"start with",
+      "label_ends_with":"ends with",
+      "label_english_word":"English Word",
+      "label_grade":"Grade",
+      "button_validate":"Validate"
+
+    },
+    "view_trying_word":
+    {
+      "title_pag_game":"TRYING THE WORD",
+      "label_try_with":"Try with ",
+      "label_already":"Already tried",
+      "label_English_word":"English word",
+      "label_grade":"Grade",
+      "button_validate":"validate"
+    },
     "puzzle_letters":
     {
-      "title_pag_puzzle_letters":"PUZZLE LETTERS"
+      "title_pag_puzzle_letters":"LETTERS PUZZLE"
+
+    },
+    "puzzle_words":
+    {
+      "title_pag_puzzle_words":"WORDS PUZZLE "
 
     },
     "control_how_many":

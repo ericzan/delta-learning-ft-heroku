@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FieldValidateService } from '@core/services/field-validate.service';
 import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.service';
 import { catchError, of } from 'rxjs';
 import { Translatei18Service } from '@core/services/translatei18.service';
+
 
 @Component({
   selector: 'app-supportoth',
@@ -99,6 +100,8 @@ if(this.form.invalid){
 
 userData ()
 {
+
+
 
 
 this.openSpinner = true;

@@ -1,22 +1,23 @@
-import { DialogModule } from 'primeng/dialog';
-import { NgModule } from '@angular/core';
 
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
+import { LikeRoutes } from './link.routing';
 import { DataViewLayoutOptions, DataViewModule } from 'primeng/dataview';
 import { ViewComponent } from './components/view/view.component';
-import { LikeRoutes } from './link.routing';
 import { RecommendedLinksComponent } from './components/list-links/recommended-links.component';
 import { SpinnerComponent } from './components/ui/spinner/spinner.component';
 import { AlertComponent } from './components/ui/alert/alert.component';
-import { SharedModule } from 'primeng/api';
+import { SharedModule } from '@shared/shared.module';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CardModule } from 'primeng/card';
 import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
 import { SelectButtonModule } from 'primeng/selectbutton';
-import { DragDropModule } from '@angular/cdk/drag-drop';
-import { CommonModule } from '@angular/common';
-
+import { DialogModule } from 'primeng/dialog';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -39,7 +40,9 @@ import { CommonModule } from '@angular/common';
     TableModule,
     SelectButtonModule,
     DragDropModule ,
-    DialogModule
+    DialogModule,
+    SharedModule
+
   ],
   exports: [],
 

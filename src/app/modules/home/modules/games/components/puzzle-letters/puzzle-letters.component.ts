@@ -186,7 +186,7 @@ export class PuzzleLettersComponent implements OnInit {
 
       this.openSpinner = false;
 
-      this.fn_ShowMessage("Exito", true, "That is great.... Good Job!!!", "", true);
+      this.fn_ShowMessage("Exito", true, "That is great.... Good Job!!!", "", false);
 
       if (this.list_Words_API.length > 0) {
         console.log(_userId);
@@ -300,7 +300,7 @@ export class PuzzleLettersComponent implements OnInit {
 
 
     if (this.wordInProcessIndex < this.totalWords) {
-      this.fn_ShowMessage("Success", true, " Yes, it is right!!!!  ", "", true);
+      this.fn_ShowMessage("Success", true, " Yes, it is right!!!!  ", "", false);
     }
 
 

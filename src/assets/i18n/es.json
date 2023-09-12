@@ -1,4 +1,12 @@
 {
+
+  "configuration_Recommended":
+  {
+    "view_Recommended":
+    {
+      "title_pag_game":"Sitios recomendados"
+    }
+  },
   "configuration_games":
   {
     "view_game":
@@ -8,9 +16,36 @@
       "label_select":"Seleccionar",
       "txtt_butoon_create":"Crear"
     },
+    "view_guess_word":
+    {
+      "title_pag_game":"Adivina la palabra",
+      "label_clues":"Pistas",
+      "label_length":"longitud",
+      "label_start_with":"comienza con",
+      "label_ends_with":"termina con",
+      "label_english_word":"Palabra ingles",
+      "label_grade":"Calificación",
+      "button_validate":"Validar"
+    },
+    "view_trying_word":
+    {
+      "title_pag_game":"Intentando la palabra",
+      "label_try_with":"Intenta con",
+      "label_already":"Intentos",
+      "label_English_word":"Palabra ingles",
+      "label_grade":"Calificación",
+      "button_validate":"Validar"
+
+
+    },
     "puzzle_letters":
     {
       "title_pag_puzzle_letters":"ROMPECABEZAS DE LETRAS"
+
+    },
+    "puzzle_words":
+    {
+      "title_pag_puzzle_words":"ROMPECABEZAS DE PALABRAS"
 
     },
     "control_how_many":

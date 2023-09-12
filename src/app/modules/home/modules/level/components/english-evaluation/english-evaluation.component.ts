@@ -1,10 +1,13 @@
-import { HowManyWordsComponent } from './../../../games/components/ui/how-many-words/how-many-words.component';
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.service';
-import { catchError, of } from 'rxjs';
-import { LevelService } from '../../level.service';
 import { Router } from '@angular/router';
+import { catchError, of } from 'rxjs';
+
+import { HowManyWordsComponent } from './../../../games/components/ui/how-many-words/how-many-words.component';
+import { LevelService } from '../../level.service';
+
 
 @Component({
   selector: 'app-english-evaluation',
@@ -26,8 +29,9 @@ export class EnglishEvaluationComponent implements OnInit {
 verAyuda = false;
 
   //*********** constructor *********** */
-  constructor(private _LevelService: LevelService, private uiOperGrService: UiOperGrService,
-    private router: Router) { }
+  constructor(private _LevelService: LevelService,
+              private uiOperGrService: UiOperGrService,
+              private router: Router) { }
 
   ngOnInit(): void {
 

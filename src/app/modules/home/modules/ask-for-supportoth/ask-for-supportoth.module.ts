@@ -10,6 +10,7 @@ import { AlertComponent } from './components/ui/alert/alert.component';
 import { SpinnerComponent } from './components/ui/spinner/spinner.component';
 import { DialogModule } from 'primeng/dialog';
 import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from '@shared/shared.module';
 
 
 
@@ -28,7 +29,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     ButtonModule,
     DialogModule,
-    TranslateModule
+    SharedModule
   ]
 })
 export class AskForSupportothModule {

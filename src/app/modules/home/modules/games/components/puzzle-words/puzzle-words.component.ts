@@ -196,7 +196,7 @@ export class PuzzleWordsComponent implements OnInit {
 
       this.openSpinner = false;
 
-      this.fn_ShowMessage("Exito", true, "That is great.... Good Job!!!", "", true);
+      this.fn_ShowMessage("Exito", true, "That is great.... Good Job!!!", "", false);
 
 
 
@@ -250,13 +250,13 @@ export class PuzzleWordsComponent implements OnInit {
       this.totalGradeAcum = this.totalGradeAcum + this.totalGrade;
       this.fn_Averege();
 
-      this.fn_ShowMessage("Success", true, " Yes, it is right!!!!  ", "", true);
+      this.fn_ShowMessage("Success", true, " Yes, it is right!!!!  ", "", false);
 
       this.fn_StarGame();
     }
     else
     {
-      this.fn_ShowMessage("Alert", true, " Sorry, try again!!!!: ", "", true);
+      // this.fn_ShowMessage("Alert", true, " Sorry, try again!!!!: ", "", true);
 
       this.totalGrade = this.totalGrade - 10;
       if (this.totalGrade < 0) { this.totalGrade = 0; }

@@ -24,7 +24,7 @@ export class ViewComponent
   form!: FormGroup;
   resp: any[] = [];
   userId: string = '';
-
+  selectedLang="";
 
   constructor(private fb: FormBuilder,
     private uiOperGrService: UiOperGrService,
@@ -36,19 +36,43 @@ export class ViewComponent
 
   ngOnInit(): void {
     this.userId = String(this.storage.load(KeyStorage.user));
-    this.getCategories();
+    this.getConfig();
     this.form = this.fb.group({
       cboGame: [, [Validators.required]],
     })
   }//-----------------------------------------------------------------
 
-  getCategories() {
+  getConfig() {
+    this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
 
-    this.listCategories.push(
-      { label: "Puzzle Letters", value: 1 },
-      { label: "Guess The Word", value: 2 },
-      { label: "Trying The Word", value: 3 },
-      { label: "Puzzle Words", value: 4 });
+      console.log("----- response API ------------",resp);
+      this.selectedLang  = resp.selected_lang;
+      this.getCategories(this.selectedLang);
+
+    });
+  }
+
+  getCategories(lang:string) {
+
+    if (lang=="en")
+    {
+      this.listCategories.push(
+        { label: "Letters puzzle", value: 1 },
+        { label: "Guess The Word", value: 2 },
+        { label: "Trying The Word", value: 3 },
+        { label: "Words puzzle", value: 4 });
+
+    }
+    else
+    {
+      this.listCategories.push(
+        { label: "Rompecabezas de letras", value: 1 },
+        { label: "Adivina la palabra", value: 2 },
+        { label: "Intentando la palabra", value: 3 },
+        { label: "Rompecabezas de palabras", value: 4 });
+
+    }
+
   }//-----------------------------------------------------------------
 
   submit() {

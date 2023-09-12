@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
-// import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CardModule } from 'primeng/card';
 import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
-
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 import { GameRoutes } from './game.routing';
 import { ViewComponent } from './components/view/view.component';
@@ -20,10 +21,8 @@ import { ListWordsComponent } from './components/ui/list-words/list-words.compon
 import { HowManyWordsComponent } from './components/ui/how-many-words/how-many-words.component';
 import { PuzzleWordsComponent } from './components/puzzle-words/puzzle-words.component';
 import { HowManyWordsPuzzleComponent } from './components/ui/how-many-words-puzzle/how-many-words-puzzle.component';
-import { SelectButtonModule } from 'primeng/selectbutton';
 import { ButtonSelectComponent } from './components/ui/button-select/button-select.component';
 import { DropListWordsComponent } from './components/ui/drop-list-words/drop-list-words.component';
-import { DragDropModule } from '@angular/cdk/drag-drop';
 import { PuzzleLettersComponent } from './components/puzzle-letters/puzzle-letters.component';
 import { DragWordsComponent } from './components/ui/drag-words/drag-words.component';
 
