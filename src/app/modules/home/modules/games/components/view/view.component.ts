@@ -58,8 +58,9 @@ export class ViewComponent
     {
       this.listCategories.push(
         { label: "Letters puzzle", value: 1 },
-        { label: "Guess The Word", value: 2 },
-        { label: "Trying The Word", value: 3 },
+
+        { label: "Trying The Word", value: 2 },
+        { label: "Guess The Word", value: 3 },
         { label: "Words puzzle", value: 4 });
 
     }
@@ -67,8 +68,9 @@ export class ViewComponent
     {
       this.listCategories.push(
         { label: "Rompecabezas de letras", value: 1 },
-        { label: "Adivina la palabra", value: 2 },
-        { label: "Intentando la palabra", value: 3 },
+        { label: "Intentando la palabra", value: 2 },
+        { label: "Adivina la palabra", value: 3 },
+
         { label: "Rompecabezas de palabras", value: 4 });
 
     }
@@ -94,12 +96,12 @@ export class ViewComponent
         break;
       }
       case 2: {
+        this.router.navigate(['trying'], { relativeTo: this.route });
 
-        this.router.navigate(['guess'], { relativeTo: this.route });
         break;
       }
       case 3: {
-        this.router.navigate(['trying'], { relativeTo: this.route });
+        this.router.navigate(['guess'], { relativeTo: this.route });
         break;
       }
       case 4: {

@@ -1,8 +1,16 @@
 <div class="row">
-  <div class="col" style="text-align:right; "  >
+  <div class="grid grid-container  container-right   "  style="width: 100%;"  >
 
-        <label   ><b style="font-size:25px;"> {{'configuration_games.control_list_words.label_Average' | translate}}  </b> </label>
-        <label class="p-2" style="font-size:25px;">{{Input_Averge}}</label>
+
+        <div class="col-12 col-1-zan-1  "   > </div>
+
+        <div class="col-12 col-1-zan-2  " style="background:rgb(59, 130, 246);color:white;   border-radius: 15px; text-align: center;">
+          <label     >
+            <b style="font-size:25px;"> {{'configuration_games.control_list_words.label_Average' | translate}}  &nbsp;    {{Input_Averge}}  </b>
+          </label>
+        </div>
+
+
 
 
   </div>
@@ -11,9 +19,10 @@
   </div>
 
   <div class="col" *ngFor="let item of Input_List_Words_Process"  >
-
     <label *ngIf="item.value == Input_List_Words_Process.length" style="background: #FFB84D;" > {{ item.value }} - {{ item.espaniol }}</label>
     <label *ngIf="item.value != Input_List_Words_Process.length"  > {{ item.value }} - {{ item.espaniol }}</label>
   </div>
+
+
 
 </div>
