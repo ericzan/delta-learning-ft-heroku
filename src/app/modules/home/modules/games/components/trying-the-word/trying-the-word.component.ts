@@ -47,7 +47,7 @@ export class TryingTheWordComponent implements OnInit {
 
 
   wordInProcessindex: number = 0;
-  pwordInProcessEnglish: string = "";
+  wordInProcessEnglish: string = "";
 
   btn_visible: boolean = false;
   totalWords: number = 0;
@@ -63,7 +63,7 @@ export class TryingTheWordComponent implements OnInit {
   viewOpen: string = "trying";
 
   public msjParamsAlert: Array<{ TypeMessge: string, ShowAlert: boolean, Messge: string, Comment: string }> = [];
-
+  selectedLang="";
 
   constructor(private fb: FormBuilder,
     private uiOperGrService: UiOperGrService,
@@ -84,10 +84,20 @@ export class TryingTheWordComponent implements OnInit {
 
     })
 
+
+    this.getConfig();
     this.fn_ShowMessage("", false, "", "", false);
 
   }//------------------------------------------------------------------
 
+  getConfig() {
+    this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
+
+      console.log("----- response API ------------",resp);
+      this.selectedLang  = resp.selected_lang;
+
+    });
+  } //------------------------------------------------
 
 
   get_Words_list() {
@@ -118,7 +128,7 @@ export class TryingTheWordComponent implements OnInit {
       this.list_Words_process.push(this.list_WordsviewOpen[this.wordInProcessindex]);
 
 
-      this.pwordInProcessEnglish = this.list_WordsviewOpen[this.wordInProcessindex].ingles;
+      this.wordInProcessEnglish = this.list_WordsviewOpen[this.wordInProcessindex].ingles;
 
       this.fn_Inicializa_Palabra(_Palabra_ingles);
 
@@ -189,7 +199,7 @@ export class TryingTheWordComponent implements OnInit {
         this.openSpinner = false;
 
 
-        this.fn_ShowMessage("Exito", true, "That is great.... Good Job!!!", "", false);
+        this.fn_ShowMessage("Exito", true, this.fn_MssageTraslate("Exito-01"), "", false);
 
         if (this.list_Words_API.length > 0) {
           console.log(_userId);
@@ -207,7 +217,7 @@ export class TryingTheWordComponent implements OnInit {
         let _msj = _error.error.detail.toString();
         this.openSpinner = false;
 
-        this.fn_ShowMessage("Error", true, " communication error http://  ", _msj, false);
+        this.fn_ShowMessage("Error", true,  this.fn_MssageTraslate ("Error-01"), _msj, false);
 
         return;
 
@@ -226,7 +236,7 @@ export class TryingTheWordComponent implements OnInit {
 
     console.log('------ erro api ----');
 
-    this.fn_ShowMessage("Error", true, " Error", " contact admin", false);
+    this.fn_ShowMessage("Error", true,  this.fn_MssageTraslate ("Error-02"), " contact admin", false);
     return;
 
   }//----------------------------------------------
@@ -273,14 +283,14 @@ export class TryingTheWordComponent implements OnInit {
 
   fn_Validate_click() {
 
-let _mssge  ="Sorry, You are trying the word --> :  " + this.pwordInProcessEnglish.trim();
+
 
     if (!this.fn_BuscaLetras(this.form.value.txt_Try_With.toString().trim().toLowerCase()))
     {
       this.doing_beep(400, 350);
       this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
       this.form.get('txt_Try_With')?.reset();
-      if (this.lbl_Grade <= 0 ) {this.fn_ShowMessage("Alert", true, _mssge, "", true);}
+      if (this.lbl_Grade <= 0 ) {this.fn_ShowMessage("Alert", true, this.fn_MssageTraslate("Alert-01"), "", true);}
 
       return;
     }
@@ -307,7 +317,7 @@ let _mssge  ="Sorry, You are trying the word --> :  " + this.pwordInProcessEngli
     this.getWordsInProcess();
 
     if (this.wordInProcessindex < this.totalWords) {
-      this.fn_ShowMessage("Success", true, " Yes, it is right!!!!  ", "", false);
+      this.fn_ShowMessage("Success", true,  this.fn_MssageTraslate("Success-01")  , "", false);
     }
 
 
@@ -412,6 +422,48 @@ let _mssge  ="Sorry, You are trying the word --> :  " + this.pwordInProcessEngli
 
     this.msjParamsAlert = [{ TypeMessge: _TypeMessge, ShowAlert: _ShowAlert, Messge: _Messge, Comment: _Comment }];
   }//------------------------------------------------------------
+
+
+  fn_MssageTraslate(_opcMessage: string):string {
+    let _return ="";
+
+
+
+
+      if (this.selectedLang=="en")
+      {
+            switch(_opcMessage)
+            {
+                  case "": { break;  }
+                  case "Success-01":  { _return = " Yes, it is right!!!!  ";  break;   }
+                  case "Alert-01":    { _return = "Sorry, You are trying the word --> :  " + this.wordInProcessEnglish.trim().toLowerCase();  break;   }
+                  case "Alert-02":    { _return = "Sorry, try again!!!!:"; break; }
+                  case "Exito-01":    { _return = "That is great.... Good Job!!!"; break; }
+                  case "Error-01":    { _return = "Tcommunication error http:// "; break; }
+                  case "Error-02":    { _return = " Error"; break; }
+                  default: { break; }
+            }
+
+
+      }
+      else
+      {
+        switch(_opcMessage)
+        {
+              case "": { break;  }
+              case "Success-01":  { _return = "¡¡¡¡Si, es correcto!!!!";  break;   }
+              case "Alert-01":    { _return = "Lo siento, estás intentando la palabra --> :  " + this.wordInProcessEnglish.trim().toLowerCase();  break;   }
+              case "Alert-02":    { _return = "¡¡¡¡Perdón intente de nuevo!!!! "; break; }
+              case "Exito-01":    { _return = "Eso es genial... ¡¡¡Buen trabajo!!!"; break; }
+              case "Error-01":    { _return = "Error de comunicación http://"; break; }
+              case "Error-02":    { _return = " Error"; break; }
+              default: { break; }
+        }
+      }
+
+      return _return;
+
+    }//---------------------------------------------------------------------------------------------------
 
 
 }//++++++++++++++++++++++  principal +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

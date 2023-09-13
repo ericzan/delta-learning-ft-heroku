@@ -44,14 +44,14 @@
   [resizable]="false">
   <div style="text-align: center;">
     <div>
-      <h3 style="font-size: 1.5rem; color: rgb(40, 36, 238);">Confirm : </h3>
+      <h3 style="font-size: 1.5rem; color: rgb(40, 36, 238);">{{'configuration_Level_alert.view_level.label_confirm' | translate}} </h3>
     </div>
   </div>
   <div class="grid grid-container col-12   ">
     <div class="col-6">
-        <p-button type="button" label="Back" [style]="{'width': '80%'}" (onClick)="Hidden_Cnf()"> </p-button>
+        <p-button type="button" label="{{'configuration_Level_alert.view_level.label_back' | translate}}" [style]="{'width': '80%'}" (onClick)="Hidden_Cnf()"> </p-button>
     </div>
-    <div class="col-6"><p-button type="Stop" label="Stop" [style]="{'width': '80%'}" (onClick)="fn_Stop()"> </p-button>
+    <div class="col-6"><p-button type="button" label="{{'configuration_Level_alert.view_level.label_stop' | translate}}" [style]="{'width': '80%'}" (onClick)="fn_Stop()"> </p-button>
     </div>
   </div>
 </p-dialog>

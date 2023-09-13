@@ -1,5 +1,13 @@
 {
-
+  "configuration_Level_alert":
+  {
+    "view_level":
+    {
+      "label_confirm":"Confirm ",
+      "label_back":"Back ",
+      "label_stop":"Stop "
+    }
+  },
   "configuration_Recommended":
   {
     "view_Recommended":

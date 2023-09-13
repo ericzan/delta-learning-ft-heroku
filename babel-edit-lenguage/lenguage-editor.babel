@@ -19,10 +19,65 @@
 			<package_node>
 				<name>main</name>
 				<children>
-          <folder_node>
-						<name>configuration_trying</name>
-						<children>
 
+
+          <folder_node>
+						<name>configuration_Level_alert</name>
+						<children>
+							<folder_node>
+								<name>view_level</name>
+									<children>
+
+										<concept_node>
+											<name>label_confirm</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                    <concept_node>
+											<name>label_back</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                     <concept_node>
+											<name>label_stop</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+									</children>
+							</folder_node>
 
 
 						</children>

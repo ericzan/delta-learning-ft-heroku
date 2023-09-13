@@ -31,7 +31,7 @@ export class HowManyWordsComponent implements OnInit {
   // list_Words_View: Array<{ espaniol: string, value: number, ingles: string }> = [];
   // list_Words_process: Array<{ espaniol: string, value: number, ingles: string }> = [];
   li_total_Palabras_API: number = 0;
-
+  selectedLang="";
   constructor(private fb: FormBuilder,
     private uiOperGrService: UiOperGrService,) { }
 
@@ -47,21 +47,27 @@ export class HowManyWordsComponent implements OnInit {
       chk_PastTense: new FormControl({ value: false, disabled: false }),
     })
 
-
+    this.getConfig();
 
     this.fn_ShowMessage("", false, "", "", false);
 
-
-
   } //---------------------------------------------------------------
 
+  getConfig() {
+    this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
+
+      console.log("----- response API ------------",resp);
+      this.selectedLang  = resp.selected_lang;
+
+    });
+  } //------------------------------------------------
 
   fn_chk_verb_cambia() {
 
 
 
     if (this.formHowMatyWords.value.chk_verb) { this.formHowMatyWords.get('chk_PastTense')?.reset(); }
-  }
+  }//-----------------------------------
 
   fn_chk_PastTense_cambia() {
 
@@ -78,7 +84,7 @@ export class HowManyWordsComponent implements OnInit {
     //------- valida total de palabras
     if (this.totalWords === 0) {
 
-      this.fn_ShowMessage("Alert", true, " Invalid  ==>  (HOW MANY WORDS TO TRY)", "", false);
+      this.fn_ShowMessage("Alert", true,this.fn_MssageTraslate("Alert-01")   , "", false);
       return;
     }
 
@@ -91,7 +97,7 @@ export class HowManyWordsComponent implements OnInit {
       !this.formHowMatyWords.value.chk_verb &&
       !this.formHowMatyWords.value.chk_PastTense) {
 
-      this.fn_ShowMessage("Alert", true, " Invalid  ==>  (Kind of word ) ", "", false);
+      this.fn_ShowMessage("Alert", true,this.fn_MssageTraslate("Alert-02")  , "", false);
       return;
     }
 
@@ -189,7 +195,7 @@ export class HowManyWordsComponent implements OnInit {
 
 
         this.openSpinner = false;
-        this.fn_ShowMessage("Error", true, "Communication error http:// ", _msj, false);
+        this.fn_ShowMessage("Error", true,this.fn_MssageTraslate("Error-01")  , _msj, false);
         return;
 
       }
@@ -265,7 +271,7 @@ export class HowManyWordsComponent implements OnInit {
 
     console.log('------ erro api ----');
 
-    this.fn_ShowMessage("Error", true, " Error", " You don't have words archived!!!!", false);
+    this.fn_ShowMessage("Error", true, this.fn_MssageTraslate("Error-03") ,""  , false);
     return;
 
 
@@ -320,6 +326,44 @@ export class HowManyWordsComponent implements OnInit {
 
   }
 
+  fn_MssageTraslate(_opcMessage: string):string {
+    let _return ="";
 
+
+      if (this.selectedLang=="en")
+      {
+            switch(_opcMessage)
+            {
+                  case "": { break;  }
+                  case "Success-01":  { _return = " Yes, it is right!!!!  ";  break;   }
+                  case "Alert-01":    { _return = " Invalid  ==>  (HOW MANY WORDS TO TRY)" ;  break;   }
+                  case "Alert-02":    { _return = " Invalid  ==>  (Kind of word ) "; break; }
+                  case "Exito-01":    { _return = "That is great.... Good Job!!!"; break; }
+                  case "Error-01":    { _return = "Tcommunication error http:// "; break; }
+                  case "Error-02":    { _return = " Error"; break; }
+                  case "Error-03":    { _return = " You don't have words archived!!!!"; break; }
+                  default: { break; }
+            }
+
+      }
+      else
+      {
+        switch(_opcMessage)
+        {
+              case "": { break;  }
+              case "Success-01":  { _return = "¡¡¡¡Si, es correcto!!!!";  break;   }
+              case "Alert-01":    { _return = "Inválida ==> (CUANTAS PALABRAS PARA INTENTAR)" ;  break;   }
+              case "Alert-02":    { _return = "Inválida ==> (tipo de palabra)"; break; }
+              case "Exito-01":    { _return = "Eso es genial... ¡¡¡Buen trabajo!!!"; break; }
+              case "Error-01":    { _return = "Error de comunicación http://"; break; }
+              case "Error-02":    { _return = " Error"; break; }
+              case "Error-03":    { _return = " No tienes palabras Seleccionadas !!!!"; break; }
+              default: { break; }
+        }
+      }
+
+      return _return;
+
+    }//---------------------------------------------------------------------------------------------------
 
 }//------------------------------ principal ---------------------
