@@ -16,8 +16,8 @@
 
           </div>
 
-          <div cdkDrag   *ngFor="let item of list_DataOutput"   style=" padding:5px  ; "   >
-            <p-button     type="button"   label={{item}}    [style]="{    'background-color':'' }"  >   </p-button>
+          <div cdkDrag   *ngFor="let item of list_DataOutput; let i = index "   style=" padding:5px  ; "   >
+            <p-button     type="button"   label={{item}}  (onClick)="onClickButton_02(i,item)"    [style]="{    'background-color':'' }"  >   </p-button>
           </div>
 
       </div>
@@ -32,8 +32,8 @@
           [cdkDropListConnectedTo]="[list_2]"
           (cdkDropListDropped)="drop($event)"   >
 
-          <div cdkDrag *ngFor="let item of Input_Datalist"  style=" padding:5px ; "   >
-            <p-button     type="button"   label={{item}}    [style]="{    'background-color':'' }"  >   </p-button>
+          <div cdkDrag *ngFor="let item of Input_Datalist ; let i = index "  style=" padding:5px ; "   >
+            <p-button     type="button"   label={{item}} (onClick)="onClickButton_01(i,item)"   [style]="{    'background-color':'' }"  >   </p-button>
           </div>
 
       </div>
