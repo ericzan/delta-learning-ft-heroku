@@ -158,50 +158,50 @@ export class HowManyWordsPuzzleComponent implements OnInit {
       "avg": 0,
       "setlevel": false,
     }).subscribe((resp: any) => {
-      console.log('- ---- respondio busqueda api------');
-      console.log(resp);
+                                  console.log('- ---- respondio busqueda api------');
+                                  console.log(resp);
 
 
-      //--hace el mapeo de los datos, pra emitirlos -------
-      try { this.fn_wordsTouserItem(resp, _uLevel); }
-      catch (e: any) {
-        this.openSpinner = false;
-        _msj = ' Error http://';
-        this.fn_ShowMessage('Error', true, this.fn_MssageTraslate("Error-01"), _msj, false);
-        return;
-      }
-      finally { }
-
-
-
+                                  //--hace el mapeo de los datos, pra emitirlos -------
+                                  try { this.fn_wordsTouserItem(resp, _uLevel); }
+                                  catch (e: any) {
+                                            this.openSpinner = false;
+                                            _msj = ' Error http://';
+                                            this.fn_ShowMessage('Error', true, this.fn_MssageTraslate("Error-01"), _msj, false);
+                                            return;
+                                  }
+                                  finally { }
 
 
 
-      console.log('----- salio del map----');
-
-      this.openSpinner = false;
-
-      if (this.responseListData.length > 0) {
-
-
-        this.btn_start_visible = false;
-        this.disabled_button = true;
-
-        this.formHowMatySentences.get('txt_how')?.setValue(this.responseListData[0].sentences.length.toString());
 
 
 
-        this.fn_ModControles_B_1('disable');
+                                  console.log('----- salio del map----');
 
-      }
-      else { this.fn_erroAPI(); }
+                                  this.openSpinner = false;
 
-
-      //---- emite la informacion al apdre
-      this.Output_list_Words_API_2.emit(this.responseListData);
+                                  if (this.responseListData.length > 0) {
 
 
-    }
+                                    this.btn_start_visible = false;
+                                    this.disabled_button = true;
+
+                                    this.formHowMatySentences.get('txt_how')?.setValue(this.responseListData[0].sentences.length.toString());
+
+
+
+                                    this.fn_ModControles_B_1('disable');
+
+                                  }
+                                  else { this.fn_erroAPI(); }
+
+
+                                  //---- emite la informacion al apdre
+                                  this.Output_list_Words_API_2.emit(this.responseListData);
+
+
+                                }
       , (_error) => {
         console.log('----- erro API  (2)----');
         console.log(_error);

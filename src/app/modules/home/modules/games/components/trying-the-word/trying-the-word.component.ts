@@ -170,7 +170,9 @@ export class TryingTheWordComponent implements OnInit {
 
 
     console.log("-------- guardara------------");
-    console.log(this.list_words_guessed);
+    console.log("------list_words_guessed--",this.list_words_guessed);
+    console.log("------list_Words_API--",this.list_Words_API);
+
 
     this.openSpinner = true;
 
@@ -183,45 +185,45 @@ export class TryingTheWordComponent implements OnInit {
     }).subscribe(
       (resp: any) => {
 
-        console.log("---------- respondio guardar datos api ---------");
-        console.log(resp);
-        this.list_Words_API = resp.map((value: any) => ({
-          _userId: value.userId,
-          _qtywords: value.qtywords,
+                        console.log("---------- respondio guardar datos api ---------");
+                        console.log(resp);
+                        this.list_Words_API = resp.map((value: any) => ({
+                                                                _userId: value.userId,
+                                                                _qtywords: value.qtywords,
 
-        })), catchError(e => {
-          console.log('----- erro API ----');
-          this.openSpinner = false;
-          return of(null);
-        });
+                                                              })), catchError(e => {
+                                                                console.log('----- erro API ----');
+                                                                this.openSpinner = false;
+                                                                return of(null);
+                                                              });
 
-        //---- cuerra msj ----
-        this.openSpinner = false;
+                        //---- cuerra msj ----
+                        this.openSpinner = false;
 
 
-        this.fn_ShowMessage("Exito", true, this.fn_MssageTraslate("Exito-01"), "", false);
+                        this.fn_ShowMessage("Exito", true, this.fn_MssageTraslate("Exito-01"), "", false);
 
-        if (this.list_Words_API.length > 0) {
-          console.log(_userId);
-          console.log(_qtywords);
+                        if (this.list_Words_API.length > 0) {
+                          console.log(_userId);
+                          console.log(_qtywords);
 
-        }
-        else { this.fn_erroAPI(); }
+                        }
+                        else { this.fn_erroAPI(); }
 
-      }
-      , (_error) => {
+                      }
+                      , (_error) => {
 
-        console.log('----- erro API  (2)----');
-        console.log(_error);
+                        console.log('----- erro API  (2)----');
+                        console.log(_error);
 
-        let _msj = _error.error.detail.toString();
-        this.openSpinner = false;
+                        let _msj = _error.error.detail.toString();
+                        this.openSpinner = false;
 
-        this.fn_ShowMessage("Error", true,  this.fn_MssageTraslate ("Error-01"), _msj, false);
+                        this.fn_ShowMessage("Error", true,  this.fn_MssageTraslate ("Error-01"), _msj, false);
 
-        return;
+                        return;
 
-      }
+                      }
     );
 
 

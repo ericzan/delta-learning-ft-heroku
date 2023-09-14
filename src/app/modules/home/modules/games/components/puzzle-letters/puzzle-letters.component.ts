@@ -169,8 +169,14 @@ this.getConfig();
     let _qtywords: number = 0;
 
 
-    console.log("-------- guardara------------");
-    console.log(this.list_words_guessed);
+    console.log("-----***--- guardara------***------");
+    console.log("------list_words_guessed--",this.list_words_guessed);
+    console.log("------_words--",_words);
+
+    console.log("------list_Words_API--",this.list_Words_API);
+
+
+
     this.openSpinner = true;
     this.uiOperGrService.getGamesAA_Archive({
       orgId: "DTL-01",

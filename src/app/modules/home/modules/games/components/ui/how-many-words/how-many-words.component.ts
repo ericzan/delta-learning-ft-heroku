@@ -147,7 +147,7 @@ export class HowManyWordsComponent implements OnInit {
             this.list_Words_API = resp.map((value: any) => ({
               espaniol: this.fn_Words(value.words),
               value: li += 1,
-              ingles: value.worde.trim().toLowerCase(),
+              ingles: value.worde.trim(),
               wordstouser:value.wordstouser
 
       })), catchError(e => {

@@ -190,7 +190,12 @@ export class PuzzleWordsComponent implements OnInit {
     _words = _words.substr(0, _words.length - 1);
     _words = "[" + _words + "]";
 
-    console.log(_words);
+
+    console.log("---- garda datos --------");
+    console.log("------_words--",_words);
+    console.log("------list_Words_Request--",this.list_Words_Request);
+    console.log("------list_Words_API--",this.list_Words_API);
+
 
     this.uiOperGrService.getGamesAAPuzzleWords({
       "org": "DTL-01",
