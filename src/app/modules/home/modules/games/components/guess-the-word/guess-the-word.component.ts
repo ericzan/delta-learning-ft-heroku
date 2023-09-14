@@ -201,8 +201,8 @@ export class GuessTheWordComponent implements OnInit {
   fn_Save_Data_API()
   {
 
-    console.log("------list_words_guessed--",this.list_words_guessed);
-    console.log("------list_Words_API--",this.list_Words_API);
+    // console.log("------list_words_guessed--",this.list_words_guessed);
+    // console.log("------list_Words_API--",this.list_Words_API);
 
 
     let _average: Number = (this.lbl_GradeTotal / this.wordInProcessIndex);
@@ -211,8 +211,8 @@ export class GuessTheWordComponent implements OnInit {
     let _qtywords: number = 0;
 
 
-    console.log("-------- guardara------------");
-    console.log(this.list_words_guessed);
+    // console.log("-------- guardara------------");
+    // console.log(this.list_words_guessed);
     this.openSpinner = true;
     this.uiOperGrService.getGamesAA_Archive({
       orgId: "DTL-01",
@@ -221,14 +221,14 @@ export class GuessTheWordComponent implements OnInit {
       average: _average.toString(),
       kogame: "GUESS_TW",
     }).subscribe((resp: any) => {
-                                      console.log("---------- respondio guardar datos api ---------");
-                                      console.log(resp);
+                                      // console.log("---------- respondio guardar datos api ---------");
+                                      // console.log(resp);
                                         this.list_Words_API = resp.map((value: any) => ({
                                                                       _userId: value.userId,
                                                                       _qtywords: value.qtywords,
 
                                                                     })), catchError(e => {
-                                                                      console.log('----- erro API ----');
+                                                                      // console.log('----- erro API ----');
                                                                       this.openSpinner = false;
                                                                       return of(null);
                                                                     });
@@ -240,16 +240,16 @@ export class GuessTheWordComponent implements OnInit {
 
                                         if (this.list_Words_API.length > 0)
                                         {
-                                              console.log(_userId);
-                                              console.log(_qtywords);
+                                              // console.log(_userId);
+                                              // console.log(_qtywords);
                                         }
                                         else { this.fn_erroAPI(); }
 
     }
       , (_error) => {
 
-        console.log('----- erro API  (2)----');
-        console.log(_error);
+        // console.log('----- erro API  (2)----');
+        // console.log(_error);
 
         let _msj = _error.error.detail.toString();
         this.openSpinner = false;
@@ -268,7 +268,7 @@ export class GuessTheWordComponent implements OnInit {
 
   fn_erroAPI() {
 
-    console.log('------ erro api ----');
+    // console.log('------ erro api ----');
 
     this.fn_ShowMessage("Error", true, this.fn_MssageTraslate("Error-02")  , " contact admin", false);
     return;

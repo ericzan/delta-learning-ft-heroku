@@ -63,7 +63,7 @@ export class HowManyWordsPuzzleComponent implements OnInit {
   getConfig() {
     this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
 
-      console.log("----- response API ------------",resp);
+      // console.log("----- response API ------------",resp);
       this.selectedLang  = resp.selected_lang;
 
     });
@@ -131,7 +131,7 @@ export class HowManyWordsPuzzleComponent implements OnInit {
 
   fn_BuscaDatos_API() {
 
-    console.log('----- fn_BuscaDatosAPI------');
+    // console.log('----- fn_BuscaDatosAPI------');
     let li: number = 0;
 
     let _limit: number = Number(this.formHowMatySentences.get('txt_how')?.value);
@@ -158,8 +158,8 @@ export class HowManyWordsPuzzleComponent implements OnInit {
       "avg": 0,
       "setlevel": false,
     }).subscribe((resp: any) => {
-                                  console.log('- ---- respondio busqueda api------');
-                                  console.log(resp);
+                                  // console.log('- ---- respondio busqueda api------');
+                                  // console.log(resp);
 
 
                                   //--hace el mapeo de los datos, pra emitirlos -------
@@ -177,7 +177,7 @@ export class HowManyWordsPuzzleComponent implements OnInit {
 
 
 
-                                  console.log('----- salio del map----');
+                                  // console.log('----- salio del map----');
 
                                   this.openSpinner = false;
 
@@ -203,8 +203,8 @@ export class HowManyWordsPuzzleComponent implements OnInit {
 
                                 }
       , (_error) => {
-        console.log('----- erro API  (2)----');
-        console.log(_error);
+        // console.log('----- erro API  (2)----');
+        // console.log(_error);
         let _msj = '';
 
         try { _msj = _error.error.detail.toString(); }
@@ -267,8 +267,8 @@ export class HowManyWordsPuzzleComponent implements OnInit {
 
     this.responseListData.push(responseListItem);
 
-    console.log("-------  encontro los datos -- fn_wordsTouserItem()  ");
-    console.log(this.responseListData);
+    // console.log("-------  encontro los datos -- fn_wordsTouserItem()  ");
+    // console.log(this.responseListData);
 
 
 
@@ -292,8 +292,8 @@ export class HowManyWordsPuzzleComponent implements OnInit {
 
     this.responseListData.push(responseListItem);
 
-    console.log("-------  encontro los datos -- ");
-    console.log(this.responseListData);
+    // console.log("-------  encontro los datos -- ");
+    // console.log(this.responseListData);
 
     this.Output_list_Words_API_2.emit(this.responseListData);
 
@@ -306,7 +306,7 @@ export class HowManyWordsPuzzleComponent implements OnInit {
 
   fn_erroAPI() {
 
-    console.log('------ erro api ----');
+    // console.log('------ erro api ----');
 
     this.fn_ShowMessage("Error", true, this.fn_MssageTraslate("Error-02"), "You don't have words archived!!!!", false);
 

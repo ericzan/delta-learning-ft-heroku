@@ -63,7 +63,7 @@ let _option ="Evaluación del nivel de palabras en inglés";
 
 
 
-    console.log(" entro ");
+    // console.log(" entro ");
     let liSelected = this.formLevel.value;
 
 
@@ -82,7 +82,7 @@ let _option ="Evaluación del nivel de palabras en inglés";
   getConfig() {
     this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
 
-      console.log("----- response API ------------",resp);
+      // console.log("----- response API ------------",resp);
       this.selectedLang  = resp.selected_lang;
       this.getCategories();
 

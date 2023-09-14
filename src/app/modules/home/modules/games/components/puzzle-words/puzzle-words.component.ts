@@ -64,7 +64,7 @@ export class PuzzleWordsComponent implements OnInit {
   getConfig() {
     this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
 
-      console.log("----- response API ------------",resp);
+      // console.log("----- response API ------------",resp);
       this.selectedLang  = resp.selected_lang;
 
     });
@@ -103,8 +103,8 @@ export class PuzzleWordsComponent implements OnInit {
 
 
 
-    console.log("-------   desde fn_StarGame_Input -- ");
-    console.log(_list_Words_API);
+    // console.log("-------   desde fn_StarGame_Input -- ");
+    // console.log(_list_Words_API);
 
 
 
@@ -129,7 +129,7 @@ export class PuzzleWordsComponent implements OnInit {
     //-- objetivo : se busca la primer frace a validar
     //-- EricZan  : 20Agt23
 
-    console.log("-> entra fn_StarGame() ");
+    // console.log("-> entra fn_StarGame() ");
     this.showIndication = true;
 
     let li = 0;
@@ -158,8 +158,8 @@ export class PuzzleWordsComponent implements OnInit {
 
 
 
-      console.log("------------ inicia :  fn_StarGame() ()-----------")
-      console.log(this.list_01_Data);
+      // console.log("------------ inicia :  fn_StarGame() ()-----------")
+      // console.log(this.list_01_Data);
 
     }
     if ((this.itemActual + 1) > this.totalSentences) {
@@ -191,10 +191,10 @@ export class PuzzleWordsComponent implements OnInit {
     _words = "[" + _words + "]";
 
 
-    console.log("---- garda datos --------");
-    console.log("------_words--",_words);
-    console.log("------list_Words_Request--",this.list_Words_Request);
-    console.log("------list_Words_API--",this.list_Words_API);
+    // console.log("---- garda datos --------");
+    // console.log("------_words--",_words);
+    // console.log("------list_Words_Request--",this.list_Words_Request);
+    // console.log("------list_Words_API--",this.list_Words_API);
 
 
     this.uiOperGrService.getGamesAAPuzzleWords({
@@ -206,8 +206,8 @@ export class PuzzleWordsComponent implements OnInit {
       "avg": _avg,
       "setlevel": true,
     }).subscribe((resp: any) => {
-      console.log('- ---- respondio busqueda api------');
-      console.log(resp);
+      // console.log('- ---- respondio busqueda api------');
+      // console.log(resp);
 
 
       this.openSpinner = false;
@@ -218,8 +218,8 @@ export class PuzzleWordsComponent implements OnInit {
 
     }
       , (_error) => {
-        console.log('----- erro API  (2)----');
-        console.log(_error);
+        // console.log('----- erro API  (2)----');
+        // console.log(_error);
         let _msj = '';
 
         try { _msj = _error.error.detail.toString(); }
@@ -253,10 +253,10 @@ export class PuzzleWordsComponent implements OnInit {
 
 
     wordPuzzole = this.wordInProcessEnglishDrag.trim().toLowerCase();
-    console.log("  wordPuzzole -->  " + wordPuzzole + " wordSentence -->   " + wordSentence + " original --- >  "  + this.itemActualSentence)
+    // console.log("  wordPuzzole -->  " + wordPuzzole + " wordSentence -->   " + wordSentence + " original --- >  "  + this.itemActualSentence)
     if (wordPuzzole === wordSentence)
     {
-      console.log("--adivino ---");
+      // console.log("--adivino ---");
 
       if (this.list_Words_Process.length >=10){this.list_Words_Process=[];}
       this.list_Words_Process.push({ espaniol: wordSpanish, value: (this.itemActual + 1), ingles: this.itemActualSentence.trim().toLowerCase() });

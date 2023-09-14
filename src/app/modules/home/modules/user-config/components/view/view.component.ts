@@ -73,7 +73,7 @@ export class ViewComponent implements AfterViewInit {
 
   }
   selectedLenguage(event: any){
-    console.log(event.value);
+    // console.log(event.value);
     this.translatei18Service.translate(event.value);
   }
   submitPassword() {
@@ -100,14 +100,14 @@ export class ViewComponent implements AfterViewInit {
       this.loading.setDisplay(false);
       this.messageService.add({ severity: 'error', summary: 'Actualización', detail:  error.error.detail});
     })
-    console.log(" ---changePassword--- ", this.formPassword.value);
+    // console.log(" ---changePassword--- ", this.formPassword.value);
   }
   getConfig() {
     this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
     this.getCountries();
     this.getLanguages();
 
-      console.log("----- response API ------------",resp);
+      // console.log("----- response API ------------",resp);
       let data: {
         birth_year: string,
         capacity: number,
@@ -214,7 +214,7 @@ debugger;
       kolic: this.koflic
     }).subscribe( resp => {
       this.loading.setDisplay(false);
-      console.log(resp);
+      // console.log(resp);
       this.messageService.add({ severity: 'info', summary: 'Actualización', detail: 'Se actualizo la información' });
       window.location.reload();
     }, error => {

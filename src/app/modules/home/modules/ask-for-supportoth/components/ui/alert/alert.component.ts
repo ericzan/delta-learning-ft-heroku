@@ -44,7 +44,7 @@ export class AlertComponent implements OnInit {
 
     // this.fn_TipoError();
 
-    console.log('tipo msj -------- >' + this.inputo_MsjParams[0].TypeMessge);
+    // console.log('tipo msj -------- >' + this.inputo_MsjParams[0].TypeMessge);
 
     if (this.inputo_MsjParams[0].TypeMessge === "Exito") {
       console.log(' ------- va acerrar --------- ');

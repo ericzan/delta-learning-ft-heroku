@@ -93,7 +93,7 @@ export class TryingTheWordComponent implements OnInit {
   getConfig() {
     this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
 
-      console.log("----- response API ------------",resp);
+      // console.log("----- response API ------------",resp);
       this.selectedLang  = resp.selected_lang;
 
     });
@@ -169,9 +169,9 @@ export class TryingTheWordComponent implements OnInit {
     let _qtywords: number = 0;
 
 
-    console.log("-------- guardara------------");
-    console.log("------list_words_guessed--",this.list_words_guessed);
-    console.log("------list_Words_API--",this.list_Words_API);
+    // console.log("-------- guardara------------");
+    // console.log("------list_words_guessed--",this.list_words_guessed);
+    // console.log("------list_Words_API--",this.list_Words_API);
 
 
     this.openSpinner = true;
@@ -185,14 +185,14 @@ export class TryingTheWordComponent implements OnInit {
     }).subscribe(
       (resp: any) => {
 
-                        console.log("---------- respondio guardar datos api ---------");
-                        console.log(resp);
+                        // console.log("---------- respondio guardar datos api ---------");
+                        // console.log(resp);
                         this.list_Words_API = resp.map((value: any) => ({
                                                                 _userId: value.userId,
                                                                 _qtywords: value.qtywords,
 
                                                               })), catchError(e => {
-                                                                console.log('----- erro API ----');
+                                                                // console.log('----- erro API ----');
                                                                 this.openSpinner = false;
                                                                 return of(null);
                                                               });
@@ -204,8 +204,8 @@ export class TryingTheWordComponent implements OnInit {
                         this.fn_ShowMessage("Exito", true, this.fn_MssageTraslate("Exito-01"), "", false);
 
                         if (this.list_Words_API.length > 0) {
-                          console.log(_userId);
-                          console.log(_qtywords);
+                          // console.log(_userId);
+                          // console.log(_qtywords);
 
                         }
                         else { this.fn_erroAPI(); }
@@ -213,8 +213,8 @@ export class TryingTheWordComponent implements OnInit {
                       }
                       , (_error) => {
 
-                        console.log('----- erro API  (2)----');
-                        console.log(_error);
+                        // console.log('----- erro API  (2)----');
+                        // console.log(_error);
 
                         let _msj = _error.error.detail.toString();
                         this.openSpinner = false;
@@ -236,7 +236,7 @@ export class TryingTheWordComponent implements OnInit {
 
   fn_erroAPI() {
 
-    console.log('------ erro api ----');
+    // console.log('------ erro api ----');
 
     this.fn_ShowMessage("Error", true,  this.fn_MssageTraslate ("Error-02"), " contact admin", false);
     return;

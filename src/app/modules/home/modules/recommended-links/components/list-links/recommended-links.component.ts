@@ -43,15 +43,15 @@ export class RecommendedLinksComponent implements OnInit{
   fn_BuscaDatos_API()
   {
 
-    console.log("----- fn_BuscaDatosAPI------");
+    // console.log("----- fn_BuscaDatosAPI------");
 
     this.openSpinner = true;
 
 
     this.uiOperGrService.getRecLinks ().subscribe((resp: any) =>
     {
-      console.log("- ---- respondio busqueda api------");
-      console.log(resp);
+      // console.log("- ---- respondio busqueda api------");
+      // console.log(resp);
 
       this.openSpinner = false;
 
@@ -73,7 +73,7 @@ export class RecommendedLinksComponent implements OnInit{
                                         texttoshow:  value.texttoshow.trim(),
                                         imagelink:  value.imagelink.trim(),
                                 })), catchError(e => {
-                                                        console.log('----- erro API  catchError ----');
+                                                        // console.log('----- erro API  catchError ----');
                                                         this.openSpinner = false;
                                                         this.fn_ShowMessage("Error", true, "Communication error http:// ", "", false);
                                                         return of(null);
@@ -103,8 +103,8 @@ export class RecommendedLinksComponent implements OnInit{
 
 
     } , (error) => {
-                        console.log('----- erro API  (2)----');
-                        console.log(error);
+                        // console.log('----- erro API  (2)----');
+                        // console.log(error);
                         let _msj = "";
 
                         try { _msj = error.error.detail.toString(); }

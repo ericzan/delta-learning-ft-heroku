@@ -46,7 +46,7 @@ export class AlertComponent implements OnInit {
   ngOnInit(): void {
 
     this._LevelService.STOP$.subscribe(data => {
-      console.log(` ---- desde  vista hijo: ${data}`);
+      // console.log(` ---- desde  vista hijo: ${data}`);
     });
 
   }//------------------------------------------------------------------
@@ -62,10 +62,10 @@ export class AlertComponent implements OnInit {
 
 
 
-    console.log('tipo msj -------- >' + this.inputo_MsjParams[0].TypeMessge);
+    // console.log('tipo msj -------- >' + this.inputo_MsjParams[0].TypeMessge);
 
     if (this.inputo_MsjParams[0].TypeMessge === "Exito") {
-      console.log(' ------- va acerrar --------- ');
+      // console.log(' ------- va acerrar --------- ');
       this.fn_Router();
     }
 
@@ -77,7 +77,7 @@ export class AlertComponent implements OnInit {
 
   fn_Router() {
 
-    console.log("--- viene de la pagina : "  )
+    // console.log("--- viene de la pagina : "  )
     window.location.reload();
 
 

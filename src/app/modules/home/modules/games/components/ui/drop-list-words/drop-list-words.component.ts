@@ -78,9 +78,9 @@ export class DropListWordsComponent implements OnInit {
     this.Output_list_02_Data.emit(_Output_list_02_Data);
 
 
-    console.log("----- de Ori   a Dest  -----------");
-    console.log(this.input_listWords_Ori);
-    console.log(this.input_listWords_Des);
+    // console.log("----- de Ori   a Dest  -----------");
+    // console.log(this.input_listWords_Ori);
+    // console.log(this.input_listWords_Des);
 
   }//-------------------------------------------------------------------
 
@@ -108,9 +108,9 @@ export class DropListWordsComponent implements OnInit {
 
 
 
-    console.log("----- de Dest  a Ori -----------");
-    console.log(this.input_listWords_Des);
-    console.log(this.input_listWords_Ori);
+    // console.log("----- de Dest  a Ori -----------");
+    // console.log(this.input_listWords_Des);
+    // console.log(this.input_listWords_Ori);
 
 
   }//-------------------------------------------------------------------

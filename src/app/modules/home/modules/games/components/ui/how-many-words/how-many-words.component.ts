@@ -56,7 +56,7 @@ export class HowManyWordsComponent implements OnInit {
   getConfig() {
     this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
 
-      console.log("----- response API ------------",resp);
+      // console.log("----- response API ------------",resp);
       this.selectedLang  = resp.selected_lang;
 
     });
@@ -110,7 +110,7 @@ export class HowManyWordsComponent implements OnInit {
 
   fn_BuscaDatos_API() {
 
-    console.log("----- fn_BuscaDatosAPI------");
+    // console.log("----- fn_BuscaDatosAPI------");
     let li: number = 0;
 
     let _limit: number = Number(this.formHowMatyWords.get('txt_how')?.value);
@@ -142,8 +142,8 @@ export class HowManyWordsComponent implements OnInit {
           adv: _adv,
           prep: false
     }).subscribe((resp: any) => {
-            console.log("- ---- respondio busqueda api----getGamesAA--");
-            console.log(resp);
+            // console.log("- ---- respondio busqueda api----getGamesAA--");
+            // console.log(resp);
             this.list_Words_API = resp.map((value: any) => ({
               espaniol: this.fn_Words(value.words),
               value: li += 1,
@@ -151,7 +151,7 @@ export class HowManyWordsComponent implements OnInit {
               wordstouser:value.wordstouser
 
       })), catchError(e => {
-          console.log('----- erro API  catchError ----');
+          // console.log('----- erro API  catchError ----');
           this.openSpinner = false;
           return of(null);
         });
@@ -159,7 +159,7 @@ export class HowManyWordsComponent implements OnInit {
 
 
 
-      console.log('----- salio del map----');
+      // console.log('----- salio del map----');
 
       this.openSpinner = false;
 
@@ -185,8 +185,8 @@ export class HowManyWordsComponent implements OnInit {
 
     }
       , (_error) => {
-        console.log('----- erro API  (2)----');
-        console.log(_error);
+        // console.log('----- erro API  (2)----');
+        // console.log(_error);
         let _msj = "";
 
         try { _msj = _error.error.detail.toString(); }
@@ -269,7 +269,7 @@ export class HowManyWordsComponent implements OnInit {
 
   fn_erroAPI() {
 
-    console.log('------ erro api ----');
+    // console.log('------ erro api ----');
 
     this.fn_ShowMessage("Error", true, this.fn_MssageTraslate("Error-03") ,""  , false);
     return;

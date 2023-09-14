@@ -45,7 +45,7 @@ export class ViewComponent
   getConfig() {
     this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
 
-      console.log("----- response API ------------",resp);
+      // console.log("----- response API ------------",resp);
       this.selectedLang  = resp.selected_lang;
       this.getCategories(this.selectedLang);
 
@@ -87,7 +87,7 @@ export class ViewComponent
 
     let liSelected = this.form.value;
 
-    console.log(liSelected.cboGame);
+    // console.log(liSelected.cboGame);
 
     switch (liSelected.cboGame) {
       case 1: {

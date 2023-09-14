@@ -60,7 +60,7 @@ export class DragWordsComponent implements OnInit {
     }
 
 
-    console.log("---Output_DataList----",this.list_DataOutput);
+    // console.log("---Output_DataList----",this.list_DataOutput);
 
     if (this.list_DataOutput.length > 0) { this.showIndication = false; }
     else { this.showIndication = true; }
@@ -71,11 +71,11 @@ export class DragWordsComponent implements OnInit {
 onClickButton_01 (_index:number,_item:string){
 
 
-  console.log("---boton -01",_index, _item);
+  // console.log("---boton -01",_index, _item);
   this.list_DataOutput.push(_item);
   this.Input_Datalist.splice(_index,1);
 
-  console.log("---Output_DataList----",this.list_DataOutput);
+  // console.log("---Output_DataList----",this.list_DataOutput);
 
   if (this.list_DataOutput.length > 0) { this.showIndication = false; }
   else { this.showIndication = true; }
@@ -84,13 +84,13 @@ onClickButton_01 (_index:number,_item:string){
 
 }//----------------------------
 onClickButton_02 (_index:any,_item:string){
-  console.log("---boton -02",_index, _item);
+  // console.log("---boton -02",_index, _item);
 
 
   this.Input_Datalist.push(_item);
   this.list_DataOutput.splice(_index,1);
 
-  console.log("---Output_DataList----",this.list_DataOutput);
+  // console.log("---Output_DataList----",this.list_DataOutput);
 
   if (this.list_DataOutput.length > 0) { this.showIndication = false; }
   else { this.showIndication = true; }

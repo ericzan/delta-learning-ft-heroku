@@ -89,7 +89,7 @@ this.getConfig();
   getConfig() {
     this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
 
-      console.log("----- response API ------------",resp);
+      // console.log("----- response API ------------",resp);
       this.selectedLang  = resp.selected_lang;
 
     });
@@ -169,11 +169,11 @@ this.getConfig();
     let _qtywords: number = 0;
 
 
-    console.log("-----***--- guardara------***------");
-    console.log("------list_words_guessed--",this.list_words_guessed);
-    console.log("------_words--",_words);
+    // console.log("-----***--- guardara------***------");
+    // console.log("------list_words_guessed--",this.list_words_guessed);
+    // console.log("------_words--",_words);
 
-    console.log("------list_Words_API--",this.list_Words_API);
+    // console.log("------list_Words_API--",this.list_Words_API);
 
 
 
@@ -185,14 +185,14 @@ this.getConfig();
       average: _average.toString(),
       kogame: "PUT_TOGETHER_WORD",
     }).subscribe((resp: any) => {
-      console.log("---------- respondio guardar datos api ---------");
-      console.log(resp);
+      // console.log("---------- respondio guardar datos api ---------");
+      // console.log(resp);
       this.list_Words_API = resp.map((value: any) => ({
         _userId: value.userId,
         _qtywords: value.qtywords,
 
       })), catchError(e => {
-        console.log('----- erro API ----');
+        // console.log('----- erro API ----');
         this.openSpinner = false;
         return of(null);
       });
@@ -203,8 +203,8 @@ this.getConfig();
       this.fn_ShowMessage("Exito", true, this.fn_MssageTraslate("Exito-01"), "", false);
 
       if (this.list_Words_API.length > 0) {
-        console.log(_userId);
-        console.log(_qtywords);
+        // console.log(_userId);
+        // console.log(_qtywords);
 
       }
       else { this.fn_erroAPI(); }
@@ -212,8 +212,8 @@ this.getConfig();
     }
       , (_error) => {
 
-        console.log('----- erro API  (2)----');
-        console.log(_error);
+        // console.log('----- erro API  (2)----');
+        // console.log(_error);
 
         let _msj = _error.error.detail.toString();
         this.openSpinner = false;
@@ -232,7 +232,7 @@ this.getConfig();
 
   fn_erroAPI() {
 
-    console.log('------ erro api ----');
+    // console.log('------ erro api ----');
 
     this.fn_ShowMessage("Error", true, this.fn_MssageTraslate("Exito-02"), " contact admin", false);
     return;
