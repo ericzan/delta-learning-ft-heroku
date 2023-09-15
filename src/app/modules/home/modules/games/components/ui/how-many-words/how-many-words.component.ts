@@ -2,6 +2,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.service';
 import { catchError, of } from 'rxjs';
+import { GameModule } from '../../../game.module';
+import { GameService } from '../../../game.service';
 
 
 
@@ -33,7 +35,9 @@ export class HowManyWordsComponent implements OnInit {
   li_total_Palabras_API: number = 0;
   selectedLang="";
   constructor(private fb: FormBuilder,
-    private uiOperGrService: UiOperGrService,) { }
+    private uiOperGrService: UiOperGrService,
+    private gameService :GameService
+    ) { }
 
 
   ngOnInit(): void {
@@ -84,7 +88,7 @@ export class HowManyWordsComponent implements OnInit {
     //------- valida total de palabras
     if (this.totalWords === 0) {
 
-      this.fn_ShowMessage("Alert", true,this.fn_MssageTraslate("Alert-01")   , "", false);
+      this.fn_ShowMessage("Alert", true, this.gameService.getTraslateAlert(this.selectedLang,"howManyWords")  , "", false);
       return;
     }
 
@@ -97,7 +101,7 @@ export class HowManyWordsComponent implements OnInit {
       !this.formHowMatyWords.value.chk_verb &&
       !this.formHowMatyWords.value.chk_PastTense) {
 
-      this.fn_ShowMessage("Alert", true,this.fn_MssageTraslate("Alert-02")  , "", false);
+      this.fn_ShowMessage("Alert", true, this.gameService.getTraslateAlert(this.selectedLang,"kindWord")  , "", false);
       return;
     }
 
@@ -195,7 +199,7 @@ export class HowManyWordsComponent implements OnInit {
 
 
         this.openSpinner = false;
-        this.fn_ShowMessage("Error", true,this.fn_MssageTraslate("Error-01")  , _msj, false);
+        this.fn_ShowMessage("Error", true,this.gameService.getTraslateAlert(this.selectedLang,"http") , _msj, false);
         return;
 
       }
@@ -271,7 +275,7 @@ export class HowManyWordsComponent implements OnInit {
 
     // console.log('------ erro api ----');
 
-    this.fn_ShowMessage("Error", true, this.fn_MssageTraslate("Error-03") ,""  , false);
+    this.fn_ShowMessage("Error", true, this.gameService.getTraslateAlert(this.selectedLang,"noHaveWord"),""  , false);
     return;
 
 
@@ -326,44 +330,6 @@ export class HowManyWordsComponent implements OnInit {
 
   }
 
-  fn_MssageTraslate(_opcMessage: string):string {
-    let _return ="";
 
-
-      if (this.selectedLang=="en")
-      {
-            switch(_opcMessage)
-            {
-                  case "": { break;  }
-                  case "Success-01":  { _return = " Yes, it is right!!!!  ";  break;   }
-                  case "Alert-01":    { _return = " Invalid  ==>  (HOW MANY WORDS TO TRY)" ;  break;   }
-                  case "Alert-02":    { _return = " Invalid  ==>  (Kind of word ) "; break; }
-                  case "Exito-01":    { _return = "That is great.... Good Job!!!"; break; }
-                  case "Error-01":    { _return = "Tcommunication error http:// "; break; }
-                  case "Error-02":    { _return = " Error"; break; }
-                  case "Error-03":    { _return = " You don't have words archived!!!!"; break; }
-                  default: { break; }
-            }
-
-      }
-      else
-      {
-        switch(_opcMessage)
-        {
-              case "": { break;  }
-              case "Success-01":  { _return = "¡¡¡¡Si, es correcto!!!!";  break;   }
-              case "Alert-01":    { _return = "Inválida ==> (CUANTAS PALABRAS PARA INTENTAR)" ;  break;   }
-              case "Alert-02":    { _return = "Inválida ==> (tipo de palabra)"; break; }
-              case "Exito-01":    { _return = "Eso es genial... ¡¡¡Buen trabajo!!!"; break; }
-              case "Error-01":    { _return = "Error de comunicación http://"; break; }
-              case "Error-02":    { _return = " Error"; break; }
-              case "Error-03":    { _return = " No tienes palabras Seleccionadas !!!!"; break; }
-              default: { break; }
-        }
-      }
-
-      return _return;
-
-    }//---------------------------------------------------------------------------------------------------
 
 }//------------------------------ principal ---------------------

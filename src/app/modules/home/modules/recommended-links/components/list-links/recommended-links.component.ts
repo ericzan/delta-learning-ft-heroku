@@ -10,6 +10,7 @@ import { catchError, of } from 'rxjs';
 
 import { WathStepsLearningService } from '../../../steps-learning/services/wath-steps-learning.service';
 import { WatchService } from '../../../steps-learning/verifying-ce/services/watch.service';
+import { GameService } from '../../../games/game.service';
 
 
 @Component({
@@ -25,20 +26,31 @@ export class RecommendedLinksComponent implements OnInit{
   public msjParamsAlert: Array<{ TypeMessge: string, ShowAlert: boolean, Messge: string, Comment: string }> = [];
   ViewOpen: String = "";
 
+  selectedLang="";
+
   constructor(private fb: FormBuilder,
     private uiOperGrService: UiOperGrService,
     protected fieldValidate: FieldValidateService,
     private router: Router,
     private wathSteps: WathStepsLearningService,
     private watchService: WatchService,
+    private gameService:GameService
     ) { }
 
 
   ngOnInit(): void {
+    this.getConfig();
     this.fn_ShowMessage("", false, "", "", false);
     this.fn_BuscaDatos_API();
 
   }//-------------------------------------------------
+
+
+  getConfig() {
+    this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
+      this.selectedLang  = resp.selected_lang;
+    });
+  } //----------------------------------------------------
 
   fn_BuscaDatos_API()
   {
@@ -57,7 +69,7 @@ export class RecommendedLinksComponent implements OnInit{
 
       if (resp == undefined)
       {
-        this.fn_ShowMessage("Error", true, "TypeError: Cannot read properties of undefined (reading 'map')", "", false);
+        this.fn_ShowMessage("Error", true, this.gameService.getTraslateAlert(this.selectedLang,"TypeError") , "", false);
         this.list_links =[];
         this.list_links.push({logo:"./assets/images/imagotipo.png",name:"There is no information",link:"",texttoshow:"",imagelink:""});
 
@@ -75,7 +87,7 @@ export class RecommendedLinksComponent implements OnInit{
                                 })), catchError(e => {
                                                         // console.log('----- erro API  catchError ----');
                                                         this.openSpinner = false;
-                                                        this.fn_ShowMessage("Error", true, "Communication error http:// ", "", false);
+                                                        this.fn_ShowMessage("Error", true,  this.gameService.getTraslateAlert(this.selectedLang,"http"), "", false);
                                                         return of(null);
                                                       });
 
@@ -83,7 +95,7 @@ export class RecommendedLinksComponent implements OnInit{
                 }
                 catch (e: any) {
                   let _msj = e.toString();
-                  this.fn_ShowMessage("Error", true, "Communication error http:// ", _msj, false);
+                  this.fn_ShowMessage("Error", true, this.gameService.getTraslateAlert(this.selectedLang,"http"), _msj, false);
 
                 }
                 finally { }
@@ -94,7 +106,7 @@ export class RecommendedLinksComponent implements OnInit{
 
 
                 if (this.list_links.length > 0) {   }
-                else { this.fn_ShowMessage("Error", true, "There is no information", "", false);  }
+                else { this.fn_ShowMessage("Error", true,this.gameService.getTraslateAlert(this.selectedLang,"noInformation"), "", false);  }
 
       }
 

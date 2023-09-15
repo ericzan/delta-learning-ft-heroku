@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { GamelService } from '../../../game.service';
+import { GameService } from '../../../game.service';
 
 @Component({
   selector: 'zan-drag-words',
@@ -24,7 +24,7 @@ export class DragWordsComponent implements OnInit {
   WORDS="WORDS"
   SENTENCES="SENTENCES"
 
-  constructor(  private gameService:GamelService){  }
+  constructor(  private gameService:GameService){  }
 
    ngOnInit(): void
    {

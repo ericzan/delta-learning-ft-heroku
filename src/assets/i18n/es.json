@@ -58,6 +58,7 @@
     },
     "control_how_many":
     {
+      "title_how_many_sentence":"CUÁNTAS ORACIONES PARA INTENTAR ",
       "title_how_many":"CUÁNTAS PALABRAS PARA INTENTAR",
       "label_adj":"Adj",
       "label_Noun":"Sust",

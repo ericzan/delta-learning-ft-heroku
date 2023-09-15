@@ -57,6 +57,7 @@
     },
     "control_how_many":
     {
+      "title_how_many_sentence":"HOW MANY SENTENCES TO TRY ",
       "title_how_many":"HOW MANY WORDS TO TRY ",
       "label_adj":"Adj",
       "label_Noun":"Noun",

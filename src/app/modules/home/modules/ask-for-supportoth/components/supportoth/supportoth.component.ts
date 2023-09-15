@@ -5,6 +5,7 @@ import { FieldValidateService } from '@core/services/field-validate.service';
 import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.service';
 import { catchError, of } from 'rxjs';
 import { Translatei18Service } from '@core/services/translatei18.service';
+import { GameService } from '../../../games/game.service';
 
 
 @Component({
@@ -20,12 +21,13 @@ export class SupportothComponent implements OnInit {
   userName="";
   public msjParamsAlert: Array<{ TypeMessge: string, ShowAlert: boolean, Messge: string, Comment: string }> = [];
   openSpinner=false;
-
+  selectedLang="";
 
   constructor(protected fieldValidate: FieldValidateService,
     private fb: FormBuilder,
     private uiOperGrService: UiOperGrService,
-    private translatei18Service: Translatei18Service
+    private translatei18Service: Translatei18Service,
+    private gameService:GameService
 )
 {
 
@@ -42,12 +44,23 @@ export class SupportothComponent implements OnInit {
 
   ngOnInit(): void
   {
+    this.getConfig();
 
     this.fn_ShowMessage("", false, "", "");
     this.userData();
 
 
   }
+
+  getConfig() {
+    this.uiOperGrService.getInfoUser().subscribe((resp: any) => {
+
+      // console.log("----- response API ------------",resp);
+      this.selectedLang  = resp.selected_lang;
+
+    });
+  } //------------------------------------------------
+
 
 fn_cancel(){
 
@@ -89,7 +102,8 @@ if(this.form.invalid){
 
       let _msj = error.error.detail.toString();
       this.openSpinner = false;
-      this.fn_ShowMessage("Error", true, "Tcommunication error http:// ", _msj);
+
+      this.fn_ShowMessage("Error", true,  this.gameService.getTraslateAlert(this.selectedLang,"http"), _msj);
       return;
 
     }
@@ -134,7 +148,7 @@ this.userName = resp.name;
 
     let _msj = error.error.detail.toString();
     this.openSpinner = false;
-    this.fn_ShowMessage("Error", true, "Tcommunication error http:// ", _msj);
+    this.fn_ShowMessage("Error", true,  this.gameService.getTraslateAlert(this.selectedLang,"http"), _msj);
     return;
 
   }
@@ -156,7 +170,7 @@ fn_erroAPI() {
 
   console.log('------ erro api ----');
 
-  this.fn_ShowMessage("Error", true, " Error", " contact admin");
+  this.fn_ShowMessage("Error", true, this.gameService.getTraslateAlert(this.selectedLang,"error"), " contact admin");
   return;
 
 

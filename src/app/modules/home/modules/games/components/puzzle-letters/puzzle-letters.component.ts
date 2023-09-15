@@ -11,7 +11,7 @@ import { WathStepsLearningService } from '../../../steps-learning/services/wath-
 import { WatchService } from '../../../steps-learning/verifying-ce/services/watch.service';
 import { catchError, of } from 'rxjs';
 import { DragWordsComponent } from '../ui/drag-words/drag-words.component';
-import { GamelService } from '../../game.service';
+import { GameService } from '../../game.service';
 
 
 
@@ -71,7 +71,7 @@ export class PuzzleLettersComponent implements OnInit {
     private router: Router,
     private wathSteps: WathStepsLearningService,
     private watchService: WatchService,
-     private gameService : GamelService) { }
+     private gameService : GameService) { }
 
 
 
@@ -200,7 +200,7 @@ this.getConfig();
 
       this.openSpinner = false;
 
-      this.fn_ShowMessage("Exito", true, this.fn_MssageTraslate("Exito-01"), "", false);
+      this.fn_ShowMessage("Exito", true, this.gameService.getTraslateAlert(this.selectedLang,"goodJob"), "", false);
 
       if (this.list_Words_API.length > 0) {
         // console.log(_userId);
@@ -217,7 +217,7 @@ this.getConfig();
 
         let _msj = _error.error.detail.toString();
         this.openSpinner = false;
-        this.fn_ShowMessage("Error", true, this.fn_MssageTraslate("Error-01"), _msj, false);
+        this.fn_ShowMessage("Error", true, this.gameService.getTraslateAlert(this.selectedLang,"http"), _msj, false);
         return;
 
       }
@@ -234,7 +234,7 @@ this.getConfig();
 
     // console.log('------ erro api ----');
 
-    this.fn_ShowMessage("Error", true, this.fn_MssageTraslate("Exito-02"), " contact admin", false);
+    this.fn_ShowMessage("Error", true, this.gameService.getTraslateAlert(this.selectedLang,"error"), " contact admin", false);
     return;
 
 
@@ -296,8 +296,9 @@ this.getConfig();
 
       this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
 
-      if (this.lbl_Grade<=0) {this.fn_ShowMessage("Alert", true, this.fn_MssageTraslate("Alert-01"), "", true);}
-      else {this.fn_ShowMessage("Alert", true, this.fn_MssageTraslate("Alert-02"), "", true);}
+      if (this.lbl_Grade<=0)
+      {this.fn_ShowMessage("Alert", true,  this.gameService.getTraslateAlert(this.selectedLang,"triyingWord",this.wordInProcessEnglish), "", true);}
+      else {this.fn_ShowMessage("Alert", true, this.gameService.getTraslateAlert(this.selectedLang,"tryAgain"), "", true);}
 
       return;
     }
@@ -314,7 +315,7 @@ this.getConfig();
 
 
     if (this.wordInProcessIndex < this.totalWords) {
-      this.fn_ShowMessage("Success", true, this.fn_MssageTraslate("Success-01"), "", false);
+      this.fn_ShowMessage("Success", true, this.gameService.getTraslateAlert(this.selectedLang,"isRight"), "", false);
     }
 
 
@@ -371,46 +372,6 @@ this.getConfig();
     this.msjParamsAlert = [{ TypeMessge: _TypeMessge, ShowAlert: _ShowAlert, Messge: _Messge, Comment: _Comment }];
   }//------------------------------------------------------------
 
-  fn_MssageTraslate(_opcMessage: string):string {
-    let _return ="";
-
-
-
-
-      if (this.selectedLang=="en")
-      {
-            switch(_opcMessage)
-            {
-                  case "": { break;  }
-                  case "Success-01":  { _return = " Yes, it is right!!!!  ";  break;   }
-                  case "Alert-01":    { _return = "Sorry, You are trying the word --> :  " + this.wordInProcessEnglish.trim().toLowerCase();  break;   }
-                  case "Alert-02":    { _return = "Sorry, try again!!!!:"; break; }
-                  case "Exito-01":    { _return = "That is great.... Good Job!!!"; break; }
-                  case "Error-01":    { _return = "Tcommunication error http:// "; break; }
-                  case "Error-02":    { _return = " Error"; break; }
-                  default: { break; }
-            }
-
-
-      }
-      else
-      {
-        switch(_opcMessage)
-        {
-              case "": { break;  }
-              case "Success-01":  { _return = "¡¡¡¡Si, es correcto!!!!";  break;   }
-              case "Alert-01":    { _return = "Lo siento, estás intentando la palabra --> :  " + this.wordInProcessEnglish.trim().toLowerCase();  break;   }
-              case "Alert-02":    { _return = "¡¡¡¡Perdón intente de nuevo!!!! "; break; }
-              case "Exito-01":    { _return = "Eso es genial... ¡¡¡Buen trabajo!!!"; break; }
-              case "Error-01":    { _return = "Error de comunicación http://"; break; }
-              case "Error-02":    { _return = " Error"; break; }
-              default: { break; }
-        }
-      }
-
-      return _return;
-
-    }//---------------------------------------------------------------------------------------------------
 
 
 }//++++++++++++++++++++++  principal +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
