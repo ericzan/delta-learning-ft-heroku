@@ -63,6 +63,7 @@ export class HowManyWordsComponent implements OnInit {
       // console.log("----- response API ------------",resp);
       this.selectedLang  = resp.selected_lang;
 
+     // console.log("pantlla --- ",screen.width)
     });
   } //------------------------------------------------
 
