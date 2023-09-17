@@ -42,7 +42,7 @@
           <div class="grid grid-container  col-12 " style="width: 100%;">
             <!-- <div class="grid grid-container "  >  </div> -->
 
-            <div class="col-2-zan-1  " style="text-align:right; "><b>{{'configuration_games.view_guess_word.label_clues' | translate}}</b> </div>
+            <div class="col-2-zan-1  "   ><b>{{'configuration_games.view_guess_word.label_clues' | translate}}</b> </div>
             <div class="col-2-zan-2   " style="text-align:center">
               <p-checkbox [binary]="true" id="chk_length" formControlName="chk_length" label="{{'configuration_games.view_guess_word.label_length' | translate}}"
                 (ngModelChange)="fn_chk_length_cambia()"> </p-checkbox>
@@ -77,12 +77,12 @@
                   <input pInputText id="txt_EnglishWord" formControlName="txt_EnglishWord" maxlength="30"
                     style="width:90%; text-align:left;" />
                 </div>
-                <div class="col-1-zan-3"  >
+                <div class="col-1-zan-3"  style=" text-align: center;   ">
                     <p-button type="button" label="{{'configuration_games.view_guess_word.button_validate' | translate}} "
                               [style]="{ 'width': '80px' }"   (click)="fn_Validate_click()" *ngIf="btn_visible">
                     </p-button>
                 </div>
-                <div class="col-1-zan-4" *ngIf="btn_visible"  >
+                <div class="col-1-zan-4" *ngIf="btn_visible"    >
                       <b>{{'configuration_games.view_guess_word.label_grade' | translate}} </b>
                       &nbsp;  {{lbl_Grade}}
                 </div>
