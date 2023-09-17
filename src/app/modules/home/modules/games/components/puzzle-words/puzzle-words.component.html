@@ -26,35 +26,33 @@
       <div class="col-3-zan-2"  ></div>
 
       <div class="col-3-zan-3"   [style]="{  border: '2px solid blue',  borderRadius: '5px' }"    >
-
-
         <zan-drag-words [Input_Datalist]="Input_DataList"
                         [Input_placeholder]="INPUT_PLACE_HOLDER"
                         (Output_DataList)="fn_DataLisOutput($event)">
           </zan-drag-words>
 
 
+          <div class="grid grid-container     " style="width: 100%;  text-align:center;">
+                <div class="col-4-zan-2"  *ngIf="buttonVisible"    >
+                  <p-button type="button" label="{{'configuration_games.control_drag_wors.button_validate' | translate}}"
+                            [style]="{width: '100px' ,'text-align':'center' }"
+                            (onClick)="fn_ValidatData()"  >
+                  </p-button>
+                </div>
+                <div class="col-4-zan-3" *ngIf="buttonVisible" style="  text-align:left;  ; ;">
+                      <b>{{'configuration_games.control_drag_wors.label_grade' | translate}}</b>
+                      &nbsp;  {{lbl_Grade}}
+
+                </div>
+          </div>
+
+
       </div>
-
 </div>
 
 
 
-<div class="grid grid-container     " style="width: 100%;  text-align:center;">
-    <div class="col-4-zan-1"> </div>
-    <div class="col-4-zan-2"  *ngIf="buttonVisible"  >
-              <p-button type="button" label="{{'configuration_games.control_drag_wors.button_validate' | translate}}"
-                        [style]="{width: '100px' ,'text-align':'center' }"
-                        (onClick)="fn_ValidatData()"  >
-              </p-button>
-    </div>
-    <div class="col-4-zan-3" *ngIf="buttonVisible" style="  text-align:left;  ;">
-            <b>{{'configuration_games.control_drag_wors.label_grade' | translate}}</b>
-            &nbsp;  {{lbl_Grade}}
 
-    </div>
-    <!-- <div class="col-4-zan-4" *ngIf="buttonVisible"><label>{{lbl_Grade}} </label></div> -->
-</div>
 
 <zan-games-alert [inputo_MsjParams]="msjParamsAlert"  ></zan-games-alert>
 

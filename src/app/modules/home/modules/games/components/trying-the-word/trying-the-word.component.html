@@ -1,19 +1,19 @@
 <zan-spinner [input_abrirSpinner]="openSpinner"></zan-spinner>
 
-<div class="grid grid-container" >
+<div class="grid grid-container  " >
 
 
   <div class="col-12" style="width: 100%;  ">
     <h2 style="font-size: 1.5rem; font-weight: 400;">{{'configuration_games.view_trying_word.title_pag_game' |   translate}}</h2>
   </div>
 
-  <div class="col-12" style="width: 100%;  padding-right: 20px;   ">
+  <div class="col-12" style="width: 100%;  padding-right: 15px; padding-left: 0px;   ">
     <zan-how-many-words (Output_list_Words_API)="fn_StartGame_Input($event)"></zan-how-many-words>
   </div>
 
 
 
-  <div class="col-zan-1 "  >
+  <div class="col-zan-1  "  >
     <div  [style]="{   border: '2px solid blue',  borderRadius: '5px'}">
       <zan-list-words [Input_Averge]="lbl_Averge" [Input_Div]="lbl_Div" [Input_List_Words_Process]="list_Words_process">   </zan-list-words>
     </div>
