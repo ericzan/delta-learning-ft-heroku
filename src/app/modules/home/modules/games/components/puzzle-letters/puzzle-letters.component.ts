@@ -169,7 +169,7 @@ this.getConfig();
     let _qtywords: number = 0;
 
 
-    // console.log("-----***--- guardara------***------");
+    // console.log("-----***--- save------***------");
     // console.log("------list_words_guessed--",this.list_words_guessed);
     // console.log("------_words--",_words);
 

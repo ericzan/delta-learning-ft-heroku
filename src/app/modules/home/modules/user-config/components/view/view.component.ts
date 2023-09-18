@@ -234,17 +234,17 @@ debugger;
     return mailValido;
   }
   getCountries(){
-    console.log('-----   contries ----');
+    // console.log('-----   contries ----');
 
     this.uiOperGrService.getCountries( ).subscribe( resp => {
-      console.log('-----   contries ----',resp);
+      // console.log('-----   contries ----',resp);
 
       this.listContries = resp.map((value: any) => ({
                               label: value.country,
                               value: value.country,
 
                             })), catchError(e => {
-                              console.log('----- erro API  contries ----');
+                              // console.log('----- erro API  contries ----');
                               return of(null);
                             });
 
@@ -254,17 +254,17 @@ debugger;
   }
 
   getLanguages(){
-    console.log('-----   contries ----');
+    // console.log('-----   contries ----');
 
     this.uiOperGrService.getLanguages( ).subscribe( resp => {
-      console.log('-----   contries ----',resp);
+      // console.log('-----   contries ----',resp);
 
       this.listLanguages = resp.map((value: any) => ({
                               label: value.language,
                               value: value.language,
 
                             })), catchError(e => {
-                              console.log('----- erro API  Languages ----');
+                              // console.log('----- erro API  Languages ----');
                               return of(null);
                             });
 

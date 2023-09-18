@@ -171,7 +171,7 @@ export class TryingTheWordComponent implements OnInit {
     let _qtywords: number = 0;
 
 
-    // console.log("-------- guardara------------");
+    // console.log("-------- save------------");
     // console.log("------list_words_guessed--",this.list_words_guessed);
     // console.log("------list_Words_API--",this.list_Words_API);
 

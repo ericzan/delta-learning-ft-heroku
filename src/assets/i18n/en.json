@@ -378,12 +378,13 @@
 	},
 	"signin": {
 		"forgot_your_password": "Forgot your password?",
+    "sign_up": " You do not have an account? Sign Up . . .",
 		"form": {
 			"message_invalid": "Invalid username or password",
 			"password": "Password",
 			"signin": "Sign in",
 			"user": "User"
 		},
-		"title": "Welcome to"
+		"title": "Welcome"
 	}
 }

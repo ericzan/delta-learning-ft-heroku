@@ -45,12 +45,12 @@ verAyuda = false;
 
     this._LevelService.STOP$.subscribe(data => {
       if (data) {
-        console.log(` ---- entro if: ${data}`);
+        // console.log(` ---- entro if: ${data}`);
         this._LevelService.STOP$.next(false);
         this.fn_Save_API();
       }
 
-      else { console.log(` ---- entro else: ${data}`); }
+      // else { console.log(` ---- entro else: ${data}`); }
 
     });
 
@@ -61,7 +61,7 @@ verAyuda = false;
 
     this.setlevelNo = true;
     this.fn_SearchData_API();
-    console.log("------- termina proceso-----------" + this.tartonNo);
+    // console.log("------- termina proceso-----------" + this.tartonNo);
     this.router.navigate(['../home/main/progress']);
 
   }//----------------------------------
@@ -78,8 +78,8 @@ verAyuda = false;
       word: "",
       setlevel: this.setlevelNo,
     }).subscribe((resp: any) => {
-      console.log("- ---- respondio busqueda api------");
-      console.log(resp);
+      // console.log("- ---- respondio busqueda api------");
+      // console.log(resp);
       this.List_Words_Level = [];
 
 
@@ -92,13 +92,13 @@ verAyuda = false;
           comment: "",
         }
         )), catchError(e => {
-          console.log('----- erro API  catchError ----');
+          // console.log('----- erro API  catchError ----');
           this.p_AbrirSpinner = false;
           return of(this.fn_BuscaDatos_Blanco());
         });
 
 
-        console.log('----- salio del map----');
+        // console.log('----- salio del map----');
         this.p_AbrirSpinner = false;
         if (this.List_Words_Level.length <= 0) {
 
@@ -111,8 +111,8 @@ verAyuda = false;
 
 
     }, (_error) => {
-      console.log('----- erro API  (2)----');
-      console.log(_error);
+      // console.log('----- erro API  (2)----');
+      // console.log(_error);
       let _msj = "";
 
       try { _msj = _error.error.detail.toString(); }

@@ -87,8 +87,8 @@ if(this.form.invalid){
 
   }).subscribe((resp: any) =>
   {
-    console.log("---------- respondio guardar datos api ---------");
-    console.log(resp);
+    // console.log("---------- respondio save datos api ---------");
+    // console.log(resp);
 
     this.openSpinner = false;
 
@@ -97,8 +97,8 @@ if(this.form.invalid){
 
   } , (error) => {
 
-      console.log('----- erro API  (2)----');
-      console.log(error);
+      // console.log('----- erro API  (2)----');
+      // console.log(error);
 
       let _msj = error.error.detail.toString();
       this.openSpinner = false;
@@ -121,13 +121,13 @@ userData ()
 this.openSpinner = true;
 this.uiOperGrService.getTDT().subscribe((resp: any) =>
 {
-  console.log("---------- respondio guardar datos api ---------");
-  console.log(resp);
+  // console.log("---------- respondio save datos api ---------");
+  // console.log(resp);
   this.list_koh = resp.koh.map((value: any) => ({
                           label: value.text,
                           value: value.value
                                         })), catchError(e => {
-                                          console.log('----- erro API ----');
+                                          // console.log('----- erro API ----');
                                           this.openSpinner = false;
                                           return of(null);
                                         });
@@ -143,8 +143,8 @@ this.userName = resp.name;
 
 } , (error) => {
 
-    console.log('----- erro API  (2)----');
-    console.log(error);
+    // console.log('----- erro API  (2)----');
+    // console.log(error);
 
     let _msj = error.error.detail.toString();
     this.openSpinner = false;

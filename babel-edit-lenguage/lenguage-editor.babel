@@ -4344,8 +4344,23 @@
 					<folder_node>
 						<name>signin</name>
 						<children>
-							<concept_node>
+              <concept_node>
 								<name>forgot_your_password</name>
+								<description/>
+								<comment/>
+								<translations>
+									<translation>
+										<language>en-US</language>
+										<approved>true</approved>
+									</translation>
+									<translation>
+										<language>es-ES</language>
+										<approved>true</approved>
+									</translation>
+								</translations>
+							</concept_node>
+							<concept_node>
+								<name>sign_up</name>
 								<description/>
 								<comment/>
 								<translations>

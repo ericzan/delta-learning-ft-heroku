@@ -215,7 +215,7 @@ export class GuessTheWordComponent implements OnInit {
     let _qtywords: number = 0;
 
 
-    // console.log("-------- guardara------------");
+    // console.log("-------- save------------");
     // console.log(this.list_words_guessed);
     this.openSpinner = true;
     this.uiOperGrService.getGamesAA_Archive({
@@ -225,7 +225,7 @@ export class GuessTheWordComponent implements OnInit {
       average: _average.toString(),
       kogame: "GUESS_TW",
     }).subscribe((resp: any) => {
-                                      // console.log("---------- respondio guardar datos api ---------");
+                                      // console.log("---------- respondio save datos api ---------");
                                       // console.log(resp);
                                         this.list_Words_API = resp.map((value: any) => ({
                                                                       _userId: value.userId,
