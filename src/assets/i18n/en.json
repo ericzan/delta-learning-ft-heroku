@@ -378,7 +378,7 @@
 	},
 	"signin": {
 		"forgot_your_password": "Forgot your password?",
-    "sign_up": " You do not have an account? Sign Up . . .",
+    "sign_up": "If you do not have an access account, Sign Up here.",
 		"form": {
 			"message_invalid": "Invalid username or password",
 			"password": "Password",
