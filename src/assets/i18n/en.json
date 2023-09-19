@@ -400,7 +400,11 @@
       "label_email":"EMail ",
       "label_email_confirm":"EMail confirm",
       "button_send":"Send",
-      "label_return":"Sign back in"
+      "label_return":"Sign back in",
+      "label_dialog_title":"The process has been successful",
+      "label_dialog_body":"please check your inbox email",
+      "button_close":"Close"
+
     }
   }
 }

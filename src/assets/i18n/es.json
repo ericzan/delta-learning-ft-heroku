@@ -401,7 +401,10 @@
       "label_email":"Correo ",
       "label_email_confirm":"Confirmar correo",
       "button_send":"Enviar",
-      "label_return":"Volver a iniciar sesión "
+      "label_return":"Volver a iniciar sesión ",
+      "label_dialog_title":"El proceso ha sido exitoso",
+      "label_dialog_body":"favor de revisar su correo electrónico.",
+      "button_close":"Regresar"
     }
   }
 }
