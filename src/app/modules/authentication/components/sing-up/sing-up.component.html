@@ -4,12 +4,12 @@
   </div>
   <div class="container-right" >
       <h1 class="title">{{'singup.form.title' | translate}}</h1>
-      <form  class="grid grid-container container-form " [formGroup]="sigUpForm" (ngSubmit)="submit()">
+      <form  class="grid grid-container container-form " [formGroup]="sigUpForm"   >
           <div class="col-12 md:col-10">
               <div class="grid grid-container">
                   <div class="col-12 md:col-6">
                       <label >{{'singup.form.label_user' | translate}}</label>
-                      <input pInputText id="user" formControlName="user"/>
+                      <input pInputText id="user"   formControlName="user" />
                       <div style="height: 30px">
                           <ng-container *ngIf="fieldValidate.focus(sigUpForm,'user')">
                               <div class="message-error">{{'global.required' | translate}}</div>
@@ -18,7 +18,7 @@
                   </div>
                   <div class="col-12 md:col-6">
                     <label>{{'singup.form.label_name' | translate}}</label>
-                    <input pInputText  id="name" autocomplete="name" formControlName="name"/>
+                    <input pInputText  id="name"   formControlName="name"/>
                     <div style="height: 30px">
                         <ng-container *ngIf="fieldValidate.focus(sigUpForm,'name')">
                             <div class="message-error">{{'global.required' | translate}}</div>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-12 md:col-6">
                         <label>{{'singup.form.label_password' | translate}}</label>
-                        <input pInputText type="password" id="password" autocomplete="new-password" formControlName="password"/>
+                        <input pInputText type="password" id="password"  formControlName="password"/>
                         <div style="height: 30px">
                             <ng-container *ngIf="fieldValidate.focus(sigUpForm,'password')">
                                 <div class="message-error">{{'global.required' | translate}}</div>
@@ -36,16 +36,16 @@
                     </div>
                     <div class="col-12 md:col-6">
                       <label>{{'singup.form.label_password_confirm' | translate}}</label>
-                      <input pInputText type="password" id="passwordConfirm" autocomplete="new-password" formControlName="passwordConfirm"/>
+                      <input pInputText type="password" id="passwordConfirm"  formControlName="passwordConfirm"/>
                       <div style="height: 30px">
-                          <ng-container *ngIf="fieldValidate.focus(sigUpForm,'password')">
+                          <ng-container *ngIf="fieldValidate.focus(sigUpForm,'passwordConfirm')">
                               <div class="message-error">{{'global.required' | translate}}</div>
                           </ng-container>
                     </div>
                   </div>
                     <div class="col-12 md:col-6">
                       <label>{{'singup.form.label_email' | translate}}</label>
-                      <input pInputText  id="email" autocomplete="email" formControlName="email"/>
+                      <input pInputText  id="email"   formControlName="email"/>
                       <div style="height: 30px">
                           <ng-container *ngIf="fieldValidate.focus(sigUpForm,'email')">
                               <div class="message-error">{{'global.required' | translate}}</div>
@@ -54,9 +54,9 @@
                     </div>
                     <div class="col-12 md:col-6">
                       <label>{{'singup.form.label_email_confirm' | translate}}</label>
-                      <input pInputText  id="emailConfirm" autocomplete="email" formControlName="emailConfirm"/>
+                      <input pInputText  id="emailConfirm"   formControlName="emailConfirm"/>
                       <div style="height: 30px">
-                          <ng-container *ngIf="fieldValidate.focus(sigUpForm,'email')">
+                          <ng-container *ngIf="fieldValidate.focus(sigUpForm,'emailConfirm')">
                               <div class="message-error">{{'global.required' | translate}}</div>
                           </ng-container>
                       </div>
@@ -64,12 +64,13 @@
 
 
                   <div class="col-12 "style="justify-content: center; display: flex;">
-                      <p-button type="submit" label="{{'singup.form.button_send' | translate}}" [style]="{'width': '200px' }" ></p-button>
+                      <p-button type="submit" label="{{'singup.form.button_send' | translate}}" [style]="{'width': '200px' }" (onClick)="submit()" ></p-button>
                   </div>
                   <hr style="width: 100%; margin: 10px 0px">
                   <div style="width: 100%; color: white; text-align: center; opacity: 0.8;">
-                    <a class="recovery-password" [routerLink]="['../sign-in']">
-                      {{'singup.form.label_return' | translate}}</a>
+                      <a class="recovery-password" [routerLink]="['../sign-in']">
+                    {{'singup.form.label_return' | translate}}</a>
+
                   </div>
 
               </div>
@@ -79,21 +80,22 @@
 </div>
 
 <p-dialog
-
           [(visible)]="displayDialog" [modal]="true"
-        [style]="{ width: '50vw' }"
-    [draggable]="false" [resizable]="false">
+          [style]="{ width: '80%' }"
+        [draggable]="false" [resizable]="false">
     <h3 style="text-align: center; padding-bottom: 10px; font-size: 1.5rem;">
-      <!-- {{'singup.form.label_dialog_body' | translate}} -->
       {{messageError}}
     </h3>
     <div style="text-align: center;">
-        <p-button type="submit" label="{{'singup.form.button_close' | translate}}"
-                  [style]="{'width': '200px' }"
+      <!-- <p-button  label="{{'singup.form.button_close' | translate}}" [style]="{'width': '50%' }"[routerLink]="['../sign-in']"  (onClick)="fnCerrar()"></p-button> -->
+
+        <p-button  label="{{'singup.form.button_close' | translate}}"
+                  [style]="{'width': '50%' }"
                   [routerLink]="['../sign-in']"
-                  >
+                  (onClick)="fnCerrar()">
       </p-button>
     </div>
 </p-dialog>
 
 <app-loading></app-loading>
+<p-toast></p-toast>
