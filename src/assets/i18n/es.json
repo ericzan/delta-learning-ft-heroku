@@ -378,7 +378,7 @@
 		}
 	},
 	"signin": {
-		"forgot_your_password": "Olvidaste tu contraseña?",
+		"forgot_your_password": "¿Has olvidado tu contraseña?",
     "sign_up": "Si no tienes cuenta de acceso, Regístrate aquí.",
 		"form": {
 			"message_invalid": "Usuario o contraseña inválidos",
