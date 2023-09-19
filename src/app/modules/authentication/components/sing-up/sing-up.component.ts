@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FieldValidateService } from '@core/services/field-validate.service';
@@ -15,14 +15,16 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./sing-up.component.scss'],
   providers: [MessageService]
 })
-export class SingUpComponent
+export class SingUpComponent implements OnInit
 {
   @ViewChild(LoadingComponent) loading!: LoadingComponent;
   sigUpForm!: FormGroup;
   messageError="";
 
   displayDialog=false;
-exito=false;
+  exito=false;
+  numero01=0;
+  numero02=0;
 
   constructor(
     private route: Router,
@@ -40,20 +42,32 @@ exito=false;
       passwordConfirm: [, [Validators.required]],
       email: [, [Validators.required]],
       emailConfirm: [, [Validators.required]],
+      captcha: [, [Validators.required]],
+
 
     });
+  }
+  ngOnInit(): void {
+    this.numero01 = Number( (Math.random()*1000).toString().substring(0,1));
+    this.numero02 = Number( (Math.random()*1000).toString().substring(0,1));
   }
 
   submit(   )
   {
+
+
+
 
     if (this.sigUpForm.invalid) {
       this.sigUpForm.markAllAsTouched();
       return;
     }
 
+
+
     if (!this.fnValidatePass())    {return ;}
     if (!this.fnValidateMail())    {return ;}
+    if (!this.fnValidateCaptcha())    {return ;}
 
     this.loading.setDisplay(true);
 
@@ -152,5 +166,17 @@ fnValidatePass ()
   }
 
 return true;
+}
+fnValidateCaptcha()
+{
+  let _Return =false;
+  const _captcha:string = this.sigUpForm.value.captcha;
+
+  if (   (this.numero01+this.numero02)  != Number(_captcha))
+  {
+    this.messageService.add({ severity: 'error', summary: 'Actualización', detail: "La suma incorrecta"});
+    return false;
+  }
+  return true;
 }
 }

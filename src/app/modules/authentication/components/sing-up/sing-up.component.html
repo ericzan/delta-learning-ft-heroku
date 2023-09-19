@@ -62,6 +62,19 @@
                       </div>
                     </div>
 
+                    <div class="grid grid-container  col-12  " style=" justify-content: center; display: flex ">
+                      <div   > <label>{{numero01}} +     {{numero02}}    =    </label>  </div>
+                      &nbsp;
+                      <div ><input type="number" min="0" max="99" style="width: 50px; text-align:center;" id="captcha"   formControlName="captcha"  ></div>
+
+
+                      <div style="height: 30px">
+                          <ng-container *ngIf="fieldValidate.focus(sigUpForm,'captcha')">
+                              <div class="message-error">{{'global.required' | translate}}</div>
+                          </ng-container>
+                      </div>
+                    </div>
+
 
                   <div class="col-12 "style="justify-content: center; display: flex;">
                       <p-button type="submit" label="{{'singup.form.button_send' | translate}}" [style]="{'width': '200px' }" (onClick)="submit()" ></p-button>
