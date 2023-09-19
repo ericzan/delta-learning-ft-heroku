@@ -28,6 +28,8 @@ export class SingUpComponent {
       user: [, [Validators.required]],
       name: [, [Validators.required]],
       password: [, [Validators.required]],
+      passwordConfirm: [, [Validators.required]],
+
       email: [, [Validators.required]],
 
     });

@@ -397,7 +397,9 @@
       "label_user":"Usuario ",
       "label_name":"Nombre ",
       "label_password":"Password ",
+      "label_password_confirm":"Confirmar password",
       "label_email":"Correo ",
+      "label_email_confirm":"Confirmar correo",
       "button_send":"Enviar",
       "label_return":"Volver a iniciar sesión "
     }
