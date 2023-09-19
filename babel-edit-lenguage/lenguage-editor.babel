@@ -4456,6 +4456,155 @@
 							</concept_node>
 						</children>
 					</folder_node>
+
+          <folder_node>
+						<name>singup</name>
+						<children>
+							<folder_node>
+								<name>form</name>
+									<children>
+
+										<concept_node>
+											<name>title</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                    <concept_node>
+											<name>label_user</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                     <concept_node>
+											<name>label_name</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                    <concept_node>
+											<name>label_password</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                    <concept_node>
+											<name>label_password</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                     <concept_node>
+											<name>label_email</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                    <concept_node>
+											<name>button_send</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+                     <concept_node>
+											<name>label_return</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
+
+
+
+									</children>
+							</folder_node>
+
+
+						</children>
+					</folder_node>
+
+
+
+
+
 				</children>
 			</package_node>
 		</children>

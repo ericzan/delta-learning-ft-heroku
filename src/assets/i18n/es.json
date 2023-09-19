@@ -388,4 +388,18 @@
 		},
 		"title": "Bienvenido"
 	}
+  ,
+  "singup":
+  {
+    "form":
+    {
+      "title":"Registro ",
+      "label_user":"Usuario ",
+      "label_name":"Nombre ",
+      "label_password":"Password ",
+      "label_email":"Correo ",
+      "button_send":"Enviar",
+      "label_return":"Volver a iniciar sesión "
+    }
+  }
 }

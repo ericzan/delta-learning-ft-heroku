@@ -387,4 +387,18 @@
 		},
 		"title": "Welcome"
 	}
+  ,
+  "singup":
+  {
+    "form":
+    {
+      "title":"Register your ccount",
+      "label_user":"User ",
+      "label_name":"Name ",
+      "label_password":"Password ",
+      "label_email":"EMail ",
+      "button_send":"Send",
+      "label_return":"Sign back in"
+    }
+  }
 }
