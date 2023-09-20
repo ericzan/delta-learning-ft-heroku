@@ -83,7 +83,7 @@ export class SingUpComponent implements OnInit
       name: _name,
       password: _password,
       email: _email,
-      lang    : "Sp"
+      lang    : "es"
     }).subscribe((resp: any) =>
     {
 
