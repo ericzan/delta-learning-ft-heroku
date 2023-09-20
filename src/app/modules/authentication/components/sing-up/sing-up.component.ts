@@ -97,12 +97,10 @@ this.exito=true;
 
                         console.log("---- error ---",error);
 
-                        this.messageError = error.statusText + "  Error : Intente denuevo "
+                        this.messageError = error.error.detail  + " : Intente denuevo "
                         this.loading.setDisplay(false);
                         this.displayDialog = true;
                         this.exito=false;
-
-
 
                       });
   }
@@ -167,6 +165,7 @@ fnValidatePass ()
 
 return true;
 }
+
 fnValidateCaptcha()
 {
   let _Return =false;
@@ -175,6 +174,8 @@ fnValidateCaptcha()
   if (   (this.numero01+this.numero02)  != Number(_captcha))
   {
     this.messageService.add({ severity: 'error', summary: 'Actualización', detail: "La suma incorrecta"});
+    this.numero01 = Number( (Math.random()*1000).toString().substring(0,1));
+    this.numero02 = Number( (Math.random()*1000).toString().substring(0,1));
     return false;
   }
   return true;
