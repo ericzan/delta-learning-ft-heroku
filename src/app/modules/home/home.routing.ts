@@ -7,6 +7,10 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
+        path: 'payment',
+        loadChildren: ()=> import('./modules/payment/payment.module').then( mod => mod.paymentModule)
+      },
+      {
         path: 'ask-for-supportoth',
         loadChildren: ()=> import('./modules/ask-for-supportoth/ask-for-supportoth.module').then( mod => mod.AskForSupportothModule)
       },
