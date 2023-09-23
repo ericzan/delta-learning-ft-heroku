@@ -18,7 +18,7 @@ import { NgxStripeModule } from 'ngx-stripe';
     CommonModule,
     SharedModule,
     HomeRoutes,
-    NgxStripeModule.forRoot("sk_test_51KNUZgHynfh9L9pTAsgTefRSbuddpHe5pcOqRiVBUMlajUPR1jiUFLxEy4bxNSOyAIQiPVCzKm1LZRVnHTWED2NT00KJClYXjO")
+    NgxStripeModule.forRoot("pk_test_51KNUZgHynfh9L9pTnmw9bgxGbSEhc3nJQAAFdWdcbagjtlGp0psCpERWiyTSTNkUF3CNozBptdh8lBj8YVltuPH900jD62sCUN")
 
   ]
 })

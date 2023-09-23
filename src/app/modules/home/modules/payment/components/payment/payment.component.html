@@ -1,13 +1,20 @@
-<div> eric zan </div>
+<div>
+  <h2 style="font-size: 1.5rem; font-weight: 400;">PAGOS</h2>
+  <hr>
+</div>
 
 
 
-<form  novalidate [formGroup]="stripeTest"  (ngSubmit)="buy()"  >
-  <input type="text" formControlName="name" placeholder="pon tu nombre">
-  <div id="card-element" class="field"></div>
-  <button type="submit">
-     Comprar
-  </button>
-</form>
 
 
+
+
+<div class="card flex justify-content-center"  >
+  <p-card header="Pagar" [style]="{'width': '500px'}">
+    <form  novalidate [formGroup]="stripeTest"  (ngSubmit)="buy()"     >
+      <input type="text" formControlName="name" placeholder="pon tu nombre">
+      <div id="card-element" class="field"></div>
+      <button type="submit"> Comprar  </button>
+    </form>
+  </p-card>
+</div>

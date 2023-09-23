@@ -5,6 +5,9 @@ import { AuthenticationRoutes } from './authentication.routing';
 import { SharedModule } from '@shared/shared.module';
 import { RecoveryComponent } from './components/recovery/recovery.component';
 import { SingUpComponent } from './components/sing-up/sing-up.component';
+import { RedirectGuard } from './components/sign-in/redirect-guard.guard';
+
+
 
 
 
@@ -17,7 +20,8 @@ import { SingUpComponent } from './components/sing-up/sing-up.component';
   imports: [
     CommonModule,
     SharedModule,
-    AuthenticationRoutes
-  ]
+    AuthenticationRoutes,
+  ],
+  providers: [RedirectGuard],
 })
 export class AuthenticationModule { }

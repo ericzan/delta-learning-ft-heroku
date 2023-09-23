@@ -50,3 +50,32 @@
     </div>
 </div>
 <app-loading></app-loading>
+
+
+<p-dialog   [(visible)]="ShowDialog"  [modal]="true" [style]="{ width: '50vw' }" [draggable]="false"[resizable]="false">
+  <div style="text-align: center;">
+      <div>
+        <h3 style="font-size: 1.5rem; color: rgb(40, 36, 238);"> La vigencia de acceso ha concluído </h3>
+      </div>
+      &nbsp;
+      <div>
+        <h3 style="font-size: 1rem; color: rgb(0, 0, 0);"> Lo invitamos a continuar con nosotros, le ofrecemos los siguientes licenciamento</h3>
+      </div>
+  </div>
+  &nbsp;
+  <div class="flex py-2 justify-content-center">
+    <p-dropdown appendTo="body" [options]="list_Payments"  [(ngModel)]="selectedPayments" placeholder="Seleccionar una promoción" optionLabel="name"></p-dropdown>
+  </div>
+  &nbsp;
+  <div class="flex py-2 justify-content-center">
+    <h3 style="font-size: 1rem; color: rgb(0, 0, 0);"> de cuerdo a tu selección el  monto a pagar seá de  :  $ 100</h3>
+  </div>
+  <div class="grid grid-container col-12   ">
+      <div class="col-6">
+          <p-button type="button" label="continuar" [style]="{'width': '80%'}" (onClick)="payment()"  > </p-button>
+      </div>
+          <div class="col-6"><p-button type="button" label="cancelar" [style]="{'width': '80%'}" > </p-button>
+      </div>
+  </div>
+
+</p-dialog>

@@ -99,7 +99,25 @@ console.log("---result token ----",result);
 
     debugger;
 
-    // const stripe = require('stripe')("pk_test_51KNUZgHynfh9L9pTnmw9bgxGbSEhc3nJQAAFdWdcbagjtlGp0psCpERWiyTSTNkUF3CNozBptdh8lBj8YVltuPH900jD62sCUN");
+
+
+    // Set your secret key. Remember to switch to your live secret key in production.
+// See your keys here: https://dashboard.stripe.com/apikeys
+// const stripe:any = require('stripe')('sk_test_51KNUZgHynfh9L9pTAsgTefRSbuddpHe5pcOqRiVBUMlajUPR1jiUFLxEy4bxNSOyAIQiPVCzKm1LZRVnHTWED2NT00KJClYXjO');
+
+// const paymentLink = await stripe.paymentLinks.create({
+//   line_items: [
+//     {
+//       price: '{{PRICE_ID}}',
+//       quantity: 1,
+//     },
+//   ],
+// });
+
+
+
+      // let  require: NodeRequire;
+     //  const stripe = require('stripe')("pk_test_51KNUZgHynfh9L9pTnmw9bgxGbSEhc3nJQAAFdWdcbagjtlGp0psCpERWiyTSTNkUF3CNozBptdh8lBj8YVltuPH900jD62sCUN");
     // console.log("---- stripe----", stripe);
     // let paymentIntent =  await stripe.paymentIntents.create({
     //   amount: 1,
