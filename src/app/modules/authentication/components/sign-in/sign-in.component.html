@@ -52,7 +52,8 @@
 <app-loading></app-loading>
 
 
-<p-dialog   [(visible)]="ShowDialog"  [modal]="true" [style]="{ width: '50vw' }" [draggable]="false"[resizable]="false">
+<p-dialog  class="col-panel"   [(visible)]="ShowDialog"  [modal]="true"   [draggable]="false"[resizable]="false" >
+
   <div style="text-align: center;">
       <div>
         <h3 style="font-size: 1.5rem; color: rgb(40, 36, 238);"> La vigencia de acceso ha concluído </h3>
@@ -64,7 +65,15 @@
   </div>
   &nbsp;
   <div class="flex py-2 justify-content-center">
-    <p-dropdown appendTo="body" [options]="list_Payments"  [(ngModel)]="selectedPayments" placeholder="Seleccionar una promoción" optionLabel="name"></p-dropdown>
+      <form  class="grid grid-container container-form" [formGroup]="modalForm" >
+            <label>promociones</label> &nbsp;  &nbsp;
+            <p-dropdown formControlName="cboListOptions" [options]="listCategories" placeholder="Seleccionar una opción . . .">    </p-dropdown>
+            <div style="height: 50px">
+                <ng-container *ngIf="fieldValidate.focus(modalForm,'cboListOptions')">
+                    <div class="message-error">{{'global.required' | translate}}</div>
+                </ng-container>
+            </div>
+      </form>
   </div>
   &nbsp;
   <div class="flex py-2 justify-content-center">
@@ -74,7 +83,8 @@
       <div class="col-6">
           <p-button type="button" label="continuar" [style]="{'width': '80%'}" (onClick)="payment()"  > </p-button>
       </div>
-          <div class="col-6"><p-button type="button" label="cancelar" [style]="{'width': '80%'}" > </p-button>
+          <div class="col-6">
+            <p-button type="button" label="cancelar" [style]="{'width': '80%'}"   (onClick)="paymentCancel()"></p-button>
       </div>
   </div>
 

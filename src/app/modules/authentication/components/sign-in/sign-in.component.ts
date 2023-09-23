@@ -12,7 +12,7 @@ import { RedirectGuard } from './redirect-guard.guard';
 
 
 
-interface PromotionsModel {  name: string, code: string}
+
 
 
 
@@ -25,14 +25,14 @@ interface PromotionsModel {  name: string, code: string}
 })
 export class SignInComponent implements OnInit, AfterViewInit {
   structureForm!: FormGroup;
+  modalForm!:FormGroup;
   messageError: string = '';
   @ViewChild(LoadingComponent) loading!: LoadingComponent;
 
   ShowDialog=false;
-  list_Payments: PromotionsModel  []  | undefined;
-  selectedPayments: PromotionsModel | undefined;
 
 
+  listCategories: Array<{ label: string, value: string }> = [];
 
 
   constructor(
@@ -49,25 +49,25 @@ export class SignInComponent implements OnInit, AfterViewInit {
       username: [, [Validators.required]],
       password: [, [Validators.required]]
     });
+
+    this.modalForm = this.fb.group({
+      cboListOptions: [, [Validators.required]],
+
+    });
+  ;
   }
   ngOnInit(): void {
-    this.list_Payments = [
-      { name: "promocion - 01", code: "a1"  },
-      { name: "promocion - 02", code: "a2"  },
-  ];
-
-
-
+    this.getCategories("es");
   }
+
+
   ngAfterViewInit(): void {   }
+
   submit() {
     if (this.structureForm.invalid) {
       this.structureForm.markAllAsTouched();
       return;
     }
-
-    // this.paymet();
-    // return;
 
     this.loading.setDisplay(true);
     this.messageError = '';
@@ -108,14 +108,27 @@ export class SignInComponent implements OnInit, AfterViewInit {
     });
   }
 
+  paymentCancel(){
+
+    this.ShowDialog=false;
+  }
+
   payment ()
   {
+
+
+    if (this.modalForm.invalid) {
+      this.modalForm.markAllAsTouched();
+      return;
+    }
+
+    let _CvePromo = this.modalForm.value.cboListOptions;
 
     const userName = this.structureForm.value.username;
     this.http.post(`${environment.apiUrl}/dt/auth/stripe_checkout/`,
     {
       userId: userName,
-      KoLic: "01M",
+      KoLic: _CvePromo,
       price_complete: 1500,
       price_cupon : 750,
       cupon: "abc"
@@ -146,7 +159,29 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
 
 
-  }
+  }//-------------------------------------------------------------------------------
+
+  getCategories(lang:string) {
+
+    if (lang=="en")
+    {
+      this.listCategories.push(
+        { label: "Promo 01", value: "01M" },
+        { label: "Promo 02", value: "02M"  },
+        { label: "Promo 03", value: "03M"  },
+        { label: "Promo 04", value: "04M"});
+    }
+    else
+    {
+      this.listCategories.push(
+        { label: "Promo 01", value: "01M" },
+        { label: "Promo 02", value: "02M" },
+        { label: "Promo 03", value: "03M" },
+        { label: "Promo 04", value: "04M" });
+
+    }
+
+  }//-----------------------------------------------------------------
 
 
 }
