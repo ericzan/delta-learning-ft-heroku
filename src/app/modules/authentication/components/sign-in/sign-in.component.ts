@@ -33,6 +33,10 @@ export class SignInComponent implements OnInit, AfterViewInit {
   ShowDialog=false;
   modalTitle ="";
   modalTitle02 ="";
+price_complete =0;
+  price_cupon  =0;
+  cupon  ="";
+  DescriptionCupon="";
 
   list_Promos:  Array<{  KoLic:string,cupon:string,description:string,price:number,price_cupon:number ,value:string }> = [];
   listCategories : Array<{  label:string,value :string  }> = [];
@@ -132,24 +136,21 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
     const userName = this.structureForm.value.username;
     let _CvePromo = this.modalForm.value.cboListOptions;
-    let _price_complete =0;
-    let _price_cupon  =0;
-    let _cupon  ="";
     const _result =  this.list_Promos.find(x => x.KoLic === _CvePromo);
 
-    _price_complete = _result!.price
-    _price_cupon= _result!.price_cupon
-    _cupon = _result!.cupon
-
+  this.price_complete = _result!.price
+  this.price_cupon= _result!.price_cupon
+  this.cupon = _result!.cupon
+  this.DescriptionCupon = _result!.description;
 
 
     this.http.post(`${environment.apiUrl}/dt/auth/stripe_checkout/`,
     {
       userId: userName,
       KoLic: _CvePromo,
-      price_complete: _price_complete,
-      price_cupon : _price_cupon,
-      cupon: _cupon
+      price_complete: this.price_complete,
+      price_cupon : this.price_cupon,
+      cupon: this.cupon
     }).subscribe((resp: any) =>
     {
 
@@ -179,6 +180,17 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
   }//-------------------------------------------------------------------------------
 
+  descriptionCupon(){
+    let _CvePromo = this.modalForm.value.cboListOptions;
+    const _result =  this.list_Promos.find(x => x.KoLic === _CvePromo);
+
+    this.price_complete = _result!.price
+    this.price_cupon= _result!.price_cupon
+    this.cupon = _result!.cupon
+    this.DescriptionCupon = _result!.description;
+
+
+  }//-------------------------------------------------------------------------------
   options ()
   {
 
@@ -198,6 +210,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
             this.loading.setDisplay(false);
             this.modalTitle =resp.title.es;
             this.modalTitle02 =resp.title02.es;
+
 
             resp.Options.forEach(function (_item:any)
                       {
