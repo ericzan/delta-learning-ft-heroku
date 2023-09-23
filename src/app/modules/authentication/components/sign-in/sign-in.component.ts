@@ -82,7 +82,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
       password: password
     }).subscribe((resp: any) => {
 
-      debugger;
+      // debugger;
 
       this.storageService.save(KeyStorage.user, userName);
       this.storageService.save(KeyStorage.token, resp.token);
@@ -130,16 +130,26 @@ export class SignInComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    let _CvePromo = this.modalForm.value.cboListOptions;
-
     const userName = this.structureForm.value.username;
+    let _CvePromo = this.modalForm.value.cboListOptions;
+    let _price_complete =0;
+    let _price_cupon  =0;
+    let _cupon  ="";
+    const _result =  this.list_Promos.find(x => x.KoLic === _CvePromo);
+
+    _price_complete = _result!.price
+    _price_cupon= _result!.price_cupon
+    _cupon = _result!.cupon
+
+
+
     this.http.post(`${environment.apiUrl}/dt/auth/stripe_checkout/`,
     {
       userId: userName,
       KoLic: _CvePromo,
-      price_complete: 1500,
-      price_cupon : 750,
-      cupon: "abc"
+      price_complete: _price_complete,
+      price_cupon : _price_cupon,
+      cupon: _cupon
     }).subscribe((resp: any) =>
     {
 
