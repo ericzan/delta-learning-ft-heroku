@@ -9,6 +9,7 @@ import { KeyStorage } from '@shared/services/key-storage.enum';
 import { LocalStorageService } from '@shared/services/local-storage.service';
 import { environment } from 'src/environments/environment';
 import { RedirectGuard } from './redirect-guard.guard';
+import { catchError, of } from 'rxjs';
 
 
 
@@ -30,10 +31,11 @@ export class SignInComponent implements OnInit, AfterViewInit {
   @ViewChild(LoadingComponent) loading!: LoadingComponent;
 
   ShowDialog=false;
+  modalTitle ="";
+  modalTitle02 ="";
 
-
-  listCategories: Array<{ label: string, value: string }> = [];
-
+  list_Promos:  Array<{  KoLic:string,cupon:string,description:string,price:number,price_cupon:number ,value:string }> = [];
+  listCategories : Array<{  label:string,value :string  }> = [];
 
   constructor(
     private route: Router,
@@ -57,13 +59,15 @@ export class SignInComponent implements OnInit, AfterViewInit {
   ;
   }
   ngOnInit(): void {
-    this.getCategories("es");
+    // this.getCategories("es");
+
   }
 
 
   ngAfterViewInit(): void {   }
 
-  submit() {
+  submit()
+  {
     if (this.structureForm.invalid) {
       this.structureForm.markAllAsTouched();
       return;
@@ -78,6 +82,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
       password: password
     }).subscribe((resp: any) => {
 
+      debugger;
 
       this.storageService.save(KeyStorage.user, userName);
       this.storageService.save(KeyStorage.token, resp.token);
@@ -99,8 +104,10 @@ export class SignInComponent implements OnInit, AfterViewInit {
         }, 700)
         return;
       }
+      //--------- ya se vencio la membresia
       if (error.status === 403)
       {
+        this.options();
         this.ShowDialog=true;
 
       }
@@ -108,7 +115,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
     });
   }
 
-  paymentCancel(){
+  paymentCancel()
+  {
 
     this.ShowDialog=false;
   }
@@ -161,9 +169,64 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
   }//-------------------------------------------------------------------------------
 
-  getCategories(lang:string) {
+  options ()
+  {
 
-    if (lang=="en")
+
+    this.list_Promos=[];
+    this.listCategories=[];
+    let  list_Promos:  Array<{  KoLic:string,cupon:string,description:string,price:number,price_cupon:number ,value:string }> = [];
+   let  _listCategories : Array<{  label:string,value :string  }> = [];
+
+
+
+    this.http.get(`${environment.apiUrl}/dt/auth/s_available_products`,
+    {
+
+    }).subscribe((resp: any) =>
+    {
+            this.loading.setDisplay(false);
+            this.modalTitle =resp.title.es;
+            this.modalTitle02 =resp.title02.es;
+
+            resp.Options.forEach(function (_item:any)
+                      {
+                        list_Promos.push ({  KoLic:_item.KoLic,cupon:_item.cupon,description:_item.description.es
+                                                  ,price:_item.price,price_cupon:_item.price_cupon ,value:_item.es });
+                        _listCategories.push ({  label:_item.value.es ,value:_item.KoLic  });
+
+                      });
+            this.list_Promos = list_Promos;
+            this.listCategories = _listCategories;
+
+
+
+
+    }, (error) =>
+    {
+
+      this.loading.setDisplay(false);
+      if (error.status === 401)
+      {
+        setTimeout(() =>
+        {
+          this.messageError = this.translate.instant('signin.form.message_invalid');
+          this.loading.setDisplay(false);
+        }, 700)
+        return;
+      }
+
+    });
+
+
+
+
+
+  }//-------------------------------------------------------------------------------
+  getCategories(_item:string) {
+
+
+    if (_item=="en")
     {
       this.listCategories.push(
         { label: "Promo 01", value: "01M" },
