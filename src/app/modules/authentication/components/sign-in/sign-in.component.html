@@ -66,7 +66,7 @@
   &nbsp;
   <div class="flex py-2 justify-content-center">
       <form  class="grid grid-container container-form" [formGroup]="modalForm" >
-            <!-- <label></label> &nbsp;  &nbsp; -->
+            <label>{{cobLabel}}</label> &nbsp;  &nbsp;
             <p-dropdown formControlName="cboListOptions" (onChange)="descriptionCupon()" [options]="listCategories" placeholder="Seleccionar una opción . . .">    </p-dropdown>
             <div style="height: 50px">
                 <ng-container *ngIf="fieldValidate.focus(modalForm,'cboListOptions')">

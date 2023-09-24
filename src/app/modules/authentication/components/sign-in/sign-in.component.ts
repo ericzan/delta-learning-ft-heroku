@@ -41,6 +41,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
   selected_lang="";
   buttonAceptar ="Continuar";
   buttonCancelar ="Cancelar";
+  cobLabel ="";
 
   list_Promos:  Array<{  KoLic:string,cupon:string,description:string,price:number,price_cupon:number ,value:string }> = [];
   listCategories : Array<{  label:string,value :string  }> = [];
@@ -152,7 +153,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
             this.modalTitle = this.selected_lang =="es" ? resp.title.es: resp.title.en;
             this.modalTitle02 =this.selected_lang =="es" ? resp.title02.es: resp.title02.en;
 
-
+            this.cobLabel =this.selected_lang =="es" ? resp.label01.es: resp.label01.en;;
 
             this.acuerdo ="De cuerdo a tu selección el monto a pagar seá de : $ ";
             if (
