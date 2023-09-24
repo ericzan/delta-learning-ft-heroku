@@ -100,7 +100,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
     }, (error) => {
 
       // debugger;
-              console.error(error);
+
               error.error.detail.token
 
               this.selected_lang =  error.error.detail.selected_lang;
@@ -124,10 +124,64 @@ export class SignInComponent implements OnInit, AfterViewInit {
               }
 
     });
-  }
+  }//---------------------------------------------------------------------
+
+  licenceUpdate()
+  {
+    if (this.structureForm.invalid) {
+      this.structureForm.markAllAsTouched();
+      return;
+    }
+
+    this.loading.setDisplay(true);
+    this.messageError = '';
+    const userName = this.structureForm.value.username;
+    const password = this.structureForm.value.password;
+    this.http.post(`${environment.apiUrl}/dt/auth/login/`, {
+      userId: userName,
+      password: password
+    }).subscribe((resp: any) =>
+    {
+      this.storageService.save(KeyStorage.user, userName);
+      this.storageService.save(KeyStorage.token, resp.token);
+      this.loading.setDisplay(false);
+        this.options();
+
+    }, (error) => {
+
+              this.selected_lang =  error.error.detail.selected_lang;
+              this.storageService.save(KeyStorage.token, error.error.detail.token);
+              this.updateLicense = this.selected_lang =="es" ?   this.updateLicense="Actualizar licencia": this.updateLicense=" License upgrade ";
+
+              this.loading.setDisplay(false);
+              if (error.status === 401)
+              {
+                setTimeout(() =>
+                {
+                  this.messageError = this.translate.instant('signin.form.message_invalid');
+                  this.loading.setDisplay(false);
+                }, 700)
+                return;
+              }
+                //--------- ya se vencio la membresia
+                if (error.status === 403)
+                {
+                  this.options();
+                }
+
+    });
+  }//---------------------------------------------------------------------
+
 
   options ()
   {
+
+    if (this.structureForm.invalid) {
+      this.structureForm.markAllAsTouched();
+      return;
+    }
+
+
     this.loading.setDisplay(true);
 
     this.ShowDialog=true;
@@ -227,14 +281,15 @@ export class SignInComponent implements OnInit, AfterViewInit {
   this.cupon = _result!.cupon
   this.DescriptionCupon = _result!.description;
 
-debugger;
+
 
 let body:any = {userId: userName,
-  KoLic: _CvePromo,
-  price_complete: this.price_complete,
-  price_cupon : this.price_cupon,
-  cupon: this.cupon,
-}
+                KoLic: _CvePromo,
+                price_complete: this.price_complete,
+                price_cupon : this.price_cupon,
+                cupon: this.cupon,
+              }
+
     this.http.post(`${environment.apiUrl}/dt/auth/stripe_checkout/`,body,{
       headers: {
         'Content-Type': 'application/json',
