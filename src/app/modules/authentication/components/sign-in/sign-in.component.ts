@@ -152,7 +152,6 @@ export class SignInComponent implements OnInit, AfterViewInit {
             this.loading.setDisplay(false);
             this.modalTitle = this.selected_lang =="es" ? resp.title.es: resp.title.en;
             this.modalTitle02 =this.selected_lang =="es" ? resp.title02.es: resp.title02.en;
-
             this.cobLabel =this.selected_lang =="es" ? resp.label01.es: resp.label01.en;;
 
             this.acuerdo ="De cuerdo a tu selección el monto a pagar seá de : $ ";
