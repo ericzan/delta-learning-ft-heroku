@@ -379,6 +379,7 @@
 	"signin": {
 		"forgot_your_password": "Have you forgotten your password?",
     "sign_up": "If you do not have an access account, Sign Up here.",
+    "updateLicence": "License Upgrade",
 		"form": {
 			"message_invalid": "Invalid username or password",
 			"password": "Password",

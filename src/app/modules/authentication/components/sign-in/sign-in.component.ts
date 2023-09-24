@@ -105,6 +105,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
               this.selected_lang =  error.error.detail.selected_lang;
               this.storageService.save(KeyStorage.token, error.error.detail.token);
+              this.updateLicense = this.selected_lang =="es" ?   this.updateLicense="Actualizar licencia": this.updateLicense=" License upgrade ";
 
               this.loading.setDisplay(false);
               if (error.status === 401)
@@ -151,7 +152,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
             this.modalTitle = this.selected_lang =="es" ? resp.title.es: resp.title.en;
             this.modalTitle02 =this.selected_lang =="es" ? resp.title02.es: resp.title02.en;
             this.cobLabel =this.selected_lang =="es" ? resp.label01.es+ ":" : resp.label01.en + ":";
-            this.updateLicense = this.selected_lang =="es" ?   this.updateLicense="Actualizar licencia": this.updateLicense=" License upgrade ";
+
 
             this.acuerdo ="De cuerdo a tu selección el monto a pagar seá de : $ ";
             if (
@@ -204,7 +205,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
   paymentCancel()
   {
-    this.loading.setDisplay(true);
+    this.loading.setDisplay(false);
     this.ShowDialog=false;
     }//-------------------------------------------------------------------------------
 
