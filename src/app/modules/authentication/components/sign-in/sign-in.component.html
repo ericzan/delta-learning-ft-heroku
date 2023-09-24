@@ -82,14 +82,14 @@
 
   &nbsp;
   <div class="flex py-2 justify-content-center">
-    <h3 style="font-size: 1rem; color: rgb(0, 0, 0);"> de cuerdo a tu selección el  monto a pagar seá de  :  $ {{price_cupon}}</h3>
+    <h3 style="font-size: 1rem; color: rgb(0, 0, 0);">  {{acuerdo}} {{price_cupon}}</h3>
   </div>
   <div class="grid grid-container col-12   ">
       <div class="col-6">
-          <p-button type="button" label="continuar" [style]="{'width': '80%'}" (onClick)="payment()"  > </p-button>
+          <p-button type="button" label="{{buttonAceptar}}" [style]="{'width': '80%'}" (onClick)="payment()"  > </p-button>
       </div>
           <div class="col-6">
-            <p-button type="button" label="cancelar" [style]="{'width': '80%'}"   (onClick)="paymentCancel()"></p-button>
+            <p-button type="button" label="{{buttonCancelar}}" [style]="{'width': '80%'}"   (onClick)="paymentCancel()"></p-button>
       </div>
   </div>
 

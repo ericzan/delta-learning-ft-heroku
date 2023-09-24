@@ -33,10 +33,14 @@ export class SignInComponent implements OnInit, AfterViewInit {
   ShowDialog=false;
   modalTitle ="";
   modalTitle02 ="";
-price_complete =0;
+  price_complete =0;
   price_cupon  =0;
   cupon  ="";
   DescriptionCupon="";
+  acuerdo="";
+  selected_lang="";
+  buttonAceptar ="Continuar";
+  buttonCancelar ="Cancelar";
 
   list_Promos:  Array<{  KoLic:string,cupon:string,description:string,price:number,price_cupon:number ,value:string }> = [];
   listCategories : Array<{  label:string,value :string  }> = [];
@@ -86,7 +90,7 @@ price_complete =0;
       password: password
     }).subscribe((resp: any) => {
 
-      // debugger;
+    //  debugger;
 
       this.storageService.save(KeyStorage.user, userName);
       this.storageService.save(KeyStorage.token, resp.token);
@@ -96,8 +100,90 @@ price_complete =0;
       }, 700)
     }, (error) => {
 
+      // debugger;
+              console.error(error);
+              error.error.detail.token
 
-      console.error(error);
+              this.selected_lang =  error.error.detail.selected_lang;
+              this.storageService.save(KeyStorage.token, error.error.detail.token);
+
+              this.loading.setDisplay(false);
+              if (error.status === 401)
+              {
+                setTimeout(() =>
+                {
+                  this.messageError = this.translate.instant('signin.form.message_invalid');
+                  this.loading.setDisplay(false);
+                }, 700)
+                return;
+              }
+              //--------- ya se vencio la membresia
+              if (error.status === 403)
+              {
+                this.options();
+                this.ShowDialog=true;
+
+              }
+
+    });
+  }
+
+  options ()
+  {
+
+
+    this.list_Promos=[];
+    this.listCategories=[];
+    let  list_Promos:  Array<{  KoLic:string,cupon:string,description:string,price:number,price_cupon:number ,value:string }> = [];
+   let  _listCategories : Array<{  label:string,value :string  }> = [];
+    let _selected_lang = this.selected_lang ;
+
+
+    this.http.get(`${environment.apiUrl}/dt/auth/s_available_products`,
+    {
+      headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': String(this.storageService.load(KeyStorage.token))
+                }
+
+    }).subscribe((resp: any) =>
+    {
+            this.loading.setDisplay(false);
+            this.modalTitle = this.selected_lang =="es" ? resp.title.es: resp.title.en;
+            this.modalTitle02 =this.selected_lang =="es" ? resp.title02.es: resp.title02.en;
+
+
+
+            this.acuerdo ="De cuerdo a tu selección el monto a pagar seá de : $ ";
+            if (
+               this.selected_lang =="en"){this.acuerdo ="According to your selection, the amount to pay will be : $ ";
+               this.buttonAceptar ="Continue";
+               this.buttonCancelar ="Cancel";
+
+              }
+
+
+
+
+            debugger;
+            resp.Options.forEach(function (_item:any)
+                      {
+                        list_Promos.push ({  KoLic:_item.KoLic,cupon:_item.cupon,
+                                            description:_selected_lang =="es" ? _item.description.es:_item.description.en
+                                            ,price:_item.price,price_cupon:_item.price_cupon ,
+                                              value:_selected_lang =="es" ? _item.value.es:_item.value.en  });
+                        _listCategories.push ({  label:_selected_lang =="es" ? _item.value.es:_item.value.en , value:_item.KoLic  });
+
+                      });
+            this.list_Promos = list_Promos;
+            this.listCategories = _listCategories;
+
+
+
+
+    }, (error) =>
+    {
+
       this.loading.setDisplay(false);
       if (error.status === 401)
       {
@@ -108,22 +194,20 @@ price_complete =0;
         }, 700)
         return;
       }
-      //--------- ya se vencio la membresia
-      if (error.status === 403)
-      {
-        this.options();
-        this.ShowDialog=true;
-
-      }
 
     });
-  }
+
+
+
+
+
+  }//-------------------------------------------------------------------------------
 
   paymentCancel()
   {
 
     this.ShowDialog=false;
-  }
+    }//-------------------------------------------------------------------------------
 
   payment ()
   {
@@ -191,61 +275,8 @@ price_complete =0;
 
 
   }//-------------------------------------------------------------------------------
-  options ()
-  {
 
 
-    this.list_Promos=[];
-    this.listCategories=[];
-    let  list_Promos:  Array<{  KoLic:string,cupon:string,description:string,price:number,price_cupon:number ,value:string }> = [];
-   let  _listCategories : Array<{  label:string,value :string  }> = [];
-
-
-
-    this.http.get(`${environment.apiUrl}/dt/auth/s_available_products`,
-    {
-
-    }).subscribe((resp: any) =>
-    {
-            this.loading.setDisplay(false);
-            this.modalTitle =resp.title.es;
-            this.modalTitle02 =resp.title02.es;
-
-
-            resp.Options.forEach(function (_item:any)
-                      {
-                        list_Promos.push ({  KoLic:_item.KoLic,cupon:_item.cupon,description:_item.description.es
-                                                  ,price:_item.price,price_cupon:_item.price_cupon ,value:_item.es });
-                        _listCategories.push ({  label:_item.value.es ,value:_item.KoLic  });
-
-                      });
-            this.list_Promos = list_Promos;
-            this.listCategories = _listCategories;
-
-
-
-
-    }, (error) =>
-    {
-
-      this.loading.setDisplay(false);
-      if (error.status === 401)
-      {
-        setTimeout(() =>
-        {
-          this.messageError = this.translate.instant('signin.form.message_invalid');
-          this.loading.setDisplay(false);
-        }, 700)
-        return;
-      }
-
-    });
-
-
-
-
-
-  }//-------------------------------------------------------------------------------
   getCategories(_item:string) {
 
 

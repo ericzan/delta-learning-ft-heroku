@@ -171,4 +171,8 @@ setAskForSupportoth(body: {
   return this.http.post<any>( `dt/ui_oper_gr/askforsupportoth/`,body )
 }
 
+getAvailableProducts( ){
+  return this.http.get<any>( `dt/auth/s_available_products/`  )
+}
+
 }
