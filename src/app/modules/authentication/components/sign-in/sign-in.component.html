@@ -41,6 +41,9 @@
                     <div style="width: 100%; color: white; text-align: center; opacity: 0.8; padding-top: 10px; ">
                       <a class="recovery-password" style="color: yellow; font-size: .8rem; " [routerLink]="['../sing-up']" >{{'signin.sign_up' | translate}}</a>
                     </div>
+                    <div style="width: 100%; color: white; text-align: center; opacity: 0.8; padding-top: 10px; cursor: pointer" (click)="options()">
+                      <a class="recovery-password" style="color: yellow; font-size: .8rem; "  (click)="options()" > {{updateLicense}}</a>
+                    </div>
                     <div class="col-12">
                         <img class="imagotipo" src="/assets/images/imagotipo-pre.png" alt="" style="width: 100%; object-fit: contain;">
                     </div>
@@ -56,7 +59,7 @@
 
   <div style="text-align: center;">
       <div>
-        <h3 style="font-size: 1.5rem; color: rgb(40, 36, 238);"> {{modalTitle}}</h3>
+        <h3 style="font-size: 1.5rem; color: rgb(255, 255, 255); background: rgb(234, 20, 20);   border-radius: 15px; "> {{modalTitle}}</h3>
       </div>
       &nbsp;
       <div>
@@ -66,8 +69,14 @@
   &nbsp;
   <div class="flex py-2 justify-content-center">
       <form  class="grid grid-container container-form" [formGroup]="modalForm" >
-            <label>{{cobLabel}}</label> &nbsp;  &nbsp;
-            <p-dropdown formControlName="cboListOptions" (onChange)="descriptionCupon()" [options]="listCategories" placeholder="Seleccionar una opción . . .">    </p-dropdown>
+
+                <label style="  padding: 10px;" >{{cobLabel}}</label>
+
+
+              <p-dropdown formControlName="cboListOptions" (onChange)="descriptionCupon()" [options]="listCategories" placeholder="Seleccionar una opción . . .">    </p-dropdown>
+
+
+
             <div style="height: 50px">
                 <ng-container *ngIf="fieldValidate.focus(modalForm,'cboListOptions')">
                     <div class="message-error">{{'global.required' | translate}}</div>
@@ -76,7 +85,7 @@
       </form>
   </div>
   &nbsp;
-  <div class="flex py-2 justify-content-center" style="background: rgb(237, 233, 134);">
+  <div class="flex py-2 justify-content-center" style="background: #FFB84D; border-radius: 15px; ">
     <h3 style="font-size: 1rem; color: rgb(0, 0, 0);">  {{DescriptionCupon}}</h3>
   </div>
 

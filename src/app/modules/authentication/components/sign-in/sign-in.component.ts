@@ -42,6 +42,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
   buttonAceptar ="Continuar";
   buttonCancelar ="Cancelar";
   cobLabel ="";
+  updateLicense="Actualizar licencia";
 
   list_Promos:  Array<{  KoLic:string,cupon:string,description:string,price:number,price_cupon:number ,value:string }> = [];
   listCategories : Array<{  label:string,value :string  }> = [];
@@ -67,10 +68,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
     });
   ;
   }
-  ngOnInit(): void {
-    // this.getCategories("es");
-
-  }
+  ngOnInit(): void {  }
 
 
   ngAfterViewInit(): void {   }
@@ -122,8 +120,6 @@ export class SignInComponent implements OnInit, AfterViewInit {
               if (error.status === 403)
               {
                 this.options();
-                this.ShowDialog=true;
-
               }
 
     });
@@ -131,7 +127,9 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
   options ()
   {
+    this.loading.setDisplay(true);
 
+    this.ShowDialog=true;
 
     this.list_Promos=[];
     this.listCategories=[];
@@ -152,7 +150,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
             this.loading.setDisplay(false);
             this.modalTitle = this.selected_lang =="es" ? resp.title.es: resp.title.en;
             this.modalTitle02 =this.selected_lang =="es" ? resp.title02.es: resp.title02.en;
-            this.cobLabel =this.selected_lang =="es" ? resp.label01.es: resp.label01.en;;
+            this.cobLabel =this.selected_lang =="es" ? resp.label01.es+ ":" : resp.label01.en + ":";
+            this.updateLicense = this.selected_lang =="es" ?   this.updateLicense="Actualizar licencia": this.updateLicense=" License upgrade ";
 
             this.acuerdo ="De cuerdo a tu selección el monto a pagar seá de : $ ";
             if (
@@ -165,7 +164,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
 
 
-            debugger;
+            // debugger;
             resp.Options.forEach(function (_item:any)
                       {
                         list_Promos.push ({  KoLic:_item.KoLic,cupon:_item.cupon,
@@ -205,7 +204,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
   paymentCancel()
   {
-
+    this.loading.setDisplay(true);
     this.ShowDialog=false;
     }//-------------------------------------------------------------------------------
 
