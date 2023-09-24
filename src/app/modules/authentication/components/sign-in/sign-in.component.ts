@@ -228,14 +228,21 @@ export class SignInComponent implements OnInit, AfterViewInit {
   this.DescriptionCupon = _result!.description;
 
 debugger;
-    this.http.post(`${environment.apiUrl}/dt/auth/stripe_checkout/`,
-    {
-      userId: userName,
-      KoLic: _CvePromo,
-      price_complete: this.price_complete,
-      price_cupon : this.price_cupon,
-      cupon: this.cupon
-    }).subscribe((resp: any) =>
+
+let body:any = {userId: userName,
+  KoLic: _CvePromo,
+  price_complete: this.price_complete,
+  price_cupon : this.price_cupon,
+  cupon: this.cupon,
+}
+    this.http.post(`${environment.apiUrl}/dt/auth/stripe_checkout/`,body,{
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': String(this.storageService.load(KeyStorage.token))
+      }
+    }
+
+    ).subscribe((resp: any) =>
     {
 
         this.loading.setDisplay(false);
