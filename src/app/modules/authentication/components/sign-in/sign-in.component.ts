@@ -139,7 +139,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
     let _selected_lang = this.selected_lang ;
 
 
-    this.http.get(`${environment.apiUrl}/dt/auth/s_available_products`,
+    this.http.get(`${environment.apiUrl}/dt/auth/s_available_products/`,
     {
       headers: {
                   'Content-Type': 'application/json',
@@ -227,7 +227,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
   this.cupon = _result!.cupon
   this.DescriptionCupon = _result!.description;
 
-
+debugger;
     this.http.post(`${environment.apiUrl}/dt/auth/stripe_checkout/`,
     {
       userId: userName,
