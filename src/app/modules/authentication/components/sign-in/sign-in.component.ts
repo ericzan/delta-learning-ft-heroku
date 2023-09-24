@@ -15,8 +15,6 @@ import { catchError, of } from 'rxjs';
 
 
 
-
-
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -73,7 +71,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {   }
 
-  submit()
+  submit(_login:boolean)
   {
     if (this.structureForm.invalid) {
       this.structureForm.markAllAsTouched();
@@ -89,19 +87,15 @@ export class SignInComponent implements OnInit, AfterViewInit {
       password: password
     }).subscribe((resp: any) => {
 
-    //  debugger;
-
       this.storageService.save(KeyStorage.user, userName);
       this.storageService.save(KeyStorage.token, resp.token);
       setTimeout(() => {
-        this.loading.setDisplay(false);
-        this.route.navigateByUrl('/home');
-      }, 700)
+                        this.loading.setDisplay(false);
+                        if (_login){this.route.navigateByUrl('/home');}
+                        else{this.options();}
+                      }, 700);
+
     }, (error) => {
-
-      // debugger;
-
-              error.error.detail.token
 
               this.selected_lang =  error.error.detail.selected_lang;
               this.storageService.save(KeyStorage.token, error.error.detail.token);
@@ -126,51 +120,6 @@ export class SignInComponent implements OnInit, AfterViewInit {
     });
   }//---------------------------------------------------------------------
 
-  licenceUpdate()
-  {
-    if (this.structureForm.invalid) {
-      this.structureForm.markAllAsTouched();
-      return;
-    }
-
-    this.loading.setDisplay(true);
-    this.messageError = '';
-    const userName = this.structureForm.value.username;
-    const password = this.structureForm.value.password;
-    this.http.post(`${environment.apiUrl}/dt/auth/login/`, {
-      userId: userName,
-      password: password
-    }).subscribe((resp: any) =>
-    {
-      this.storageService.save(KeyStorage.user, userName);
-      this.storageService.save(KeyStorage.token, resp.token);
-      this.loading.setDisplay(false);
-        this.options();
-
-    }, (error) => {
-
-              this.selected_lang =  error.error.detail.selected_lang;
-              this.storageService.save(KeyStorage.token, error.error.detail.token);
-              this.updateLicense = this.selected_lang =="es" ?   this.updateLicense="Actualizar licencia": this.updateLicense=" License upgrade ";
-
-              this.loading.setDisplay(false);
-              if (error.status === 401)
-              {
-                setTimeout(() =>
-                {
-                  this.messageError = this.translate.instant('signin.form.message_invalid');
-                  this.loading.setDisplay(false);
-                }, 700)
-                return;
-              }
-                //--------- ya se vencio la membresia
-                if (error.status === 403)
-                {
-                  this.options();
-                }
-
-    });
-  }//---------------------------------------------------------------------
 
 
   options ()
@@ -189,7 +138,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
     this.list_Promos=[];
     this.listCategories=[];
     let  list_Promos:  Array<{  KoLic:string,cupon:string,description:string,price:number,price_cupon:number ,value:string }> = [];
-   let  _listCategories : Array<{  label:string,value :string  }> = [];
+    let  _listCategories : Array<{  label:string,value :string  }> = [];
     let _selected_lang = this.selected_lang ;
 
 
@@ -215,9 +164,6 @@ export class SignInComponent implements OnInit, AfterViewInit {
                this.buttonCancelar ="Cancel";
 
               }
-
-
-
 
             // debugger;
             resp.Options.forEach(function (_item:any)
@@ -276,10 +222,10 @@ export class SignInComponent implements OnInit, AfterViewInit {
     let _CvePromo = this.modalForm.value.cboListOptions;
     const _result =  this.list_Promos.find(x => x.KoLic === _CvePromo);
 
-  this.price_complete = _result!.price
-  this.price_cupon= _result!.price_cupon
-  this.cupon = _result!.cupon
-  this.DescriptionCupon = _result!.description;
+    this.price_complete = _result!.price
+    this.price_cupon= _result!.price_cupon
+    this.cupon = _result!.cupon
+    this.DescriptionCupon = _result!.description;
 
 
 
@@ -304,20 +250,18 @@ let body:any = {userId: userName,
         let navigationExtras: NavigationExtras = {    queryParams: { 'stripeURL':resp.stripe_url }   };
         this.route.navigate(['paymentURL'],navigationExtras);
 
-
-
     }, (error) =>
     {
-      this.loading.setDisplay(false);
-      if (error.status === 401)
-      {
-        setTimeout(() =>
+        this.loading.setDisplay(false);
+        if (error.status === 401)
         {
-          this.messageError = this.translate.instant('signin.form.message_invalid');
-          this.loading.setDisplay(false);
-        }, 700)
-        return;
-      }
+          setTimeout(() =>
+          {
+            this.messageError = this.translate.instant('signin.form.message_invalid');
+            this.loading.setDisplay(false);
+          }, 700)
+          return;
+        }
 
     });
 
@@ -338,29 +282,6 @@ let body:any = {userId: userName,
 
   }//-------------------------------------------------------------------------------
 
-
-  getCategories(_item:string) {
-
-
-    if (_item=="en")
-    {
-      this.listCategories.push(
-        { label: "Promo 01", value: "01M" },
-        { label: "Promo 02", value: "02M"  },
-        { label: "Promo 03", value: "03M"  },
-        { label: "Promo 04", value: "04M"});
-    }
-    else
-    {
-      this.listCategories.push(
-        { label: "Promo 01", value: "01M" },
-        { label: "Promo 02", value: "02M" },
-        { label: "Promo 03", value: "03M" },
-        { label: "Promo 04", value: "04M" });
-
-    }
-
-  }//-----------------------------------------------------------------
 
 
 }
