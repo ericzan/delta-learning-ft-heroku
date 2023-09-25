@@ -44,7 +44,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
   list_Promos:  Array<{  KoLic:string,cupon:string,description:string,price:number,price_cupon:number ,value:string }> = [];
   listCategories : Array<{  label:string,value :string  }> = [];
-
+  stripe_url="";
+  showLabel=true;
   constructor(
     private route: Router,
     private fb: FormBuilder,
@@ -77,6 +78,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
       this.structureForm.markAllAsTouched();
       return;
     }
+
+    this.showLabel=_login;
 
     this.loading.setDisplay(true);
     this.messageError = '';
@@ -245,6 +248,7 @@ let body:any = {userId: userName,
 
     ).subscribe((resp: any) =>
     {
+debugger;
 
         this.loading.setDisplay(false);
         let navigationExtras: NavigationExtras = {    queryParams: { 'stripeURL':resp.stripe_url }   };
@@ -278,7 +282,6 @@ let body:any = {userId: userName,
     this.price_cupon= _result!.price_cupon
     this.cupon = _result!.cupon
     this.DescriptionCupon = _result!.description;
-
 
   }//-------------------------------------------------------------------------------
 

@@ -1,3 +1,4 @@
+<!-- <iframe src="https://buy.stripe.com/test_28oaFbcN9dR8fYsaFC" width="100%"></iframe> -->
 <div class="container">
     <div class="container-left">
         <img class="imagotipo" src="/assets/images/imagotipo.png" alt="">
@@ -57,12 +58,12 @@
 
 <p-dialog  class="col-panel"   [(visible)]="ShowDialog"  [modal]="true"   [draggable]="false"[resizable]="false" >
 
-  <div style="text-align: center;">
+  <div style="text-align: center;" *ngIf="showLabel">
       <div>
         <h3 style="font-size: 1.5rem; color: rgb(255, 255, 255); background: rgb(234, 20, 20);   border-radius: 15px; "> {{modalTitle}}</h3>
       </div>
       &nbsp;
-      <div>
+      <div *ngIf="showLabel">
         <h3 style="font-size: 1rem; color: rgb(0, 0, 0);">  {{modalTitle02}}</h3>
       </div>
   </div>
@@ -105,4 +106,7 @@
       </div>
   </div>
 
+
 </p-dialog>
+
+
