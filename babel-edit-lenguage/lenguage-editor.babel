@@ -19,15 +19,12 @@
 			<package_node>
 				<name>main</name>
 				<children>
-
-
           <folder_node>
 						<name>configuration_Level_alert</name>
 						<children>
 							<folder_node>
 								<name>view_level</name>
 									<children>
-
 										<concept_node>
 											<name>label_confirm</name>
 											<description/>
@@ -43,7 +40,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_back</name>
 											<description/>
@@ -59,7 +55,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                      <concept_node>
 											<name>label_stop</name>
 											<description/>
@@ -75,16 +70,10 @@
 												</translation>
 											</translations>
 										</concept_node>
-
 									</children>
 							</folder_node>
-
-
 						</children>
 					</folder_node>
-
-
-
           <folder_node>
 						<name>configuration_Recommended</name>
 						<children>
@@ -110,15 +99,12 @@
 							</folder_node>
 						</children>
 					</folder_node>
-
 					<folder_node>
 						<name>configuration_games</name>
 						<children>
 							<folder_node>
 								<name>view_game</name>
 									<children>
-
-
 										<concept_node>
 											<name>title_pag_game</name>
 											<description/>
@@ -134,7 +120,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
 										<concept_node>
 											<name>label_game</name>
 											<description/>
@@ -150,7 +135,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
 										<concept_node>
 											<name>label_select</name>
 											<description/>
@@ -166,7 +150,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
 										<concept_node>
 											<name>txtt_butoon_create</name>
 											<description/>
@@ -182,12 +165,8 @@
 												</translation>
 											</translations>
 										</concept_node>
-
-
-
 									</children>
 							</folder_node>
-
               <folder_node>
 								<name>view_guess_word</name>
 									<children>
@@ -206,7 +185,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_clues</name>
 											<description/>
@@ -222,7 +200,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_length</name>
 											<description/>
@@ -238,7 +215,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_start_with</name>
 											<description/>
@@ -254,7 +230,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_ends_with</name>
 											<description/>
@@ -270,9 +245,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
-
-
                     <concept_node>
 											<name>label_english_word</name>
 											<description/>
@@ -288,7 +260,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                      <concept_node>
 											<name>label_grade</name>
 											<description/>
@@ -304,7 +275,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                      <concept_node>
 											<name>button_validate</name>
 											<description/>
@@ -320,11 +290,8 @@
 												</translation>
 											</translations>
 										</concept_node>
-
-
 									</children>
 							</folder_node>
-
               <folder_node>
 								<name>view_trying_word</name>
 									<children>
@@ -343,7 +310,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_try_with</name>
 											<description/>
@@ -359,9 +325,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
-
-
                     <concept_node>
 											<name>label_already</name>
 											<description/>
@@ -377,7 +340,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                      <concept_node>
 											<name>label_English_word</name>
 											<description/>
@@ -393,7 +355,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                      <concept_node>
 											<name>label_grade</name>
 											<description/>
@@ -409,7 +370,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                      <concept_node>
 											<name>button_validate</name>
 											<description/>
@@ -425,18 +385,11 @@
 												</translation>
 											</translations>
 										</concept_node>
-
-
-
 									</children>
 							</folder_node>
-
-
               <folder_node>
 								<name>puzzle_letters</name>
 									<children>
-
-
 										<concept_node>
 											<name>title_pag_puzzle_letters</name>
 											<description/>
@@ -452,17 +405,11 @@
 												</translation>
 											</translations>
 										</concept_node>
-
-
-
 									</children>
 							</folder_node>
-
                <folder_node>
 								<name>puzzle_words</name>
 									<children>
-
-
 										<concept_node>
 											<name>title_pag_puzzle_words</name>
 											<description/>
@@ -478,16 +425,11 @@
 												</translation>
 											</translations>
 										</concept_node>
-
-
-
 									</children>
 							</folder_node>
-
                <folder_node>
 								<name>control_how_many</name>
 									<children>
-
                     <concept_node>
 											<name>title_how_many_sentence</name>
 											<description/>
@@ -503,7 +445,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
 										<concept_node>
 											<name>title_how_many</name>
 											<description/>
@@ -519,7 +460,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_adj</name>
 											<description/>
@@ -535,7 +475,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_Noun</name>
 											<description/>
@@ -551,7 +490,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_Adv</name>
 											<description/>
@@ -567,7 +505,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_Verb</name>
 											<description/>
@@ -583,7 +520,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_past_tense</name>
 											<description/>
@@ -599,7 +535,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>button_start</name>
 											<description/>
@@ -615,16 +550,11 @@
 												</translation>
 											</translations>
 										</concept_node>
-
-
-
 									</children>
 							</folder_node>
-
               <folder_node>
 								<name>control_list_words</name>
 									<children>
-
 										<concept_node>
 											<name>label_Average </name>
 											<description/>
@@ -640,7 +570,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_guessed_words</name>
 											<description/>
@@ -656,18 +585,12 @@
 												</translation>
 											</translations>
 										</concept_node>
-
-
-
-
-
 									</children>
 							</folder_node>
 
               <folder_node>
 								<name>control_drag_wors</name>
 									<children>
-
 										<concept_node>
 											<name>label_drag_word</name>
 											<description/>
@@ -683,7 +606,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_drag_Sentence</name>
 											<description/>
@@ -699,7 +621,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>button_validate</name>
 											<description/>
@@ -715,7 +636,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_grade</name>
 											<description/>
@@ -731,14 +651,10 @@
 												</translation>
 											</translations>
 										</concept_node>
-
 									</children>
 							</folder_node>
-
-
 						</children>
 					</folder_node>
-
 					<folder_node>
 						<name>configuration_Level_evaluate</name>
 						<children>
@@ -760,7 +676,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
 										<concept_node>
 											<name>label_cbo_level</name>
 											<description/>
@@ -776,7 +691,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
                     <concept_node>
 											<name>label_placeholder</name>
 											<description/>
@@ -792,8 +706,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
-
                     <concept_node>
 											<name>button_create</name>
 											<description/>
@@ -809,7 +721,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
 										<concept_node>
 											<name>title_page_level_evaluation_words</name>
 											<description/>
@@ -825,7 +736,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
 										<concept_node>
 											<name>label_question</name>
 											<description/>
@@ -841,7 +751,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
 										<concept_node>
 											<name>button_stop</name>
 											<description/>
@@ -857,7 +766,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
 										<concept_node>
 											<name>label_title_help</name>
 											<description/>
@@ -873,7 +781,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
 										<concept_node>
 											<name>text_paragraph_1</name>
 											<description/>
@@ -889,7 +796,6 @@
 												</translation>
 											</translations>
 										</concept_node>
-
 										<concept_node>
 											<name>text_paragraph_2</name>
 											<description/>
@@ -920,16 +826,10 @@
 												</translation>
 											</translations>
 										</concept_node>
-
-
 									</children>
 							</folder_node>
 						</children>
 					</folder_node>
-
-
-
-
 					<folder_node>
 						<name>configuration_user_support</name>
 						<children>
@@ -966,7 +866,6 @@
 											</translation>
 										</translations>
 									</concept_node>
-
 									<concept_node>
 										<name>label_name</name>
 										<description/>
@@ -982,7 +881,6 @@
 											</translation>
 										</translations>
 									</concept_node>
-
 									<concept_node>
 										<name>label_related</name>
 										<description/>
@@ -998,7 +896,6 @@
 											</translation>
 										</translations>
 									</concept_node>
-
 									<concept_node>
 										<name>label_subject</name>
 										<description/>
@@ -1014,7 +911,6 @@
 											</translation>
 										</translations>
 									</concept_node>
-
 									<concept_node>
 										<name>label_datailed</name>
 										<description/>
@@ -1030,7 +926,6 @@
 											</translation>
 										</translations>
 									</concept_node>
-
 									<concept_node>
 										<name>button_send</name>
 										<description/>
@@ -1046,7 +941,6 @@
 											</translation>
 										</translations>
 									</concept_node>
-
 									<concept_node>
 										<name>button_cancel</name>
 										<description/>
@@ -1072,8 +966,6 @@
 							<folder_node>
 								<name>change_password_form</name>
 								<children>
-
-
                 <concept_node>
 										<name>button_change_data</name>
 										<description/>
@@ -1089,8 +981,6 @@
 											</translation>
 										</translations>
 									</concept_node>
-
-
 									<concept_node>
 										<name>button_change_password</name>
 										<description/>
@@ -1216,7 +1106,6 @@
 											</translation>
 										</translations>
 									</concept_node>
-
 									<concept_node>
 										<name>recovery_email_account</name>
 										<description/>

@@ -10,6 +10,7 @@ import { LocalStorageService } from '@shared/services/local-storage.service';
 import { environment } from 'src/environments/environment';
 import { RedirectGuard } from './redirect-guard.guard';
 import { catchError, of } from 'rxjs';
+import { Translatei18Service } from '@core/services/translatei18.service';
 
 
 
@@ -54,6 +55,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
     private storageService: LocalStorageService,
     private translate: TranslateService,
     private redirectGuard : RedirectGuard,
+    private translatei18Service: Translatei18Service
 
     ) {
     this.structureForm = this.fb.group({
@@ -90,8 +92,11 @@ export class SignInComponent implements OnInit, AfterViewInit {
       password: password
     }).subscribe((resp: any) => {
 
+      debugger;
       this.storageService.save(KeyStorage.user, userName);
       this.storageService.save(KeyStorage.token, resp.token);
+      this.selected_lang =  resp.selected_lang;
+      this.translatei18Service.translate(this.selected_lang.toLowerCase());
       setTimeout(() => {
                         this.loading.setDisplay(false);
                         if (_login){this.route.navigateByUrl('/home');}
@@ -100,6 +105,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
     }, (error) => {
 
+      debugger;
               this.selected_lang =  error.error.detail.selected_lang;
               this.storageService.save(KeyStorage.token, error.error.detail.token);
               this.updateLicense = this.selected_lang =="es" ?   this.updateLicense="Actualizar licencia": this.updateLicense=" License upgrade ";
@@ -155,6 +161,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
     }).subscribe((resp: any) =>
     {
             this.loading.setDisplay(false);
+            this.translatei18Service.translate(this.selected_lang.toLowerCase());
             this.modalTitle = this.selected_lang =="es" ? resp.title.es: resp.title.en;
             this.modalTitle02 =this.selected_lang =="es" ? resp.title02.es: resp.title02.en;
             this.cobLabel =this.selected_lang =="es" ? resp.label01.es+ ":" : resp.label01.en + ":";
@@ -230,7 +237,7 @@ export class SignInComponent implements OnInit, AfterViewInit {
     this.cupon = _result!.cupon
     this.DescriptionCupon = _result!.description;
 
-
+debugger;
 
 let body:any = {userId: userName,
                 KoLic: _CvePromo,
