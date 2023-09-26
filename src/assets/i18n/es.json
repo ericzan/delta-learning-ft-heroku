@@ -75,7 +75,7 @@
     "control_drag_wors":
     {
       "label_drag_word":"Coloque las letras ordenadas aquí",
-      "label_drag_Sentence":"ORDEN CORRECTO DE LAS SENTENCIAS AQUÍ",
+      "label_drag_Sentence":"Ordene correctamente la sentencia aquí",
       "button_validate":"Validar",
       "label_grade":"Calificación"
     }
