@@ -39,15 +39,15 @@
 
       <div class="col-3-zan-3" [style]="{  border: '2px solid blue',  borderRadius: '5px' }">
         <div class="row">
-          <div class="grid grid-container  col-12 " style="width: 100%;">
+          <div class="grid grid-container  col-12  " style="width: 100%;">
             <!-- <div class="grid grid-container "  >  </div> -->
 
-            <div class="col-2-zan-1  "   ><b>{{'configuration_games.view_guess_word.label_clues' | translate}}</b> </div>
+            <div class="col-2-zan-1  "   ><b>{{'configuration_games.view_guess_word.label_clues' | translate}}:</b> </div>
             <div class="col-2-zan-2   " style="text-align:center">
               <p-checkbox [binary]="true" id="chk_length" formControlName="chk_length" label="{{'configuration_games.view_guess_word.label_length' | translate}}"
                 (ngModelChange)="fn_chk_length_cambia()"> </p-checkbox>
             </div>
-            <div class="col-2-zan-3" style="text-align:center">
+            <div class="col-2-zan-3" style="text-align:center; ">
               <p-checkbox [binary]="true" id="chk_Start" formControlName="chk_Start" label="{{'configuration_games.view_guess_word.label_start_with' | translate}} "
                 (ngModelChange)="fn_chk_start_cambia()"> </p-checkbox>
             </div>
@@ -72,7 +72,9 @@
 
           <div class="grid grid-container   " >
 
-                <div class="col-1-zan-1" style="text-align:left; "><b><label>{{'configuration_games.view_guess_word.label_english_word' | translate}} </label></b> </div>
+                <div class="col-1-zan-1" style="text-align:left; padding: 8px;   ">
+                    <b><label>{{'configuration_games.view_guess_word.label_english_word' | translate}}: </label></b>
+                </div>
                 <div class="col-1-zan-2" style="text-align:center; ">
                   <input pInputText id="txt_EnglishWord" formControlName="txt_EnglishWord" maxlength="30"
                     style="width:90%; text-align:left;" />
