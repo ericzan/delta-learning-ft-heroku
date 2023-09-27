@@ -33,7 +33,7 @@ export class TryingTheWordComponent implements OnInit {
 
 
   list_words_guessed: Array<string> = [];
-
+  list_grades_guessed: Array<number> = [];
   listTxt: Array<{ value: string }> = [];
 
   lbl_Div: string = "";
@@ -166,22 +166,19 @@ export class TryingTheWordComponent implements OnInit {
 
 
     let _average: Number = (this.lbl_GradeTotal / this.wordInProcessindex);
-    const _words = JSON.stringify(this.list_words_guessed);
+
     let _userId: string = "";
     let _qtywords: number = 0;
 
 
-    // console.log("-------- save------------");
-    // console.log("------list_words_guessed--",this.list_words_guessed);
-    // console.log("------list_Words_API--",this.list_Words_API);
-
 
     this.openSpinner = true;
 
-    this.uiOperGrService.getGamesAA_Archive({
+    this.uiOperGrService.getGamesAA_Archive_2({
       orgId: "DTL-01",
       subcat: 0,
-      words: _words,
+      words: this.list_words_guessed,
+      grades:this.list_grades_guessed,
       average: _average.toString(),
       kogame: "TRY_TW",
     }).subscribe(
@@ -315,6 +312,7 @@ export class TryingTheWordComponent implements OnInit {
 
     this.lbl_Averge = (this.lbl_GradeTotal / this.wordInProcessindex).toFixed(2).toString();
 
+    this.list_grades_guessed.push( this.lbl_Grade);
     this.lbl_Grade = 100;
 
 

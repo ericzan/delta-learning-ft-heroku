@@ -46,9 +46,9 @@ export class ViewComponent
 
   getCategories() {
 
-let _option ="Evaluación del nivel de palabras en inglés";
+let _option =" Palabras en Inglés";
 
-    if (this.selectedLang  == "en"){_option =  "English Words Level Evaluation";}
+    if (this.selectedLang  == "en"){_option =  "English words";}
 
 
     this.listLevel.push({ label: _option , value: 1 });

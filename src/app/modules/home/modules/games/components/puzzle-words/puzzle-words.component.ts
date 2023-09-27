@@ -32,6 +32,7 @@ export class PuzzleWordsComponent implements OnInit {
 
   list_Words_Process: Array<{ espaniol: string, value: number, ingles: string }> = [];
   list_Words_Request: Array<string> = [];
+  list_grades_guessed: Array<number> = [];
 
   list_Words_API: ResponseZan[] = [];
   totalWordsAPI = 0;
@@ -197,12 +198,13 @@ export class PuzzleWordsComponent implements OnInit {
     // console.log("------list_Words_API--",this.list_Words_API);
 
 
-    this.uiOperGrService.getGamesAAPuzzleWords({
+    this.uiOperGrService.getGamesAAPuzzleWords_2({
       "org": "DTL-01",
       "ulevel": _ulevel,
       "kog": "puzzlewords",
       "hms": _hms,
-      "words": _words,
+      "words": this.list_Words_Request,
+      "grades":this.list_grades_guessed,
       "avg": _avg,
       "setlevel": true,
     }).subscribe((resp: any) => {
@@ -264,6 +266,7 @@ export class PuzzleWordsComponent implements OnInit {
 
       this.itemActual = this.itemActual + 1;
       this.totalGradeAcum = this.totalGradeAcum + this.totalGrade;
+      this.list_grades_guessed.push(this.totalGrade);
       this.fn_Averege();
 
       this.fn_ShowMessage("Success", true, this.gameService.getTraslateAlert(this.selectedLang,"isRight"), "", false);

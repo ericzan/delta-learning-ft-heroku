@@ -103,11 +103,23 @@ export class UiOperGrService {
     return this.http.post<any>( `dt/ui_oper_gr/gamesAA/`,body )
   }
 
+
+
   getGamesAA_Archive(body: {
     orgId: string,
-
     subcat: number,
     words: string,
+    average: string,
+    kogame: string,
+  }){
+    return this.http.post<any>( `dt/ui_oper_gr/gamesAA_archive/`,body )
+  }
+
+  getGamesAA_Archive_2(body: {
+    orgId: string,
+    subcat: number,
+    words: Array<string>,
+     grades: Array<number>,
     average: string,
     kogame: string,
   }){
@@ -124,12 +136,28 @@ export class UiOperGrService {
   return this.http.post<any>( `dt/ui_oper_gr/leval/`,body )
 }
 
+
+
+
 getGamesAAPuzzleWords(body: {
   org: string,
   ulevel: string,
   kog: string,
   hms: number,
   words:string,
+  avg: number,
+  setlevel:boolean,
+}){
+  return this.http.post<any>( `dt/ui_oper_gr/gamesAA_puzzlewords/`,body )
+}
+
+getGamesAAPuzzleWords_2(body: {
+  org: string,
+  ulevel: string,
+  kog: string,
+  hms: number,
+  words : Array<string>,
+  grades: Array<number>,
   avg: number,
   setlevel:boolean,
 }){

@@ -30,6 +30,7 @@ export class PuzzleLettersComponent implements OnInit {
   list_Words_process: Array<{ espaniol: string, value: number, ingles: string }> = [];
 
   list_words_guessed: Array<string> = [];
+  list_grades_guessed: Array<number> = [];
 
   listTxt: Array<{ value: string }> = [];
 
@@ -164,24 +165,17 @@ this.getConfig();
   fn_Save_Data_API() {
 
     let _average: Number = (this.lbl_GradeTotal / this.wordInProcessIndex);
-    const _words = JSON.stringify(this.list_words_guessed);
     let _userId: string = "";
     let _qtywords: number = 0;
 
 
-    // console.log("-----***--- save------***------");
-    // console.log("------list_words_guessed--",this.list_words_guessed);
-    // console.log("------_words--",_words);
-
-    // console.log("------list_Words_API--",this.list_Words_API);
-
-
 
     this.openSpinner = true;
-    this.uiOperGrService.getGamesAA_Archive({
+    this.uiOperGrService.getGamesAA_Archive_2({
       orgId: "DTL-01",
       subcat: 0,
-      words: _words,
+      words: this.list_words_guessed,
+      grades:this.list_grades_guessed,
       average: _average.toString(),
       kogame: "PUT_TOGETHER_WORD",
     }).subscribe((resp: any) => {
@@ -319,7 +313,7 @@ this.getConfig();
     }
 
 
-
+    this.list_grades_guessed.push(this.lbl_Grade);
 
     this.lbl_Grade = 100;
 

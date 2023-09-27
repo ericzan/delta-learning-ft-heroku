@@ -25,6 +25,9 @@ export class HowManyWordsPuzzleComponent implements OnInit {
   public Output_list_Words_API = new EventEmitter<Array<{ espaniol: string, value: number, ingles: string }>>();
 
   list_Words_API: ResponseZan[] = [];
+  list_words_guessed: Array<string> = [];
+  list_grades_guessed: Array<number> = [];
+
 
   buttonSeleccted = "A1";
   disabled_button = false;
@@ -136,6 +139,7 @@ export class HowManyWordsPuzzleComponent implements OnInit {
     let _msj: string = "";
     // let _uLevel = this.fn_uLevel();
 
+    debugger;
     let _uLevel = this.buttonSeleccted;
 
 
@@ -147,12 +151,14 @@ export class HowManyWordsPuzzleComponent implements OnInit {
     this.openSpinner = true;
 
 
-    this.uiOperGrService.getGamesAAPuzzleWords({
+
+    this.uiOperGrService.getGamesAAPuzzleWords_2({
       "org": "DTL-01",
       "ulevel": _uLevel,
       "kog": "puzzlewords",
       "hms": _limit,
-      "words": "",
+      "words": this.list_words_guessed,
+      "grades": this.list_grades_guessed,
       "avg": 0,
       "setlevel": false,
     }).subscribe((resp: any) => {

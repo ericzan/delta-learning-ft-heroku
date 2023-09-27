@@ -29,6 +29,7 @@ export class GuessTheWordComponent implements OnInit {
   list_Words_process: Array<{ espaniol: string, value: number, ingles: string }> = [];
 
   list_words_guessed: Array<string> = [];
+  list_grades_guessed: Array<number> = [];
 
   listTxt: Array<{ value: string }> = [];
 
@@ -210,20 +211,22 @@ export class GuessTheWordComponent implements OnInit {
 
 
     let _average: Number = (this.lbl_GradeTotal / this.wordInProcessIndex);
-    const _words = JSON.stringify(this.list_words_guessed);
+
+
     let _userId: string = "";
     let _qtywords: number = 0;
 
+debugger;
 
-    // console.log("-------- save------------");
-    // console.log(this.list_words_guessed);
     this.openSpinner = true;
-    this.uiOperGrService.getGamesAA_Archive({
-      orgId: "DTL-01",
-      subcat: 0,
-      words: _words,
-      average: _average.toString(),
-      kogame: "GUESS_TW",
+
+    this.uiOperGrService.getGamesAA_Archive_2({
+        orgId: "DTL-01",
+        subcat: 0,
+        words: this.list_words_guessed,
+        grades:this.list_grades_guessed,
+        average: _average.toString(),
+        kogame: "GUESS_TW",
     }).subscribe((resp: any) => {
                                       // console.log("---------- respondio save datos api ---------");
                                       // console.log(resp);
@@ -357,7 +360,7 @@ export class GuessTheWordComponent implements OnInit {
       this.fn_ShowMessage("Success", true, this.gameService.getTraslateAlert(this.selectedLang,"isRight") , "", false);
     }
 
-
+    this.list_grades_guessed.push(this.lbl_Grade);
 
 
     this.fn_ModControles_B_2("reset");

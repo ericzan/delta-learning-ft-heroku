@@ -19,11 +19,11 @@
           formControlName="txt_how" (keyup)="fn_KeyPress()">
       </div>
 
-      <div class="grid grid-container  col-P-zan-4  ">
+      <!-- <div class="grid grid-container  col-P-zan-4  ">
         <zan-button-select [input_listOpctionsButton]="'A1|A2|B1|B2|C1|C2'"
           (Output_ValueSelectedButton)="fn_ButtonSelected ($event)" [input_disabled]="disabled_button">
         </zan-button-select>
-      </div>
+      </div> -->
 
       <div class="col-P-zan-5" style="text-align:center;   " *ngIf="btn_start_visible">
         <p-button type="button" label="{{'configuration_games.control_how_many.button_start' | translate}}" [style]="{ 'width': '140px' }" (click)="fn_Start_click()">
