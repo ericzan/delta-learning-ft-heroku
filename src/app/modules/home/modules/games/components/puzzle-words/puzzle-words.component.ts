@@ -260,8 +260,10 @@ export class PuzzleWordsComponent implements OnInit {
     {
       // console.log("--adivino ---");
 
+      debugger;
       if (this.list_Words_Process.length >=10){this.list_Words_Process=[];}
-      this.list_Words_Process.push({ espaniol: wordSpanish, value: (this.itemActual + 1), ingles: this.itemActualSentence.trim().toLowerCase() });
+      // this.list_Words_Process.push({ espaniol: wordSpanish, value: (this.itemActual + 1), ingles: this.itemActualSentence.trim().toLowerCase() });
+      this.list_Words_Process.push({ espaniol: this.itemActualSentence.trim(), value: (this.itemActual + 1), ingles: this.itemActualSentence.trim().toLowerCase() });
       this.list_Words_Request.push(this.itemActualSentence);
 
       this.itemActual = this.itemActual + 1;
