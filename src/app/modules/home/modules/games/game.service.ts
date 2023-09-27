@@ -47,7 +47,7 @@ getTraslateAlert (_lang:string,_opc:string,_value?:string){
           case "": { break;  }
           case "isRight":  { _return = "¡¡¡¡Si, es correcto!!!!";  break;   }
           case "triyingWord":    { _return = "Lo siento, estás intentando la palabra --> :  " + _value;  break;   }
-          case "tryAgain":    { _return = "Lo lamento, intenta de nuevo!!!"; break; }
+          case "tryAgain":    { _return = "Lo lamento, la palabra que buscas es"; break; }
           case "howManySentences":    { _return = "Inválida ==> (CUÁNTAS ORACIONES PROBAR) " ;  break;   }
           case "howManyWords":    { _return = " Inválida ==> (CUANTAS PALABRAS PARA INTENTAR)" ;  break;   }
           case "kindWord":    { _return = " Inválida ==> (tipo de palabra)"; break; }
