@@ -8,16 +8,16 @@
 
 
     <div class="col-12 ">
-      <div class="grid grid-container  ">
+      <div class="grid grid-container   ">
 
-        <div class="col-4-zan-1 "  >
+        <div class="col-4-zan-1 "  style="  padding: 20px;" >
           <label><b>{{'configuration_games.control_how_many.title_how_many' | translate}}:</b> </label>
         </div>
-        <div class="col-4-zan-2 ">
+        <div class="col-4-zan-2 " style=" padding: 20px; " >
           <input type="number" min="0" max="50" style="width: 50px; text-align:center;" id="txt_how"
             formControlName="txt_how" (keyup)="fn_KeyPress()">
         </div>
-        <div class="col-4-zan-3 " style="text-align:left;   "  >
+        <!-- <div class="col-4-zan-3 " style="text-align:left;   "  >
                 <p-checkbox [binary]="true" id="chk_adj" formControlName="chk_adj"            label="{{'configuration_games.control_how_many.label_adj' | translate}}"> </p-checkbox>
         </div>
         <div class="col-4-zan-4 " style="text-align:left; ">
@@ -31,11 +31,11 @@
         </div>
         <div class="col-4-zan-7 " style="text-align:left;   ">
                 <p-checkbox            [binary]="true" id="chk_PastTense" formControlName="chk_PastTense"            label="{{'configuration_games.control_how_many.label_past_tense' | translate}}"            (onChange)="fn_chk_PastTense_cambia()"> </p-checkbox>
-        </div>
+        </div> -->
 
-        <div class="col-4-zan-8   " style="text-align:center;padding: 10px; ">
+        <div class="col-4-zan-8   " style="text-align:center;padding: 10px;  ">
           <p-button type="button" label="{{'configuration_games.control_how_many.button_start' | translate}}"
-            [style]="{ 'width': '150px' }" (click)="fn_Start_click()" *ngIf="btn_start_visible">
+            [style]="{ 'width': '200px' }" (click)="fn_Start_click()" *ngIf="btn_start_visible">
           </p-button>
         </div>
 

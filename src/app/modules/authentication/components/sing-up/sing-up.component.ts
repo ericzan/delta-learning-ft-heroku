@@ -97,7 +97,7 @@ this.exito=true;
 
                         console.log("---- error ---",error);
 
-                        this.messageError = error.error.detail  + " : Intente de nuevo "
+                        this.messageError = error.error.detail  + " : Lo lamento, intenta de nuevo!!! "
                         this.loading.setDisplay(false);
                         this.displayDialog = true;
                         this.exito=false;
