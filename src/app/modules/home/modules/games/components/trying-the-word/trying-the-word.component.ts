@@ -66,6 +66,7 @@ export class TryingTheWordComponent implements OnInit {
 
   public msjParamsAlert: Array<{ TypeMessge: string, ShowAlert: boolean, Messge: string, Comment: string }> = [];
   selectedLang="";
+  koGame="TRY_TW";
 
   constructor(private fb: FormBuilder,
     private uiOperGrService: UiOperGrService,

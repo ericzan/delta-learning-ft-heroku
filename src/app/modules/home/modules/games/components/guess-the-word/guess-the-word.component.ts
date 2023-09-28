@@ -68,7 +68,7 @@ export class GuessTheWordComponent implements OnInit {
 
   selectedLang="";
 
-
+  koGame = "GUESS_TW";
 
   constructor(private fb: FormBuilder,
               private uiOperGrService: UiOperGrService,

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.service';
 import { catchError, of } from 'rxjs';
@@ -16,9 +16,10 @@ export class HowManyWordsComponent implements OnInit {
 
   @Output()
   public Output_list_Words_API = new EventEmitter<Array<{ espaniol: string, value: number, ingles: string  ,wordstouser:Array<string> }>>();
+  @Input()
+  public Input_koGame! :string;
 
-
-
+  koGame ="";
 
 
   formHowMatyWords!: FormGroup;
@@ -41,6 +42,8 @@ export class HowManyWordsComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    this.koGame = this.Input_koGame ;
 
     this.formHowMatyWords = this.fb.group({
       txt_how: new FormControl({ value: '0', disabled: false }),
@@ -136,10 +139,13 @@ export class HowManyWordsComponent implements OnInit {
 
     this.openSpinner = true;
 
+    debugger;
+
     this.uiOperGrService.getGamesAA({
           orgId: "DTL-01",
           limit: _limit,
           subcat: 0,
+          kogame:this.koGame,
           adj: _adj,
           verb: _verb === null ? false : _verb,
           pt_verb: _pt_verb === null ? false : _pt_verb,

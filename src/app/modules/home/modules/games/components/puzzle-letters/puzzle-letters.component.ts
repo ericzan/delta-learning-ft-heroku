@@ -65,6 +65,7 @@ export class PuzzleLettersComponent implements OnInit {
   public msjParamsAlert: Array<{ TypeMessge: string, ShowAlert: boolean, Messge: string, Comment: string }> = [];
 
   selectedLang="";
+  koGame="PUT_TOGETHER_WORD";
 
   constructor(private fb: FormBuilder,
     private uiOperGrService: UiOperGrService,

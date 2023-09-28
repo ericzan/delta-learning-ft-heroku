@@ -93,6 +93,7 @@ export class UiOperGrService {
     orgId: string,
     limit: number,
     subcat: number,
+    kogame:string
     adj: boolean,
     verb: boolean,
     pt_verb: boolean,
