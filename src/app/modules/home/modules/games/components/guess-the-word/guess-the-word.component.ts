@@ -338,6 +338,10 @@ debugger;
 
     if (this.audioCurrent) {    return;  }
     this.audioService.playAudio(link.replace("'",""));
+
+    this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
+    if (this.lbl_Grade <= 0 ) {this.fn_ShowMessage("Alert", true, this.gameService.getTraslateAlert(this.selectedLang,"triyingWord",this.wordInProcessEnglish), "", true);}
+
   }
 
   fn_Validate_click() {
