@@ -253,7 +253,7 @@ this.getConfig();
   }//--------------------------------------------
 
 
-  fn_StarGame_Input(_list_Words_API: Array<{ espaniol: string, value: number, ingles: string ,wordstouser:Array<string> }>) {
+  fn_StarGame_Input(_list_Words_API: Array<{ espaniol: string, value: number, ingles: string ,wordstouser:Array<string>,audio:string }>) {
 
 
 

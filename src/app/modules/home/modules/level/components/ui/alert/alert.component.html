@@ -48,10 +48,11 @@
     </div>
   </div>
   <div class="grid grid-container col-12   ">
-    <div class="col-6">
+    <div class="col-12 md:col-6">
         <p-button type="button" label="{{'configuration_Level_alert.view_level.label_back' | translate}}" [style]="{'width': '80%'}" (onClick)="Hidden_Cnf()"> </p-button>
     </div>
-    <div class="col-6"><p-button type="button" label="{{'configuration_Level_alert.view_level.label_stop' | translate}}" [style]="{'width': '80%'}" (onClick)="fn_Stop()"> </p-button>
+    <div class="col-12 md:col-6">
+        <p-button type="button" label="{{'configuration_Level_alert.view_level.label_stop' | translate}}" [style]="{'width': '80%'}" (onClick)="fn_Stop()"> </p-button>
     </div>
   </div>
 </p-dialog>

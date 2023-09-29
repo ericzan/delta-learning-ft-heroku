@@ -83,11 +83,23 @@
                     <p-button type="button" label="{{'configuration_games.view_guess_word.button_validate' | translate}} "
                               [style]="{ 'width': '80px' }"   (click)="fn_Validate_click()" *ngIf="btn_visible">
                     </p-button>
+
+                </div>
+
+
+
+
+                <div class="col-1-zan-4" *ngIf="btn_visible"  style="padding: 15px;"  >
+
+                    <b>{{'configuration_games.view_guess_word.label_grade' | translate}} </b>
+                    &nbsp;  {{lbl_Grade}}
                 </div>
                 <div class="col-1-zan-4" *ngIf="btn_visible"    >
-                      <b>{{'configuration_games.view_guess_word.label_grade' | translate}} </b>
-                      &nbsp;  {{lbl_Grade}}
+                  <p-button icon="fas fa-volume-up "  styleClass="p-button-rounded p-button-warning p-button-text  "   (onClick)="playAudio(link)"></p-button>
+
+
                 </div>
+
                 <!-- <div class="col-1-zan-5" *ngIf="btn_visible"><label>{{lbl_Grade}} </label></div> -->
 
 

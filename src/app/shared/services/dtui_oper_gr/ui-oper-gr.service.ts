@@ -59,6 +59,12 @@ export class UiOperGrService {
   }){
     return environment.apiUrl + `/dt/ui_oper_gr/get_/user_word_pronunciation/?word=${body.word}&idWord=${body.idWord}`
   }
+  getUrlAudio_2(body: {
+    word: string,
+    idWord: string
+  }){
+    return environment.apiUrl + `/dt/ui_oper_gr/get_/word_sound_element/?word=${body.word}&idWord=${body.idWord}`
+  }
   getPackageStep5(body: {
     idScat: number,
     package: string,

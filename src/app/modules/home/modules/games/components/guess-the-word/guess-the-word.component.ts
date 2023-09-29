@@ -11,7 +11,7 @@ import { WathStepsLearningService } from '../../../steps-learning/services/wath-
 import { WatchService } from '../../../steps-learning/verifying-ce/services/watch.service';
 import { catchError, of } from 'rxjs';
 import { GameService } from '../../game.service';
-
+import { AudioService } from '@shared/services/audio.service';
 
 
 
@@ -24,7 +24,7 @@ import { GameService } from '../../game.service';
 export class GuessTheWordComponent implements OnInit {
 
   form!: FormGroup;
-  list_Words_API: Array<{ espaniol: string, value: number, ingles: string  ,wordstouser:Array<string>}> = [];
+  list_Words_API: Array<{ espaniol: string, value: number, ingles: string  ,wordstouser:Array<string>,audio:string}> = [];
   list_Words_View: Array<{ espaniol: string, value: number, ingles: string }> = [];
   list_Words_process: Array<{ espaniol: string, value: number, ingles: string }> = [];
 
@@ -69,14 +69,15 @@ export class GuessTheWordComponent implements OnInit {
   selectedLang="";
 
   koGame = "GUESS_TW";
-
+link="";
   constructor(private fb: FormBuilder,
               private uiOperGrService: UiOperGrService,
               protected fieldValidate: FieldValidateService,
               private router: Router,
               private wathSteps: WathStepsLearningService,
               private watchService: WatchService,
-              private gameService:GameService) {
+              private gameService:GameService,
+              private audioService: AudioService) {
 
                 this.form = this.fb.group({
                   chk_length: new FormControl({ value: false, disabled: true }),
@@ -108,16 +109,6 @@ export class GuessTheWordComponent implements OnInit {
     });
   } //------------------------------------------------
 
-  get_Words_list() {
-    //------- Objetivo : regresa la lista de palabras a calcular
-    //------- 28 julio 2023
-
-
-    for (let i = 0; i <= this.totalWords - 1; i++) {
-      this.list_Words_View.push(this.list_Words_API[i]);
-    }
-
-  }//-----------------------------------------------------------------
 
   getWordsInProcess() {
 
@@ -137,7 +128,7 @@ export class GuessTheWordComponent implements OnInit {
 
       this.wordInProcessEnglish = this.list_Words_View[this.wordInProcessIndex].ingles;
 
-
+      this.link = this.list_Words_API[this.wordInProcessIndex].audio;
 
     }
 
@@ -283,25 +274,9 @@ debugger;
 
   }//----------------------------------------------
 
-  fn_StarGame() {
 
 
-    this.get_Words_list(); //-- si todo bien carga la lista de palabras
-
-
-    this.lbl_Div = "1 / " + this.totalWords.toString();
-    this.lbl_Averge = "0";
-
-    this.getWordsInProcess();
-
-    this.fn_ModControles_B_2("enable");
-
-    this.btn_visible = true;
-
-  }//--------------------------------------------
-
-
-  fn_StarGame_Input(_list_Words_API: Array<{ espaniol: string, value: number, ingles: string ,wordstouser:Array<string> }>) {
+  fn_StarGame_Input(_list_Words_API: Array<{ espaniol: string, value: number, ingles: string ,wordstouser:Array<string>,audio:string }>) {
 
 
 
@@ -324,10 +299,52 @@ debugger;
 
     }
 
+  }//--------------------------------------------
 
+  fn_StarGame() {
+
+
+    this.get_Words_list(); //-- si todo bien carga la lista de palabras
+
+
+    this.lbl_Div = "1 / " + this.totalWords.toString();
+    this.lbl_Averge = "0";
+
+    this.getWordsInProcess();
+
+    this.fn_ModControles_B_2("enable");
+
+    this.btn_visible = true;
 
   }//--------------------------------------------
 
+  get_Words_list() {
+    //------- Objetivo : regresa la lista de palabras a calcular
+    //------- 28 julio 2023
+
+    debugger;
+
+    for (let i = 0; i <= this.totalWords - 1; i++)
+    {
+      this.list_Words_View.push(this.list_Words_API[i]);
+
+    }
+
+  }//-----------------------------------------------------------------
+
+  playZanAudio (){
+
+    let link ="https://dtl001-1158a6696bb9.herokuapp.com/dt/ui_oper_gr/get_/user_word_pronunciation/?word=house&idWord=49994";
+    this.playAudio(link);
+
+  }
+  audioCurrent: boolean = false;
+  playAudio(link: string) {
+
+
+    if (this.audioCurrent) {    return;  }
+    this.audioService.playAudio(link.replace("'",""));
+  }
 
   fn_Validate_click() {
 
