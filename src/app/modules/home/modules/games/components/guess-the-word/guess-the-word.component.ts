@@ -332,12 +332,6 @@ debugger;
 
   }//-----------------------------------------------------------------
 
-  playZanAudio (){
-
-    let link ="https://dtl001-1158a6696bb9.herokuapp.com/dt/ui_oper_gr/get_/user_word_pronunciation/?word=house&idWord=49994";
-    this.playAudio(link);
-
-  }
   audioCurrent: boolean = false;
   playAudio(link: string) {
 

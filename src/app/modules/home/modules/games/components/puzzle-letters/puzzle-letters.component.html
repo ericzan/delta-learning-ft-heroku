@@ -49,14 +49,19 @@
 
           <div class="grid grid-container   " style="text-align:left; ">
 
-                  <div class="col-1-zan-3">
+                  <div class="col-1-zan-3"   >
                       <p-button type="button" label="{{'configuration_games.control_drag_wors.button_validate' | translate}}"
                               [style]="{ 'width': '80%' }"
                               (click)="fn_Validate_click()" *ngIf="btn_visible"> </p-button>
                   </div>
-                  <div class="col-1-zan-4" *ngIf="btn_visible"  >
+                  <div class="col-1-zan-4" *ngIf="btn_visible" style="padding: 5px;" >
                         <b>{{'configuration_games.control_drag_wors.label_grade' | translate}}:</b>
                         &nbsp;  {{lbl_Grade}}
+                  </div>
+                  <div  *ngIf="btn_visible"  style="width: 25px;  "  >
+                    <p-button icon="fas fa-volume-up "  styleClass="p-button-rounded p-button-warning p-button-text  "
+                    [style]="{ 'width': '30px','height':'30px' }"
+                     (onClick)="playAudio(link)"></p-button>
                   </div>
                   <!-- <div class="col-1-zan-5" *ngIf="btn_visible"><label>{{lbl_Grade}} </label></div> -->
           </div>

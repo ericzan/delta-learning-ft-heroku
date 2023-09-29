@@ -12,6 +12,7 @@ import { WatchService } from '../../../steps-learning/verifying-ce/services/watc
 import { catchError, of } from 'rxjs';
 import { DragWordsComponent } from '../ui/drag-words/drag-words.component';
 import { GameService } from '../../game.service';
+import { AudioService } from '@shared/services/audio.service';
 
 
 
@@ -25,7 +26,7 @@ import { GameService } from '../../game.service';
 export class PuzzleLettersComponent implements OnInit {
 
   form!: FormGroup;
-  list_Words_API: Array<{ espaniol: string, value: number, ingles: string,wordstouser:Array<string>  }> = [];
+  list_Words_API: Array<{ espaniol: string, value: number, ingles: string,wordstouser:Array<string> ,audio:string }> = [];
   list_Words_View: Array<{ espaniol: string, value: number, ingles: string  ,wordstouser:Array<string> }> = [];
   list_Words_process: Array<{ espaniol: string, value: number, ingles: string }> = [];
 
@@ -66,14 +67,15 @@ export class PuzzleLettersComponent implements OnInit {
 
   selectedLang="";
   koGame="PUT_TOGETHER_WORD";
-
+  link="";
   constructor(private fb: FormBuilder,
     private uiOperGrService: UiOperGrService,
     protected fieldValidate: FieldValidateService,
     private router: Router,
     private wathSteps: WathStepsLearningService,
     private watchService: WatchService,
-     private gameService : GameService) { }
+     private gameService : GameService,
+     private audioService: AudioService) { }
 
 
 
@@ -132,7 +134,7 @@ this.getConfig();
 
 
       this.wordInProcessEnglish = this.list_Words_View[this.wordInProcessIndex].ingles;
-
+      this.link = this.list_Words_API[this.wordInProcessIndex].audio;
 
 
     }
@@ -367,6 +369,14 @@ this.getConfig();
     this.msjParamsAlert = [{ TypeMessge: _TypeMessge, ShowAlert: _ShowAlert, Messge: _Messge, Comment: _Comment }];
   }//------------------------------------------------------------
 
+
+  audioCurrent: boolean = false;
+  playAudio(link: string) {
+
+
+    if (this.audioCurrent) {    return;  }
+    this.audioService.playAudio(link.replace("'",""));
+  }
 
 
 }//++++++++++++++++++++++  principal +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

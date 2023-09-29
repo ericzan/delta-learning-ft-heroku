@@ -11,6 +11,7 @@ import { WathStepsLearningService } from '../../../steps-learning/services/wath-
 import { WatchService } from '../../../steps-learning/verifying-ce/services/watch.service';
 import { catchError, of } from 'rxjs';
 import { GameService } from '../../game.service';
+import { AudioService } from '@shared/services/audio.service';
 
 
 
@@ -24,7 +25,7 @@ import { GameService } from '../../game.service';
 export class TryingTheWordComponent implements OnInit {
 
   form!: FormGroup;
-  list_Words_API: Array<{ espaniol: string, value: number, ingles: string }> = [];
+  list_Words_API: Array<{ espaniol: string, value: number, ingles: string,audio:string }> = [];
   list_WordsviewOpen: Array<{ espaniol: string, value: number, ingles: string }> = [];
   list_Words_process: Array<{ espaniol: string, value: number, ingles: string }> = [];
 
@@ -67,14 +68,15 @@ export class TryingTheWordComponent implements OnInit {
   public msjParamsAlert: Array<{ TypeMessge: string, ShowAlert: boolean, Messge: string, Comment: string }> = [];
   selectedLang="";
   koGame="TRY_TW";
-
+link="";
   constructor(private fb: FormBuilder,
     private uiOperGrService: UiOperGrService,
     protected fieldValidate: FieldValidateService,
     private router: Router,
     private wathSteps: WathStepsLearningService,
     private watchService: WatchService,
-    private gameService:GameService) { }
+    private gameService:GameService,
+    private audioService: AudioService) { }
 
 
   ngOnInit(): void {
@@ -132,6 +134,7 @@ export class TryingTheWordComponent implements OnInit {
 
 
       this.wordInProcessEnglish = this.list_WordsviewOpen[this.wordInProcessindex].ingles;
+      this.link = this.list_Words_API[this.wordInProcessindex].audio;
 
       this.fn_Inicializa_Palabra(_Palabra_ingles);
 
@@ -259,7 +262,7 @@ export class TryingTheWordComponent implements OnInit {
 
   }//--------------------------------------------
 
-  fn_StartGame_Input(_list_Words_API: Array<{ espaniol: string, value: number, ingles: string }>) {
+  fn_StartGame_Input(_list_Words_API: Array<{ espaniol: string, value: number, ingles: string,audio:string }>) {
 
     this.list_Words_API = _list_Words_API;
 
@@ -425,6 +428,14 @@ export class TryingTheWordComponent implements OnInit {
 
     this.msjParamsAlert = [{ TypeMessge: _TypeMessge, ShowAlert: _ShowAlert, Messge: _Messge, Comment: _Comment }];
   }//------------------------------------------------------------
+
+  audioCurrent: boolean = false;
+  playAudio(link: string) {
+
+
+    if (this.audioCurrent) {    return;  }
+    this.audioService.playAudio(link.replace("'",""));
+  }
 
 
 }//++++++++++++++++++++++  principal +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -89,15 +89,15 @@
 
 
 
-                <div class="col-1-zan-4" *ngIf="btn_visible"  style="padding: 15px;"  >
+                <div class="col-1-zan-4" *ngIf="btn_visible"  style="padding: 5px;"  >
 
                     <b>{{'configuration_games.view_guess_word.label_grade' | translate}} </b>
                     &nbsp;  {{lbl_Grade}}
                 </div>
                 <div class="col-1-zan-4" *ngIf="btn_visible"    >
-                  <p-button icon="fas fa-volume-up "  styleClass="p-button-rounded p-button-warning p-button-text  "   (onClick)="playAudio(link)"></p-button>
-
-
+                  <p-button icon="fas fa-volume-up "  styleClass="p-button-rounded p-button-warning p-button-text  "
+                  [style]="{ 'width': '30px','height':'30px' }"
+                   (onClick)="playAudio(link)"></p-button>
                 </div>
 
                 <!-- <div class="col-1-zan-5" *ngIf="btn_visible"><label>{{lbl_Grade}} </label></div> -->
