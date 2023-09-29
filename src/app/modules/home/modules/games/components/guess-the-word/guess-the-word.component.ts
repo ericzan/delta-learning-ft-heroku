@@ -116,7 +116,8 @@ link="";
     let _Palabra_ingles: string = "";
 
 
-    if (this.wordInProcessIndex < this.totalWords) {
+    if (this.wordInProcessIndex < this.totalWords)
+    {
 
       _Palabra_ingles = this.list_Words_View[this.wordInProcessIndex].ingles.toString();
       this.list_words_guessed.push(_Palabra_ingles);
@@ -135,7 +136,7 @@ link="";
 
     //------------ termina el juegooo ----------
     if (this.wordInProcessIndex === this.totalWords) {
-
+      this.playAudio(this.link,false);
 
 
       this.fn_ModControles_B_2("reset");
@@ -234,7 +235,7 @@ debugger;
 
                                         this.openSpinner = false;
 
-                                        this.fn_ShowMessage("Exito", true,this.gameService.getTraslateAlert(this.selectedLang,"isRight") , "", false);
+                                        this.fn_ShowMessage("Exito", true,this.gameService.getTraslateAlert(this.selectedLang,"goodJob") , "", false);
 
                                         if (this.list_Words_API.length > 0)
                                         {
@@ -333,14 +334,19 @@ debugger;
   }//-----------------------------------------------------------------
 
   audioCurrent: boolean = false;
-  playAudio(link: string) {
+  playAudio(link: string,discount:boolean) {
 
 
     if (this.audioCurrent) {    return;  }
     this.audioService.playAudio(link.replace("'",""));
 
-    this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
+    if (discount)
+    {
+  this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
     if (this.lbl_Grade <= 0 ) {this.fn_ShowMessage("Alert", true, this.gameService.getTraslateAlert(this.selectedLang,"triyingWord",this.wordInProcessEnglish), "", true);}
+
+
+    }
 
   }
 
@@ -372,7 +378,9 @@ debugger;
 
 
     if (this.wordInProcessIndex < this.totalWords) {
+      this.playAudio(this.link,false);
       this.fn_ShowMessage("Success", true, this.gameService.getTraslateAlert(this.selectedLang,"isRight") , "", false);
+
     }
 
     this.list_grades_guessed.push(this.lbl_Grade);

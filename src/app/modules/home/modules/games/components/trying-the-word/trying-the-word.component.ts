@@ -143,6 +143,7 @@ link="";
 
     //------------ termina el juegooo ----------
     if (this.wordInProcessindex === this.totalWords) {
+      this.playAudio(this.link,false);
       this.form.get('txt_Try_With')?.disable();
       this.btn_visible = false;
       this.fn_SaveDataAPI();
@@ -320,13 +321,14 @@ link="";
     this.lbl_Grade = 100;
 
 
-    this.getWordsInProcess();
+
 
     if (this.wordInProcessindex < this.totalWords) {
+      this.playAudio(this.link,false);
       this.fn_ShowMessage("Success", true,  this.gameService.getTraslateAlert(this.selectedLang,"isRight")  , "", false);
     }
 
-
+    this.getWordsInProcess();
 
 
 
@@ -430,14 +432,18 @@ link="";
   }//------------------------------------------------------------
 
   audioCurrent: boolean = false;
-  playAudio(link: string) {
+  playAudio(link: string,discount:boolean) {
 
 
     if (this.audioCurrent) {    return;  }
     this.audioService.playAudio(link.replace("'",""));
 
-    this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
+    if (discount){
+
+        this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
     if (this.lbl_Grade <= 0 ) {this.fn_ShowMessage("Alert", true, this.gameService.getTraslateAlert(this.selectedLang,"triyingWord",this.wordInProcessEnglish), "", true);}
+
+    }
 
   }
 

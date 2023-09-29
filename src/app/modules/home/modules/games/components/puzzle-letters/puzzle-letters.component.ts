@@ -143,7 +143,7 @@ this.getConfig();
     //------------ termina el juegooo ----------
     if (this.wordInProcessIndex === this.totalWords) {
 
-
+      this.playAudio(this.link,false);
 
       this.btn_visible = false;
       this.fn_Save_Data_API();
@@ -312,6 +312,7 @@ this.getConfig();
 
 
     if (this.wordInProcessIndex < this.totalWords) {
+      this.playAudio(this.link,false);
       this.fn_ShowMessage("Success", true, this.gameService.getTraslateAlert(this.selectedLang,"isRight"), "", false);
     }
 
@@ -371,7 +372,7 @@ this.getConfig();
 
 
   audioCurrent: boolean = false;
-  playAudio(link: string)
+  playAudio(link: string ,discount:boolean) {
   {
 
 
@@ -379,9 +380,12 @@ this.getConfig();
     if (this.audioCurrent) {    return;  }
     this.audioService.playAudio(link.replace("'",""));
 
-    this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
-    if (this.lbl_Grade <= 0 ) {this.fn_ShowMessage("Alert", true, this.gameService.getTraslateAlert(this.selectedLang,"triyingWord",this.wordInProcessEnglish), "", true);}
+      if(discount){
+        this.lbl_Grade = (this.lbl_Grade - 10) < 0 ? 0 : this.lbl_Grade - 10;
+          if (this.lbl_Grade <= 0 ) {this.fn_ShowMessage("Alert", true, this.gameService.getTraslateAlert(this.selectedLang,"triyingWord",this.wordInProcessEnglish), "", true);}
 
+      }
+    }
   }
 
 
