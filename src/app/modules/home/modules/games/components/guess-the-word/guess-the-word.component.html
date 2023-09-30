@@ -27,7 +27,7 @@
 
     <div class="grid grid-container   " style="width: 100%;">
 
-      <div class="col-3-zan-1" [style]="{  border: '2px solid blue',  borderRadius: '5px' }">
+      <div class="col-3-zan-1  " [style]="{  border: '2px solid blue',  borderRadius: '5px' }">
         <zan-list-words [Input_Averge]="lbl_Averge"
                         [Input_Div]="lbl_Div"
                         [Input_List_Words_Process]="list_Words_process">
@@ -79,6 +79,11 @@
                   <input pInputText id="txt_EnglishWord" formControlName="txt_EnglishWord" maxlength="30"
                     style="width:90%; text-align:left;" />
                 </div>
+                <div  *ngIf="btn_visible"  >
+                  <p-button icon="fas fa-volume-up "  styleClass="p-button-rounded p-button-warning p-button-text  "
+                  [style]="{ 'width': '30px','height':'30px' }"
+                   (onClick)="playAudio(link,true)"></p-button>
+                </div>
                 <div class="col-1-zan-3"  style=" text-align: center;   ">
                     <p-button type="button" label="{{'configuration_games.view_guess_word.button_validate' | translate}} "
                               [style]="{ 'width': '80px' }"   (click)="fn_Validate_click()" *ngIf="btn_visible">
@@ -89,16 +94,12 @@
 
 
 
-                <div class="col-1-zan-4" *ngIf="btn_visible"  style="padding: 5px;"  >
+                <div class="col-1-zan-4" *ngIf="btn_visible"  style="padding: 5px;   "  >
 
                     <b>{{'configuration_games.view_guess_word.label_grade' | translate}} </b>
                     &nbsp;  {{lbl_Grade}}
                 </div>
-                <div class="col-1-zan-4" *ngIf="btn_visible"    >
-                  <p-button icon="fas fa-volume-up "  styleClass="p-button-rounded p-button-warning p-button-text  "
-                  [style]="{ 'width': '30px','height':'30px' }"
-                   (onClick)="playAudio(link,true)"></p-button>
-                </div>
+
 
                 <!-- <div class="col-1-zan-5" *ngIf="btn_visible"><label>{{lbl_Grade}} </label></div> -->
 
