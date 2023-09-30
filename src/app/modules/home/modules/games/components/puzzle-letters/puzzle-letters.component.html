@@ -49,12 +49,12 @@
 
           <div class="grid grid-container   " style="text-align:left; ">
 
-                  <div class="col-1-zan-3"   >
+                  <div class="col-1-zan-3" style="text-align: center;  "  >
                       <p-button type="button" label="{{'configuration_games.control_drag_wors.button_validate' | translate}}"
                               [style]="{ 'width': '80%' }"
                               (click)="fn_Validate_click()" *ngIf="btn_visible"> </p-button>
                   </div>
-                  <div class="col-1-zan-4" *ngIf="btn_visible" style="padding: 5px;  " >
+                  <div class="col-1-zan-4" *ngIf="btn_visible" style="padding: 5px;   " >
                         <b>{{'configuration_games.control_drag_wors.label_grade' | translate}}:</b>
                         &nbsp;  {{lbl_Grade}}
                   </div>

@@ -34,21 +34,23 @@
 
 
                             <div class="col-6-zan-1" style="text-align:center; padding: 8px;  "> <b>{{'configuration_games.view_trying_word.label_English_word' | translate}}:</b></div>
-                            <div class="col-6-zan-1"  style="text-align:left;  padding: 8px; "> <b> {{lbl_English_Word}}</b> </div>
+                            <div class="col-6-zan-1"  style="text-align:left;  padding: 8px;  "> <b> {{lbl_English_Word}}</b> </div>
 
 
-                            <div class="col-5-zan-3" style="text-align:center; ">
-                              <p-button type="button" label="{{'configuration_games.view_trying_word.button_validate' | translate}}"    [style]="{ 'width': '90px' }" (click)="fn_Validate_click()" *ngIf="btn_visible">    </p-button>
-                            </div>
-
-                            <div class="col-5-zan-4" style="text-align:left; padding: 8px;   ">
-                              <label><b>{{'configuration_games.view_trying_word.label_grade' | translate}}:</b>     &nbsp; {{lbl_Grade}}     </label>
-                            </div>
-                            <div class="col-5-zan-4" *ngIf="btn_visible"    >
+                            <div  *ngIf="btn_visible"    >
                               <p-button icon="fas fa-volume-up "  styleClass="p-button-rounded p-button-warning p-button-text  "
                               [style]="{ 'width': '30px','height':'30px' }"
                                (onClick)="playAudio(link,true)"></p-button>
                             </div>
+
+                            <div class="col-5-zan-3" style="text-align:center;  ">
+                              <p-button type="button" label="{{'configuration_games.view_trying_word.button_validate' | translate}}"    [style]="{ 'width': '90px' }" (click)="fn_Validate_click()" *ngIf="btn_visible">    </p-button>
+                            </div>
+
+                            <div class="col-5-zan-4" style="text-align:left; padding: 8px;    ">
+                              <label><b>{{'configuration_games.view_trying_word.label_grade' | translate}}:</b>     &nbsp; {{lbl_Grade}}     </label>
+                            </div>
+
 
                           </div>
                         </div>

@@ -1,5 +1,5 @@
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 400px) {
   .body-zan {
     background-color: rgb(240, 37, 26);
   }
@@ -15,14 +15,14 @@
 
   .col-5-zan-2 {    width: 50%;  }
 
-  .col-5-zan-3 {    width: 30%;  }
+  .col-5-zan-3 {    width: 37%;  }
 
-  .col-5-zan-4 {    width: 35%;  }
+  .col-5-zan-4 {    width: 48%;  }
 
   .col-5-zan-5 {    width: 5%;  }
   .col-5-zan-6 {    width: 10%;   }
 
-  .col-6-zan-1 {    width: 50%;  }
+  .col-6-zan-1 {    width: 45%;  }
 
   .col-6-zan-2 {    width: 70%;  }
 
@@ -33,7 +33,7 @@
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 400px) {
   .body-zan {
     background-color: rgb(122, 115, 211);
   }
@@ -50,11 +50,11 @@
 
   .col-5-zan-3 {    width: 30%;  }
 
-                        .col-5-zan-4 {    width: 35%;  }
+                        .col-5-zan-4 {    width: 70%;  }
 
   .col-5-zan-5 {    width: 5%;  }
                       .col-5-zan-6 {    width: 10%;   }
-  .col-6-zan-1 {    width: 65%;  }
+  .col-6-zan-1 {    width: 40%;  }
 
   .col-6-zan-2 {    width: 60%;  }
 
@@ -87,7 +87,7 @@
   .col-5-zan-5 {    width: 5%;  }
 
 
-  .col-6-zan-1 {    width: 50%;  }
+  .col-6-zan-1 {    width: 40%;  }
 
   .col-6-zan-2 {    width: 60%;  }
 
@@ -111,18 +111,18 @@
 
   .col-3-zan-3 {    width: 67%;  }
 
-  .col-5-zan-1 {    width: 20%;  }
+  .col-5-zan-1 {    width: 18%;  }
 
   .col-5-zan-2 {    width: 10%;  }
 
-  .col-5-zan-3 {    width: 20%;  }
+  .col-5-zan-3 {    width: 15%;  }
 
-                          .col-5-zan-4 {    width: 20%;  }
+                          .col-5-zan-4 {    width: 30%;  }
 
 
   .col-5-zan-5 {    width: 5%;  }
                       .col-5-zan-6 {    width: 15%;   }
- .col-6-zan-1 {    width: 35%;  }
+ .col-6-zan-1 {    width: 25%;  }
 
   .col-6-zan-2 {    width: 70%;  }
 
