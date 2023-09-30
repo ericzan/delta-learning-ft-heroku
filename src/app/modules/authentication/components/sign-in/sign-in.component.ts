@@ -84,16 +84,16 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
     this.loading.setDisplay(true);
     this.messageError = '';
-    const userName = this.structureForm.value.username;
-    const password = this.structureForm.value.password;
+    const userName:string = this.structureForm.value.username;
+    const password:string = this.structureForm.value.password;
     this.http.post(`${environment.apiUrl}/dt/auth/login/`, {
-      userId: userName,
-      password: password
+      userId: userName.trim(),
+      password: password.trim()
     }).subscribe((resp: any) => {
 
       debugger;
 
-      this.saveDataLogIn(userName, resp.token, resp.selected_lang);
+      this.saveDataLogIn(userName.trim(), resp.token, resp.selected_lang);
 
       setTimeout(() => {
         this.loading.setDisplay(false);
