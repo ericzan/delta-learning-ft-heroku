@@ -1,5 +1,6 @@
+
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 400px) {
   .body-zan {
     background-color: rgb(240, 37, 26);
   }
@@ -17,9 +18,9 @@
 
   .col-1-zan-2 {    width: 60%;  }
 
-  .col-1-zan-3 {    width: 20%;  }
+  .col-1-zan-3 {    width: 40%;  }
 
-  .col-1-zan-4 {    width: 20%;  }
+  .col-1-zan-4 {    width: 45%;  }
 
   .col-1-zan-5 {    width: 25%;  }
 
@@ -32,7 +33,7 @@
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 400px) {
   .body-zan {
     background-color: rgb(122, 115, 211);
   }

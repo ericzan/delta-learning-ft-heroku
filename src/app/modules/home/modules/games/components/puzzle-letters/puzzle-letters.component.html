@@ -54,11 +54,11 @@
                               [style]="{ 'width': '80%' }"
                               (click)="fn_Validate_click()" *ngIf="btn_visible"> </p-button>
                   </div>
-                  <div class="col-1-zan-4" *ngIf="btn_visible" style="padding: 5px;" >
+                  <div class="col-1-zan-4" *ngIf="btn_visible" style="padding: 5px;  " >
                         <b>{{'configuration_games.control_drag_wors.label_grade' | translate}}:</b>
                         &nbsp;  {{lbl_Grade}}
                   </div>
-                  <div  *ngIf="btn_visible"  style="width: 25px;  "  >
+                  <div  *ngIf="btn_visible"  style="width: 30px;  padding-left: 5px;   "  >
                     <p-button icon="fas fa-volume-up "  styleClass="p-button-rounded p-button-warning p-button-text  "
                     [style]="{ 'width': '30px','height':'30px' }"
                      (onClick)="playAudio(link,true)"></p-button>
