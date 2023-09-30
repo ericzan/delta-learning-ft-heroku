@@ -4,6 +4,9 @@
   </div>
   <div class="container-right" >
       <h1 class="title">{{'singup.form.title' | translate}}</h1>
+      <div style="width: 100%; color: rgb(255,255,0); text-align: center;   ">
+        {{'singup.form.days' | translate}}
+  </div>
       <form  class="grid grid-container container-form " [formGroup]="sigUpForm"   >
           <div class="col-12 md:col-10">
               <div class="grid grid-container">
@@ -83,8 +86,8 @@
                   <div style="width: 100%; color: white; text-align: center; opacity: 0.8;">
                       <a class="recovery-password" [routerLink]="['../sign-in']">
                     {{'singup.form.label_return' | translate}}</a>
-
                   </div>
+
 
               </div>
           </div>

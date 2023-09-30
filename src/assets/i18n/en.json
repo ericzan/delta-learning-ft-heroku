@@ -393,7 +393,8 @@
   {
     "form":
     {
-      "title":"Register your ccount",
+      "title":"Register your account",
+      "days":"7 - DAY FREE TRIAL",
       "label_user":"User ",
       "label_name":"Name ",
       "label_password":"Password ",

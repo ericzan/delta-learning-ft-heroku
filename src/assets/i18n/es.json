@@ -395,6 +395,7 @@
     "form":
     {
       "title":"Registro ",
+      "days":"PRUEBA GRATIS POR 7 DÍAS",
       "label_user":"Usuario ",
       "label_name":"Nombre ",
       "label_password":"Password ",

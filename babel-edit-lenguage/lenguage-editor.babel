@@ -4383,6 +4383,21 @@
 												</translation>
 											</translations>
 										</concept_node>
+                    <concept_node>
+											<name>days</name>
+											<description/>
+											<comment/>
+											<translations>
+												<translation>
+													<language>en-US</language>
+													<approved>true</approved>
+												</translation>
+												<translation>
+													<language>es-ES</language>
+													<approved>true</approved>
+												</translation>
+											</translations>
+										</concept_node>
 
                     <concept_node>
 											<name>label_user</name>
