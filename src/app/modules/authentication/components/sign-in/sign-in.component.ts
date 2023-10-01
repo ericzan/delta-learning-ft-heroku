@@ -103,10 +103,6 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
     }, (error) => {
 
-      this.saveDataLogIn(userName, error.error.detail.token, error.error.detail.selected_lang);
-
-      this.updateLicense = this.selected_lang == "es" ? this.updateLicense = "Actualizar licencia" : this.updateLicense = " License upgrade ";
-
       this.statusError(error.status);
 
       //--------- ya se vencio la membresia
@@ -246,15 +242,13 @@ export class SignInComponent implements OnInit, AfterViewInit {
 
   statusError(_errorNumber: number) {
 
+    this.loading.setDisplay(false);
     if (_errorNumber === 401) {
       setTimeout(() => {
         this.messageError = this.translate.instant('signin.form.message_invalid');
-        this.loading.setDisplay(false);
       }, 700)
       return;
     }
-
-    this.loading.setDisplay(false);
 
   }
 

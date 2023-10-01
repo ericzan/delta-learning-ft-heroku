@@ -71,18 +71,18 @@ export class SingUpComponent implements OnInit
 
     this.loading.setDisplay(true);
 
-    const _user = this.sigUpForm.value.user;
-    const _name = this.sigUpForm.value.name;
-    const _password = this.sigUpForm.value.password;
-    const _email = this.sigUpForm.value.email;
+    const _user:string = this.sigUpForm.value.user;
+    const _name:string = this.sigUpForm.value.name;
+    const _password:string = this.sigUpForm.value.password;
+    const _email:string = this.sigUpForm.value.email;
 
 
     this.http.post(`${environment.apiUrl}/dt/auth/signup/`,
     {
-      userId: _user,
-      name: _name,
-      password: _password,
-      email: _email,
+      userId: _user.trim(),
+      name: _name.trim(),
+      password: _password.trim(),
+      email: _email.trim(),
       lang    : "es"
     }).subscribe((resp: any) =>
     {
