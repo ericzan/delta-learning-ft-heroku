@@ -61,8 +61,9 @@ verAyuda = false;
 
     this.setlevelNo = true;
     this.fn_SearchData_API();
+    window.location.reload();
     // console.log("------- termina proceso-----------" + this.tartonNo);
-    this.router.navigate(['../home/main/progress']);
+    // this.router.navigate(['../home/main/progress']);
 
   }//----------------------------------
 
@@ -70,7 +71,7 @@ verAyuda = false;
 
     this.p_AbrirSpinner = true;
 
-
+debugger;
     this.uiOperGrService.getleval({
       orgId: "DTL-01",
       starton: this.tartonNo,
@@ -108,7 +109,7 @@ verAyuda = false;
 
       }
 
-
+debugger;
 
     }, (_error) => {
       // console.log('----- erro API  (2)----');
