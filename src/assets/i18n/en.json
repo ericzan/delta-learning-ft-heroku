@@ -154,7 +154,8 @@
 	},
 	"global": {
 		"required": "Required.",
-		"selected": "Selected"
+		"selected": "Selected",
+		"close": "Close"
 	},
 	"navbar": {
 		"alt_img_logo": "imagotype",

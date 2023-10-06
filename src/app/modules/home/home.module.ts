@@ -6,19 +6,15 @@ import { MainComponent } from './components/main/main.component';
 import { MenuModule } from 'primeng/menu';
 
 
-
-
 @NgModule({
   declarations: [
-    MainComponent,
-
+    MainComponent
   ],
   imports: [
     MenuModule,
     CommonModule,
     SharedModule,
-    HomeRoutes,
-
+    HomeRoutes
   ]
 })
 export class HomeModule { }

@@ -35,48 +35,25 @@ npx cap copy android
 sincronizar cambios a otra plataforma
 npx cap sync
 
-{
-                "input": "node_modules/@ionic/angular/css/core.css"
-              },
-              {
-                "input": "node_modules/@ionic/angular/css/normalize.css"
-              },
-              {
-                "input": "node_modules/@ionic/angular/css/structure.css"
-              },
-              {
-                "input": "node_modules/@ionic/angular/css/typography.css"
-              },
-              {
-                "input": "node_modules/@ionic/angular/css/display.css"
-              },
-              {
-                "input": "node_modules/@ionic/angular/css/padding.css"
-              },
-              {
-                "input": "node_modules/@ionic/angular/css/float-elements.css"
-              },
-              {
-                "input": "node_modules/@ionic/angular/css/text-alignment.css"
-              },
-              {
-                "input": "node_modules/@ionic/angular/css/text-transformation.css"
-              },
-              {
-                "input": "node_modules/@ionic/angular/css/flex-utils.css"
-              },
-              {
-                "input": "src/theme/variables.css"
-              },
-
-              assets
-              {
-                "glob": "**/*.svg",
-                "input": "node_modules/ionicons/dist/ionicons/svg",
-                "output": "./svg"
-              },
 
     generar iconos android
       cordova-res android --skip-config --copy
       en apple se cambiarandrood por ios
- 
+
+
+añadir android
+
+npx cap add android
+
+copiar android primera vez
+
+npx cap copy android
+
+sincronizar plataformas
+
+npx cap sync
+
+
+-- es una prueba de git - zan -
+para abrir android studio
+npx cap open android

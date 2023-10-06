@@ -155,7 +155,8 @@
 	},
 	"global": {
 		"required": "Requerido.",
-		"selected": "Seleccionar"
+		"selected": "Seleccionar",
+		"close": "Cerrar"
 	},
 	"navbar": {
 		"alt_img_logo": "imagotipo",
