@@ -1,18 +1,22 @@
 <h2 class="title">Verifying CE</h2>
-<div class="container-list">
-    <ng-container *ngFor="let item of listResponse; let i = index">
-        <div class="container-cards">
-            
-            <app-card class="request" [item]="listRequest[i]" group="request" (onSelected)="selectedRequest($event)"></app-card>
-            <div style="padding: 10px;"></div>
-            <!--RESPONSE-->
-            <app-card class="response" [item]="listResponse[i]" group="response" (onSelected)="selectedResponse($event)"></app-card>
-        </div>
-    </ng-container>
+<div class="container-cards grid-default" [ngClass]="{
+    'grid-5': gridMedium
+}">
+    <!--REQUEST-->
+    <div class="container-list ">
+        <ng-container *ngFor="let item of listRequest">
+            <app-card [item]="item" group="request" (onSelected)="selectedRequest($event)"></app-card>
+        </ng-container>
+    </div>
+    <!--RESPONSE-->
+    <div class="container-list   response">
+        <ng-container *ngFor="let item of listResponse">
+            <app-card [item]="item" group="response" (onSelected)="selectedResponse($event)"></app-card>
+        </ng-container>
+    </div>
 </div>
 
-<p-dialog [(visible)]="_display_dialog_success" [modal]="true"  [draggable]="false"
-    [resizable]="false">
+<p-dialog [(visible)]="_display_dialog_success" [modal]="true" [draggable]="false" [resizable]="false">
     <div style="text-align: center;">
         <h3 style="font-size: 1.5rem; color: rgb(59, 207, 126);">{{'dialog.success_step.title' | translate}}</h3>
         <div style="display: flex; justify-content: center; align-items: center; gap: 50px; padding-top: 25px;">

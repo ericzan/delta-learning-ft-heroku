@@ -3,6 +3,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FieldValidateService } from '@core/services/field-validate.service';
+import { DialogErrorComponent } from '@shared/components/dialog-error/dialog-error.component';
 import { LoadingComponent } from '@shared/components/loading/loading.component';
 import { UiOperGrService } from '@shared/services/dtui_oper_gr/ui-oper-gr.service';
 import { KeyStorage } from '@shared/services/key-storage.enum';
@@ -18,6 +19,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ViewComponent implements AfterViewInit {
   @ViewChild(LoadingComponent) loading!: LoadingComponent;
+  @ViewChild(DialogErrorComponent) dialogError!: DialogErrorComponent;
   listCategories: any = [];
   listSubCategories: any[] = [];
   form!: FormGroup;
@@ -37,10 +39,12 @@ export class ViewComponent implements AfterViewInit {
   }
   submit(){
     console.log(this.form.value);
-    if(this.form.invalid){
+    if(this.form.invalid || this.form.disabled){
       this.form.markAllAsTouched();
       return;
     }
+    this.form.disable();
+    this.loading.setDisplay(true);
     let getSubCatId = this.form.value.subCategory;
     this.uiOperGrService.createPackage({
       idScat: getSubCatId,
@@ -48,7 +52,16 @@ export class ViewComponent implements AfterViewInit {
       capacity: 8
       
     }).subscribe( (resp: any) => {
-      this.router.navigate(['../','steps',getSubCatId ,resp.packageId, 1],{ relativeTo: this.route });
+      if(resp.packageId){
+        this.router.navigate(['../','steps',getSubCatId ,resp.packageId, 1],{ relativeTo: this.route });
+        return;
+      }
+      this.loading.setDisplay(false);
+      this.dialogError.setDisplay(true,{
+        mensaje: "Ha ocurrido un error y no se pudo generar el paquete."
+      });
+    }, error => {
+      this.dialogError.setDisplay(true, error);
     });
   }
   getCategories() {

@@ -17,6 +17,7 @@ import { LoadingComponent } from '@shared/components/loading/loading.component';
 })
 export class ViewComponent implements OnInit {
   @ViewChild(LoadingComponent) loading!: LoadingComponent;
+  gridMedium = true;
   max_success = 0;
   count_success = 0; //test // production 0
   max_errors = 0;
@@ -105,6 +106,7 @@ export class ViewComponent implements OnInit {
             idWord: value.pronunciation.pronunciation
           }),
         }));
+        this.gridMedium = (listData.length > 16) ? true : false;
         console.log(listData);
         this.listRequest = listData.map(value => ({
           id: value.id + '-request',
