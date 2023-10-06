@@ -62,6 +62,7 @@ export class EnglishEvaluationComponent implements OnInit {
     this.setlevelNo = true;
     this.fn_SearchData_API();
     window.location.reload();
+
     // console.log("------- termina proceso-----------" + this.tartonNo);
     // this.router.navigate(['../home/main/progress']);
 
