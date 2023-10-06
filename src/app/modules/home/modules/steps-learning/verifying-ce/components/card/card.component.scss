@@ -1,9 +1,9 @@
-.card-container {
+.card-container-secret {
     box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
     background-color: #FFB84D;
     padding: 5px;
     border-radius: 5px;
-    height: 210px;
+    height: 120px;
 
     .card-header {
         height: 50px;
@@ -39,7 +39,48 @@
         opacity: 0.8;
     }
 }
+.card-container {
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
+    background-color: #FFB84D;
+    padding: 5px;
+    border-radius: 5px;
+    height: 210px;
+    width: 150px;
 
+    .card-header {
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .icon {
+            font-size: 1.6rem;
+            color: rgba(255, 255, 255, 0.692);
+        }
+
+    }
+    
+    .card-body {
+        text-align: center;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-footer {
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        flex-direction: column;
+    }
+    &:hover{
+        cursor: pointer;
+        // opacity: 0.8;
+    }
+}
 .reference-simple,.reference{
     font-size: 0.8rem;
     color: #ff3606;
@@ -88,6 +129,24 @@
         cursor: default;
     }
 }
+
+.card-container-secret.completed {
+    .card-header {
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+    .card-body {
+        height: 80px;
+        font-size: 0.8rem;
+    }
+    .card-footer {
+        display: none;
+    }
+}
 .audio{
     position: relative;
 }
@@ -95,12 +154,25 @@
     display: none;
     position: absolute;
     top: 45px;
-    padding: 3px;
     font-size: 0.8rem;
+    padding: 3px;
     border-radius: 5px;
     background: white;
     box-shadow: 1px 2px 2px 0px #4b4b4b87;
 }
 .audio:hover + .pronunciation{
     display: block;
+}
+.icon-quest{
+    font-size: 4rem;
+}
+@media only screen and (max-width: 768px) {
+   
+    .card-container-secret {
+        padding: 0px;
+    }
+    .icon-quest{
+        font-size: calc(4rem - 5px);
+        padding: 5px;
+    }
 }

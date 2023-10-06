@@ -26,12 +26,12 @@ export class EnglishEvaluationComponent implements OnInit {
   public msjParamsAlert: Array<{ TypeMessge: string, ShowAlert: boolean, Messge: string, Comment: string, ShowConfirm: boolean }> = [];
 
   viewObj: String = "guess";
-verAyuda = false;
+  verAyuda = false;
 
   //*********** constructor *********** */
   constructor(private _LevelService: LevelService,
-              private uiOperGrService: UiOperGrService,
-              private router: Router) { }
+    private uiOperGrService: UiOperGrService,
+    private router: Router) { }
 
   ngOnInit(): void {
 
@@ -71,7 +71,7 @@ verAyuda = false;
 
     this.p_AbrirSpinner = true;
 
-debugger;
+    debugger;
     this.uiOperGrService.getleval({
       orgId: "DTL-01",
       starton: this.tartonNo,
@@ -109,7 +109,7 @@ debugger;
 
       }
 
-debugger;
+      debugger;
 
     }, (_error) => {
       // console.log('----- erro API  (2)----');
@@ -212,8 +212,8 @@ debugger;
     this.fn_ShowMessage_msj("", false, "", "", false, true);
   }//--------------------------------------------------------
 
-  fn_help(){
+  fn_help() {
 
-    this.verAyuda =  !this.verAyuda;
+    this.verAyuda = !this.verAyuda;
   }
 }//-----------------------------------------------------------

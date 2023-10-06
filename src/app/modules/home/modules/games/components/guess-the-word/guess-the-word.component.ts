@@ -93,7 +93,7 @@ link="";
 
   ngOnInit(): void {
 
-
+    this.getConfig();
 
     this.fn_ShowMessage("", false, "", "", false);
 
